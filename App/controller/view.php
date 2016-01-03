@@ -239,6 +239,15 @@ class Views extends Controller
         $this->display($app, 'list_category.twig');
     }
 
+    public function viewFilesList($params, $app)
+    {
+        $app->setTemplateData(array(
+            'title' => 'Files List',
+        ));
+
+        $this->display($app, 'list_files.twig');
+    }
+
     /**
      * @param $params
      * @param $app

@@ -19,6 +19,9 @@ $routes = array(
 
         '/category/list' => '/controller/Views/viewCategoryList',
         '/category/(?<opt>[A-Za-z_][A-Za-z0-9_]*)/(?<cid>\d+)' => '/controller/Views/viewCategoryList',
+
+        '/files/list' => '/controller/Views/viewFilesList',
+        '/files/(?<opt>[A-Za-z_][A-Za-z0-9_]*)/(?<cid>\d+)' => '/controller/Views/viewFilesList'
     )
 );
 
