@@ -1,6 +1,7 @@
 <?php
 
 use ArtLibs\Controller;
+use ArtLibs\Files;
 use ArtLibs\User;
 use ArtLibs\Article;
 use ArtLibs\Category;
@@ -253,8 +254,8 @@ class Views extends Controller
                 $file_id = $params['fid'];
 
                 if ($action == "edit") {
-                    $cat_pre = Category::getCategoryById($file_id, $app);
-                    $app->setTemplateData(array('action' => 'edit', 'cat_id' => $file_id, 'cat_pre' => $cat_pre));
+                    $file_pre = Files::getFileById($file_id, $app);
+                    $app->setTemplateData(array('action' => 'edit', 'fid' => $file_id, 'file_pre' => $file_pre));
                 }
                 elseif ($action == "enable") {
                     $app->setTemplateData(
@@ -293,9 +294,9 @@ class Views extends Controller
                 }
             }
 
-            $categories = Category::getCategories($app);
-            if ($categories) {
-                $app->setTemplateData(array('categories' => $categories));
+            $files = Files::getFiles($app);
+            if ($files) {
+                $app->setTemplateData(array('files' => $files));
             }
         }
         else {

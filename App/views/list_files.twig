@@ -35,10 +35,13 @@
             {% else %}
                 <legend>Add New File</legend>
             {% endif %}
+                <input type="text" class="pure-input-1-2" placeholder="File name" value="{{ file_pre.nmae }}" name="filename" />
+            </fieldset>
 
+            <fieldset>
             <div class="fileupload btn btn-primary">
                 <span>Upload : </span>
-                <input type="file" class="upload pure-input-1-2" placeholder="File path" value="{{ file_pre.catname }}" name="catname" />
+                <input type="file" class="upload pure-input-1-2" placeholder="File path" value="{{ file_pre.path }}" name="filepath" />
             </div>
             </fieldset>
 
@@ -51,19 +54,19 @@
             $(document).ready(function(){
                 $("#publish").validate({
                     rules:{
-                        catname:{ required: true , maxlength: 50 },
+                        filepath:{ required: true , maxlength: 512 },
                     },
                     messages:{
-                        catname: {
-                            required: "Enter category name.",
-                            maxlength: "Can't be longer than 50 characters."
+                        filepath: {
+                            required: "Set file.",
+                            maxlength: "Can't be longer than 512 characters."
                         }
                     }
                 });
             });
         </script>
 
-        {% if categories %}
+        {% if files %}
             <br />
             <table class="pure-table-horizontal" id="sortedtable" style="width: 100%;">
                 <thead>
@@ -87,14 +90,14 @@
                 </tr>
                 </tfoot>
                 <tbody>
-                {% for a in categories %}
+                {% for a in files %}
                     <tr>
                         <td>{{ a.id }}</td>
                         <td>{{ a.catname }}</td>
                         <td>{{ a.date_inserted }}</td>
                         <td>{{ a.date_updated }}</td>
-                        <td><a class="pure-button pure-button-primary" href="{{ path_url_postfix }}/category/edit/{{ a.id }}/">Edit</a></td>
-                        <td><a class="pure-button pure-button-primary" href="{{ path_url_postfix }}/category/{% if a.state == 0 %}disable{% else %}enable{% endif %}/{{ a.id }}/">{% if a.state == 0 %}Disable{% else %}Enable{% endif %}</a></td>
+                        <td><a class="pure-button pure-button-primary" href="{{ path_url_postfix }}/files/edit/{{ a.id }}/">Edit</a></td>
+                        <td><a class="pure-button pure-button-primary" href="{{ path_url_postfix }}/files/{% if a.state == 0 %}disable{% else %}enable{% endif %}/{{ a.id }}/">{% if a.state == 0 %}Disable{% else %}Enable{% endif %}</a></td>
                     </tr>
                 {% endfor %}
             </table>
