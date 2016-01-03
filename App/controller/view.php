@@ -245,6 +245,63 @@ class Views extends Controller
             'title' => 'Files List',
         ));
 
+        $user_info = $app->getSession()->get('user_info');
+
+        if ($user_info['utype'] == 1) {
+            if (isset($params['opt']) && isset($params['fid'])) {
+                $action = $params['opt'];
+                $file_id = $params['fid'];
+
+                if ($action == "edit") {
+                    $cat_pre = Category::getCategoryById($file_id, $app);
+                    $app->setTemplateData(array('action' => 'edit', 'cat_id' => $file_id, 'cat_pre' => $cat_pre));
+                }
+                elseif ($action == "enable") {
+                    $app->setTemplateData(
+                        array(
+                            'content_message' => (Category::setState(0, $file_id, $app)) ? 'Category is ' . $action . 'd.' : 'State change failed'
+                        )
+                    );
+                }
+                elseif ($action == "disable") {
+                    $app->setTemplateData(
+                        array(
+                            'content_message' => (Category::setState(1, $file_id, $app)) ? 'Category is ' . $action . 'd.' : 'State change failed'
+                        )
+                    );
+                }
+            }
+
+            if ($app->getRequest()->getMethod() == "POST") {
+                $category = array(
+                    'catname' => trim($app->getRequest()->request->get('catname')),
+                );
+
+                if ($app->getRequest()->request->get('editval')) {
+                    $cid = $app->getRequest()->request->get('editval');
+                    $app->setTemplateData(
+                        array(
+                            'content_message' => (Category::updateCategory($cid, $category, $app)) ? 'Category successfully updated' : 'Category save failed'
+                        )
+                    );
+                }
+                elseif (Category::addCategory($category, $app)) {
+                    $app->setTemplateData(array('content_message' => 'New category successfully added'));
+                }
+                else {
+                    $app->setTemplateData(array('content_message' => 'New category save failed'));
+                }
+            }
+
+            $categories = Category::getCategories($app);
+            if ($categories) {
+                $app->setTemplateData(array('categories' => $categories));
+            }
+        }
+        else {
+            $app->setTemplateData(array('content_message' => 'Not found or accessible'));
+        }
+
         $this->display($app, 'list_files.twig');
     }
 
