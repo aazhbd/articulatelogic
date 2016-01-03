@@ -6,7 +6,7 @@ $conf = array(
         'development_mode' => false
     ),
     'development' => array(
-        'db_name' => 'artcmsdb',
+        'db_name' => 'articulatelogic_db',
         'db_host' => 'localhost',
         'db_user' => 'root',
         'db_pass' => '',
@@ -15,7 +15,7 @@ $conf = array(
         'path_static' => '/Template/static/',
         'path_user_template' => '/App/views',
         'user_var' => array(
-            'project_name' => 'ArtWebCms :: Articulate Web Content Management System',
+            'project_name' => 'ArticulateLogic.com',
             'project_static' => '/App/static',
         ),
     ),
