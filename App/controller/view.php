@@ -307,12 +307,11 @@ class Views extends Controller
                 $moved = false;
 
                 if ($uploaded_file instanceof UploadedFile && $uploaded_file->getError() == 0) {
-                    $file_info['name'] = ($file_info['name'] == "") ? Files::setProperName($uploaded_file->getClientOriginalName(), $app) : Files::setProperName($file_info['name'], $app);
-                    $file_info['mtype'] = $uploaded_file->getMimeType();
-                    $file_info['ftype'] = Files::getFileExt($uploaded_file->getClientOriginalName());
-                    $file_info['path'] = $file_info['name'];
-
                     try {
+                        $file_info['name'] = ($file_info['name'] == "") ? Files::setProperName($uploaded_file->getClientOriginalName(), $app) : Files::setProperName($file_info['name'], $app);
+                        $file_info['mtype'] = $uploaded_file->getMimeType();
+                        $file_info['ftype'] = Files::getFileExt($uploaded_file->getClientOriginalName());
+                        $file_info['path'] = $file_info['name'];
                         $uploaded_file->move($file_dir, $file_info['name']);
                         $moved = true;
                     } catch (\Exception $ex) {
