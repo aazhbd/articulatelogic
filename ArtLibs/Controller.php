@@ -47,11 +47,14 @@ class Controller
         $this->response->send();
     }
 
+
     /**
      * @param $app
      * @param $filePath
+     * @param bool $download
+     * @param string $media
      */
-    public function fileResponse($app, $filePath)
+    public function fileResponse($app, $filePath, $download=true, $media="")
     {
         if (!file_exists($filePath)) {
             $app->getErrorManager()
@@ -62,9 +65,17 @@ class Controller
         header("Pragma: public");
         header("Expires: 0");
         header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
-        header("Content-Type: application/force-download");
-        header("Content-Type: application/octet-stream");
-        header("Content-Type: application/download");
+        if($download) {
+            header("Content-Type: application/force-download");
+            header("Content-Type: application/download");
+        }
+
+        if($media == "") {
+            header("Content-Type: application/octet-stream");
+        }
+        else {
+            header("Content-Type: " . $media);
+        }
         header("Content-Transfer-Encoding: binary ");
         echo $content;
         return;

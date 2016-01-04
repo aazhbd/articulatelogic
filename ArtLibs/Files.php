@@ -36,13 +36,13 @@ class Files
      * @return string
      */
     public static function setProperName($name, $app) {
-        $chars = array(" ", "/", "\\", "<", ">", ":", "\"", "|", "?", "*");
-        $name = date('d-m-y-H-i-s-') . str_replace($chars, "_", $name);
-
         $id = $app->getSession()->get('user_info')['id'];
         if(isset($id)) {
-            $name = $id . "-" . $name;
+            $name = $id . date('_d_m_y_H_i_s_') . "_" . $name;
         }
+
+        $chars = array(" ", "/", "\\", "<", ">", ":", "\"", "|", "?", "*");
+        $name = str_replace($chars, "_", $name);
 
         return $name;
     }
@@ -68,6 +68,19 @@ class Files
         }
 
         return $q;
+    }
+
+    public static function getFile($fname, $app) {
+        try {
+            $query = $app->getDataManager()->getDataManager()->from("files")
+                ->where(array("name" => $fname,))
+                ->fetch();
+        } catch (\PDOException $ex) {
+            $app->getErrorManager()->addMessage("Error : " . $ex->getMessage());
+            return null;
+        }
+
+        return $query;
     }
 
 

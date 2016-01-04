@@ -92,6 +92,32 @@ class Views extends Controller
         $this->display($app, 'list_article.twig');
     }
 
+    public function showFile($params, $app) {
+        $app->setTemplateData(array('title' => 'Not found'));
+        $file = false;
+
+        if (isset($params['fname'])) {
+            $fname = $params['fname'];
+            $file = Files::getFile($fname, $app);
+        }
+
+        if (!$file) {
+            $this->display($app, 'list_article.twig');
+            return;
+        }
+
+        $file_dir = $app->getConfManager()->getUserVar()['files_dir'];
+        $file_path = $file['path'];
+        $mtype = $file['mtype'];
+
+        if($params['opt'] == "view") {
+            $this->fileResponse($app, $file_dir . "/" . $file_path, false, $mtype);
+        }
+        else {
+            $this->fileResponse($app, $file_dir . "/" . $file_path, true, $mtype);
+        }
+    }
+
     /**
      * @param $params
      * @param $app
@@ -289,7 +315,7 @@ class Views extends Controller
                     $file_info['name'] = ($file_info['name'] == "") ? Files::setProperName($uploaded_file->getClientOriginalName(), $app) : Files::setProperName($file_info['name'], $app);
                     $file_info['mtype'] = $uploaded_file->getMimeType();
                     $file_info['ftype'] = Files::getFileExt($uploaded_file->getClientOriginalName());
-                    $file_info['path'] = $file_dir . "/" . $file_info['name'];
+                    $file_info['path'] = $file_info['name'];
 
                     try {
                         $uploaded_file->move($file_dir, $file_info['name']);
@@ -300,7 +326,7 @@ class Views extends Controller
                     }
                 }
 
-                if($moved && file_exists($file_info['path'])) {
+                if($moved && file_exists($file_dir . "/" .$file_info['name'])) {
                     if (Files::addFile($file_info, $app)) {
                         $app->setTemplateData(array('content_message' => 'New file successfully added'));
                     }
@@ -309,7 +335,7 @@ class Views extends Controller
                     }
                 }
                 else {
-                    $app->setTemplateData(array('content_message' => 'New file save failed'));
+                    $app->setTemplateData(array('content_message' => 'New file save failed from path'));
                 }
             }
 
