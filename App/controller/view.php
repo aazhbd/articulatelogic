@@ -260,11 +260,7 @@ class Views extends Controller
                 $action = $params['opt'];
                 $file_id = $params['fid'];
 
-                if ($action == "edit") {
-                    $file_pre = Files::getFileById($file_id, $app);
-                    $app->setTemplateData(array('action' => 'edit', 'fid' => $file_id, 'file_pre' => $file_pre));
-                }
-                elseif ($action == "enable") {
+                if ($action == "enable") {
                     $app->setTemplateData(
                         array(
                             'content_message' => (Files::setState(0, $file_id, $app)) ? 'Category is ' . $action . 'd.' : 'State change failed'
@@ -305,15 +301,7 @@ class Views extends Controller
                 }
 
                 if($moved && file_exists($file_info['path'])) {
-                    if ($app->getRequest()->request->get('editval')) {
-                        $cid = $app->getRequest()->request->get('editval');
-                        $app->setTemplateData(
-                            array(
-                                'content_message' => (Files::updateFile($cid, $file_info, $app)) ? 'File updated successfully' : 'File save failed'
-                            )
-                        );
-                    }
-                    elseif (Files::addFile($file_info, $app)) {
+                    if (Files::addFile($file_info, $app)) {
                         $app->setTemplateData(array('content_message' => 'New file successfully added'));
                     }
                     else {
