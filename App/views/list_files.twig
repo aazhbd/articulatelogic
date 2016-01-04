@@ -99,11 +99,11 @@
                 {% for a in files %}
                     <tr>
                         <td>{{ a.id }}</td>
-                        <td><a href="{{ path_url_postfix }}/view/{{ a.name }}/">{{ a.name }}</a></td>
+                        <td><a href="{{ path_url_postfix }}/files/view/{{ a.name }}/">{{ a.name }}</a></td>
                         <td>{{ a.ftype }}</td>
                         <td>{{ a.mtype }}</td>
-                        <td><a class="pure-button pure-button-primary" href="{{ path_url_postfix }}/view/{{ a.name }}/">View</a></td>
-                        <td><a class="pure-button pure-button-primary" href="{{ path_url_postfix }}/download/{{ a.name }}/">Download</a></td>
+                        <td><a class="pure-button pure-button-primary" href="{{ path_url_postfix }}/files/view/{{ a.name }}/">View</a></td>
+                        <td><a class="pure-button pure-button-primary" href="{{ path_url_postfix }}/files/download/{{ a.name }}/">Download</a></td>
                         <td>{{ a.date_inserted }}</td>
                         <td>{{ a.date_updated }}</td>
                         <td><a class="pure-button pure-button-primary" href="{{ path_url_postfix }}/files/{% if a.state == 0 %}disable{% else %}enable{% endif %}/{{ a.id }}/">{% if a.state == 0 %}Disable{% else %}Enable{% endif %}</a></td>
