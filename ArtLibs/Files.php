@@ -30,6 +30,18 @@ class Files
         return $file_dir;
     }
 
+    public static function setProperName($name, $app) {
+        $chars = array(" ", "/", "\\", "<", ">", ":", "\"", "|", "?", "*");
+        $name = date('d-m-y-H-i-s-') . str_replace($chars, "_", $name);
+
+        $id = $app->getSession()->get('user_info')['id'];
+        if(isset($id)) {
+            $name = $id . "-" . $name;
+        }
+
+        return $name;
+    }
+
     /**
      * @param $app
      * @param null $state
