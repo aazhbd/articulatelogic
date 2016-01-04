@@ -286,21 +286,24 @@ class Views extends Controller
                 );
                 $uploaded_file = $app->getRequest()->files->get('filecontent');
 
+                $moved = false;
+
                 if($uploaded_file instanceof UploadedFile && $uploaded_file->getError() == 0) {
-                    $file_info['name'] = ($file_info['name'] == "") ? $uploaded_file->getClientOriginalName() : $file_info['name'];
+                    $file_info['name'] = ($file_info['name'] == "") ? date('d-m-y-H-i-s-') . $uploaded_file->getClientOriginalName() : date('d-m-y-H-i-s-') . $file_info['name'];
                     $file_info['mtype'] = $uploaded_file->getMimeType();
                     $file_info['ftype'] = Files::getFileExt($uploaded_file->getClientOriginalName());
                     $file_info['path'] = $file_dir . "/" . $file_info['name'];
 
                     try {
                         $uploaded_file->move($file_dir, $file_info['name']);
+                        $moved = true;
                     }
-                    catch (Exception $ex) {
+                    catch (\Exception $ex) {
                         $app->getErrorManager()->addMessage("Error : " . $ex->getMessage());
                     }
                 }
 
-                if(file_exists($file_info['path'])) {
+                if($moved && file_exists($file_info['path'])) {
                     if ($app->getRequest()->request->get('editval')) {
                         $cid = $app->getRequest()->request->get('editval');
                         $app->setTemplateData(
