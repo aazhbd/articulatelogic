@@ -92,6 +92,10 @@ class Views extends Controller
         $this->display($app, 'list_article.twig');
     }
 
+    /**
+     * @param $params
+     * @param $app
+     */
     public function showFile($params, $app) {
         $app->setTemplateData(array('title' => 'Not found'));
         $file = false;
