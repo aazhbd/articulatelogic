@@ -30,6 +30,11 @@ class Files
         return $file_dir;
     }
 
+    /**
+     * @param $name
+     * @param $app
+     * @return string
+     */
     public static function setProperName($name, $app) {
         $chars = array(" ", "/", "\\", "<", ">", ":", "\"", "|", "?", "*");
         $name = date('d-m-y-H-i-s-') . str_replace($chars, "_", $name);
