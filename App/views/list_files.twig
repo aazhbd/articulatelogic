@@ -73,6 +73,8 @@
                 <tr>
                     <td>ID</td>
                     <td>Name</td>
+                    <td>Type</td>
+                    <td>Media</td>
                     <td style="width: 100px;">Inserted</td>
                     <td style="width: 100px;">Updated</td>
                     <td style="width: 100px;">Edit</td>
@@ -83,6 +85,8 @@
                 <tr>
                     <td>ID</td>
                     <td>Name</td>
+                    <td>Type</td>
+                    <td>Media</td>
                     <td>Inserted</td>
                     <td>Updated</td>
                     <td>Edit</td>
@@ -94,6 +98,8 @@
                     <tr>
                         <td>{{ a.id }}</td>
                         <td>{{ a.name }}</td>
+                        <td>{{ a.ftype }}</td>
+                        <td>{{ a.mtype }}</td>
                         <td>{{ a.date_inserted }}</td>
                         <td>{{ a.date_updated }}</td>
                         <td><a class="pure-button pure-button-primary" href="{{ path_url_postfix }}/files/edit/{{ a.id }}/">Edit</a></td>
