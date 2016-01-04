@@ -41,7 +41,7 @@ class Files
     {
         $id = $app->getSession()->get('user_info')['id'];
         if (isset($id)) {
-            $name = $id . date('_d_m_y_H_i_s_') . "_" . $name;
+            $name = $id . date('_d_m_y_H_i_s_') . $name;
         }
 
         $chars = array(" ", "/", "\\", "<", ">", ":", "\"", "|", "?", "*");
@@ -81,10 +81,9 @@ class Files
      */
     public static function getFile($app, $fname, $state = null)
     {
-        if($state !== null) {
+        if ($state !== null) {
             $cond = array("name" => $fname, "state" => $state);
-        }
-        else {
+        } else {
             $cond = array("name" => $fname);
         }
 
