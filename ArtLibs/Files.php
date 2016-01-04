@@ -145,7 +145,7 @@ class Files
      */
     public static function setState($state, $fid, $app)
     {
-        if (!isset($state) || !isset($category_id)) {
+        if (!isset($state) || !isset($fid)) {
             return false;
         }
 

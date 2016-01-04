@@ -283,6 +283,7 @@ class Views extends Controller
             if ($app->getRequest()->getMethod() == "POST") {
                 $file_info = array(
                     'name' => trim($app->getRequest()->request->get('filename')),
+                    'state' => 0,
                 );
                 $uploaded_file = $app->getRequest()->files->get('filecontent');
 
