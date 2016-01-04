@@ -17,6 +17,7 @@ $conf = array(
         'user_var' => array(
             'project_name' => 'ArticulateLogic.com',
             'project_static' => '/App/static',
+            'files_dir' => '../../file_dir'
         ),
     ),
     'staging' => array(

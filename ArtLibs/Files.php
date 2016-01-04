@@ -6,6 +6,31 @@ namespace ArtLibs;
 class Files
 {
     /**
+     * @param $filename
+     * @return mixed
+     */
+    public static function getFileExt($filename) {
+        $r = explode(".", $filename);
+        return $r[sizeof($r) - 1];
+    }
+
+    /**
+     * @param $app
+     * @return string
+     */
+    public static function setUploadDir($app) {
+        $file_dir = ($app->getConfManager()->getUserVar()['files_dir'] == "") ? "." : $app->getConfManager()->getUserVar()['files_dir'];
+
+        if(!is_dir($file_dir)) {
+            if(!mkdir($file_dir, 0777, true)) {
+                $app->getErrorManager()->addMessage("Error creating file upload directory");
+            }
+        }
+
+        return $file_dir;
+    }
+
+    /**
      * @param $app
      * @param null $state
      * @return mixed
@@ -54,7 +79,7 @@ class Files
      * @param $app
      * @return bool
      */
-    public static function addCategory($file_info = array(), $app)
+    public static function addFile($file_info = array(), $app)
     {
         if (empty($file_info)) {
             return false;

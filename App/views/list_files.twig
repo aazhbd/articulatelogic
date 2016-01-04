@@ -27,7 +27,7 @@
     {{ parent() }}
     {{ body_content }}
     {% if session.get('user_info').utype == 1 %}
-        <form class="pure-form" style="width: 1024px;" id="publish" method="post" action="{{ path_url_postfix }}/files/list/">
+        <form class="pure-form" style="width: 1024px;" enctype="multipart/form-data" id="publish" method="post" action="{{ path_url_postfix }}/files/list/">
             <fieldset>
             {% if action == "edit" %}
                 <legend>Edit File</legend>
@@ -39,9 +39,9 @@
             </fieldset>
 
             <fieldset>
-            <div class="fileupload btn btn-primary">
+            <div class="fileupload">
                 <span>Upload : </span>
-                <input type="file" class="upload pure-input-1-2" placeholder="File path" value="{{ file_pre.path }}" name="filepath" />
+                <input type="file" placeholder="File content" value="{{ file_pre.filecontent }}" name="filecontent" />
             </div>
             </fieldset>
 
@@ -54,10 +54,10 @@
             $(document).ready(function(){
                 $("#publish").validate({
                     rules:{
-                        filepath:{ required: true , maxlength: 512 },
+                        filecontent:{ required: true , maxlength: 512 }
                     },
                     messages:{
-                        filepath: {
+                        filecontent: {
                             required: "Set file.",
                             maxlength: "Can't be longer than 512 characters."
                         }
@@ -93,7 +93,7 @@
                 {% for a in files %}
                     <tr>
                         <td>{{ a.id }}</td>
-                        <td>{{ a.catname }}</td>
+                        <td>{{ a.name }}</td>
                         <td>{{ a.date_inserted }}</td>
                         <td>{{ a.date_updated }}</td>
                         <td><a class="pure-button pure-button-primary" href="{{ path_url_postfix }}/files/edit/{{ a.id }}/">Edit</a></td>

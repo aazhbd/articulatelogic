@@ -5,6 +5,7 @@ use ArtLibs\Files;
 use ArtLibs\User;
 use ArtLibs\Article;
 use ArtLibs\Category;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 
 class Views extends Controller
@@ -240,11 +241,17 @@ class Views extends Controller
         $this->display($app, 'list_category.twig');
     }
 
+    /**
+     * @param $params
+     * @param $app
+     */
     public function viewFilesList($params, $app)
     {
         $app->setTemplateData(array(
             'title' => 'Files List',
         ));
+
+        $file_dir = Files::setUploadDir($app);
 
         $user_info = $app->getSession()->get('user_info');
 
@@ -260,37 +267,57 @@ class Views extends Controller
                 elseif ($action == "enable") {
                     $app->setTemplateData(
                         array(
-                            'content_message' => (Category::setState(0, $file_id, $app)) ? 'Category is ' . $action . 'd.' : 'State change failed'
+                            'content_message' => (Files::setState(0, $file_id, $app)) ? 'Category is ' . $action . 'd.' : 'State change failed'
                         )
                     );
                 }
                 elseif ($action == "disable") {
                     $app->setTemplateData(
                         array(
-                            'content_message' => (Category::setState(1, $file_id, $app)) ? 'Category is ' . $action . 'd.' : 'State change failed'
+                            'content_message' => (Files::setState(1, $file_id, $app)) ? 'Category is ' . $action . 'd.' : 'State change failed'
                         )
                     );
                 }
             }
 
             if ($app->getRequest()->getMethod() == "POST") {
-                $category = array(
-                    'catname' => trim($app->getRequest()->request->get('catname')),
+                $file_info = array(
+                    'name' => trim($app->getRequest()->request->get('filename')),
                 );
+                $uploaded_file = $app->getRequest()->files->get('filecontent');
 
-                if ($app->getRequest()->request->get('editval')) {
-                    $cid = $app->getRequest()->request->get('editval');
-                    $app->setTemplateData(
-                        array(
-                            'content_message' => (Category::updateCategory($cid, $category, $app)) ? 'Category successfully updated' : 'Category save failed'
-                        )
-                    );
+                if($uploaded_file instanceof UploadedFile && $uploaded_file->getError() == 0) {
+                    $file_info['name'] = ($file_info['name'] == "") ? $uploaded_file->getClientOriginalName() : $file_info['name'];
+                    $file_info['mtype'] = $uploaded_file->getMimeType();
+                    $file_info['ftype'] = Files::getFileExt($uploaded_file->getClientOriginalName());
+                    $file_info['path'] = $file_dir . "/" . $file_info['name'];
+
+                    try {
+                        $uploaded_file->move($file_dir, $file_info['name']);
+                    }
+                    catch (Exception $ex) {
+                        $app->getErrorManager()->addMessage("Error : " . $ex->getMessage());
+                    }
                 }
-                elseif (Category::addCategory($category, $app)) {
-                    $app->setTemplateData(array('content_message' => 'New category successfully added'));
+
+                if(file_exists($file_info['path'])) {
+                    if ($app->getRequest()->request->get('editval')) {
+                        $cid = $app->getRequest()->request->get('editval');
+                        $app->setTemplateData(
+                            array(
+                                'content_message' => (Files::updateFile($cid, $file_info, $app)) ? 'File updated successfully' : 'File save failed'
+                            )
+                        );
+                    }
+                    elseif (Files::addFile($file_info, $app)) {
+                        $app->setTemplateData(array('content_message' => 'New file successfully added'));
+                    }
+                    else {
+                        $app->setTemplateData(array('content_message' => 'New file save failed'));
+                    }
                 }
                 else {
-                    $app->setTemplateData(array('content_message' => 'New category save failed'));
+                    $app->setTemplateData(array('content_message' => 'New file save failed'));
                 }
             }
 
