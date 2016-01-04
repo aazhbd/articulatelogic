@@ -44,7 +44,7 @@ class Files
             $name = $id . date('_d_m_y_H_i_s_') . $name;
         }
 
-        $chars = array(" ", "/", "\\", "<", ">", ":", "\"", "|", "?", "*");
+        $chars = array(" ", "/", "\\", "<", ">", ":", "\"", "|", "?", "*", "-");
         $name = str_replace($chars, "_", $name);
 
         return $name;

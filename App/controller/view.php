@@ -327,7 +327,7 @@ class Views extends Controller
                         $app->setTemplateData(array('content_message' => 'New file save failed'));
                     }
                 } else {
-                    $app->setTemplateData(array('content_message' => 'New file save failed from path'));
+                    $app->setTemplateData(array('content_message' => 'New file save failed'));
                 }
             }
 
