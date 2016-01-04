@@ -96,13 +96,14 @@ class Views extends Controller
      * @param $params
      * @param $app
      */
-    public function showFile($params, $app) {
+    public function showFile($params, $app)
+    {
         $app->setTemplateData(array('title' => 'Not found'));
         $file = false;
 
         if (isset($params['fname'])) {
             $fname = $params['fname'];
-            $file = Files::getFile( $app, $fname, 0);
+            $file = Files::getFile($app, $fname, 0);
         }
 
         if (!$file) {
@@ -114,10 +115,9 @@ class Views extends Controller
         $file_path = $file['path'];
         $mtype = $file['mtype'];
 
-        if($params['opt'] == "view") {
+        if ($params['opt'] == "view") {
             $this->fileResponse($app, $file_dir . "/" . $file_path, false, $mtype);
-        }
-        else {
+        } else {
             $this->fileResponse($app, $file_dir . "/" . $file_path, true, $mtype);
         }
     }
@@ -149,14 +149,12 @@ class Views extends Controller
                 $invalid_chars = array(" ", "\n", "/", "\\", "$", "#", "@", "^", "&", "*");
                 $article_data['url'] = str_replace($invalid_chars, "_", $article_data['url']);
 
-                if($app->getRequest()->request->get('editval')) {
+                if ($app->getRequest()->request->get('editval')) {
                     $aid = trim($app->getRequest()->request->get('editval'));
                     $app->setTemplateData(array('content_message' => (Article::updateArticle($article_data, $aid, $app)) ? "Article updated successfully" : "Article update failed"));
-                }
-                elseif (Article::addArticle($article_data, $app)) {
+                } elseif (Article::addArticle($article_data, $app)) {
                     $app->setTemplateData(array('content_message' => "New article added successfully."));
-                }
-                else {
+                } else {
                     $app->setTemplateData(array('content_message' => "Article couldn't be saved."));
                 }
             }
@@ -165,8 +163,7 @@ class Views extends Controller
             if ($articles) {
                 $app->setTemplateData(array('articles' => $articles));
             }
-        }
-        else {
+        } else {
             $app->setTemplateData(array('content_message' => 'Not found or accessible'));
         }
 
@@ -185,7 +182,7 @@ class Views extends Controller
 
         $user_info = $app->getSession()->get('user_info');
         if ($user_info['utype'] == 1) {
-            if(isset($params['opt']) && isset($params['aid'])) {
+            if (isset($params['opt']) && isset($params['aid'])) {
                 $action = $params['opt'];
                 $aid = $params['aid'];
                 $app->setTemplateData(array('article' => Article::getArticleById($aid, $app), 'action' => "edit"));
@@ -221,15 +218,13 @@ class Views extends Controller
                 if ($action == "edit") {
                     $cat_pre = Category::getCategoryById($cat_id, $app);
                     $app->setTemplateData(array('action' => 'edit', 'cat_id' => $cat_id, 'cat_pre' => $cat_pre));
-                }
-                elseif ($action == "enable") {
+                } elseif ($action == "enable") {
                     $app->setTemplateData(
                         array(
                             'content_message' => (Category::setState(0, $cat_id, $app)) ? 'Category is ' . $params[1] . 'd.' : 'State change failed'
                         )
                     );
-                }
-                elseif ($action == "disable") {
+                } elseif ($action == "disable") {
                     $app->setTemplateData(
                         array(
                             'content_message' => (Category::setState(1, $cat_id, $app)) ? 'Category is ' . $params[1] . 'd.' : 'State change failed'
@@ -250,11 +245,9 @@ class Views extends Controller
                             'content_message' => (Category::updateCategory($cid, $category, $app)) ? 'Category successfully updated' : 'Category save failed'
                         )
                     );
-                }
-                elseif (Category::addCategory($category, $app)) {
+                } elseif (Category::addCategory($category, $app)) {
                     $app->setTemplateData(array('content_message' => 'New category successfully added'));
-                }
-                else {
+                } else {
                     $app->setTemplateData(array('content_message' => 'New category save failed'));
                 }
             }
@@ -263,8 +256,7 @@ class Views extends Controller
             if ($categories) {
                 $app->setTemplateData(array('categories' => $categories));
             }
-        }
-        else {
+        } else {
             $app->setTemplateData(array('content_message' => 'Not found or accessible'));
         }
 
@@ -296,8 +288,7 @@ class Views extends Controller
                             'content_message' => (Files::setState(0, $file_id, $app)) ? 'File is ' . $action . 'd.' : 'State change failed'
                         )
                     );
-                }
-                elseif ($action == "disable") {
+                } elseif ($action == "disable") {
                     $app->setTemplateData(
                         array(
                             'content_message' => (Files::setState(1, $file_id, $app)) ? 'File is ' . $action . 'd.' : 'State change failed'
@@ -315,7 +306,7 @@ class Views extends Controller
 
                 $moved = false;
 
-                if($uploaded_file instanceof UploadedFile && $uploaded_file->getError() == 0) {
+                if ($uploaded_file instanceof UploadedFile && $uploaded_file->getError() == 0) {
                     $file_info['name'] = ($file_info['name'] == "") ? Files::setProperName($uploaded_file->getClientOriginalName(), $app) : Files::setProperName($file_info['name'], $app);
                     $file_info['mtype'] = $uploaded_file->getMimeType();
                     $file_info['ftype'] = Files::getFileExt($uploaded_file->getClientOriginalName());
@@ -324,21 +315,18 @@ class Views extends Controller
                     try {
                         $uploaded_file->move($file_dir, $file_info['name']);
                         $moved = true;
-                    }
-                    catch (\Exception $ex) {
+                    } catch (\Exception $ex) {
                         $app->getErrorManager()->addMessage("Error : " . $ex->getMessage());
                     }
                 }
 
-                if($moved && file_exists($file_dir . "/" .$file_info['name'])) {
+                if ($moved && file_exists($file_dir . "/" . $file_info['name'])) {
                     if (Files::addFile($file_info, $app)) {
                         $app->setTemplateData(array('content_message' => 'New file successfully added'));
-                    }
-                    else {
+                    } else {
                         $app->setTemplateData(array('content_message' => 'New file save failed'));
                     }
-                }
-                else {
+                } else {
                     $app->setTemplateData(array('content_message' => 'New file save failed from path'));
                 }
             }
@@ -347,8 +335,7 @@ class Views extends Controller
             if ($files) {
                 $app->setTemplateData(array('files' => $files));
             }
-        }
-        else {
+        } else {
             $app->setTemplateData(array('content_message' => 'Not found or accessible'));
         }
 
@@ -368,20 +355,17 @@ class Views extends Controller
         $user_info = $app->getSession()->get('user_info');
 
         if ($user_info['utype'] == 1) {
-            if(isset($params['opt']) && isset($params['uid'])) {
-                if($params['opt'] == "enable") {
+            if (isset($params['opt']) && isset($params['uid'])) {
+                if ($params['opt'] == "enable") {
                     $msg = (User::setState(0, $params['uid'], $app)) ? "User Enabled" : "User state change failed";
                     $app->setTemplateData(array('content_message' => $msg));
-                }
-                elseif($params['opt'] == "disable") {
+                } elseif ($params['opt'] == "disable") {
                     $msg = (User::setState(1, $params['uid'], $app)) ? "User Disabled" : "User state change failed";
                     $app->setTemplateData(array('content_message' => $msg));
-                }
-                elseif($params['opt'] == "edit") {
+                } elseif ($params['opt'] == "edit") {
                     $update_user = User::getUserById($params['uid'], $app);
                     $app->setTemplateData(array('action' => 'edit', 'update_user' => $update_user));
-                }
-                else {
+                } else {
                     $app->setTemplateData(array('content_message' => 'Not found or accessible'));
                 }
             }
@@ -396,17 +380,14 @@ class Views extends Controller
                     'ustatus' => 1,
                 );
 
-                if($app->getRequest()->request->get('editval')) {
+                if ($app->getRequest()->request->get('editval')) {
                     $uid = $app->getRequest()->request->get('editval');
                     $app->setTemplateData(array('content_message' => (User::updateUser($uid, $user_data, $app) ? "User updated successfully" : "User couldn't be updated")));
-                }
-                elseif (User::userExists($user_data['email'], $app)) {
+                } elseif (User::userExists($user_data['email'], $app)) {
                     $app->setTemplateData(array('content_message' => 'User with email ' . $user_data['email'] . ' already exists. Try different email'));
-                }
-                elseif (User::addUser($user_data, $app)) {
+                } elseif (User::addUser($user_data, $app)) {
                     $app->setTemplateData(array('content_message' => "New user added."));
-                }
-                else {
+                } else {
                     $app->setTemplateData(array('content_message' => "User couldn't be saved."));
                 }
             }
@@ -415,8 +396,7 @@ class Views extends Controller
             if ($users) {
                 $app->setTemplateData(array('users' => $users));
             }
-        }
-        else {
+        } else {
             $app->setTemplateData(array('content_message' => 'Not found or accessible'));
         }
 
