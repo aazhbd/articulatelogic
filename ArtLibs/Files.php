@@ -9,7 +9,8 @@ class Files
      * @param $filename
      * @return mixed
      */
-    public static function getFileExt($filename) {
+    public static function getFileExt($filename)
+    {
         $r = explode(".", $filename);
         return $r[sizeof($r) - 1];
     }
@@ -18,11 +19,12 @@ class Files
      * @param $app
      * @return string
      */
-    public static function setUploadDir($app) {
+    public static function setUploadDir($app)
+    {
         $file_dir = ($app->getConfManager()->getUserVar()['files_dir'] == "") ? "." : $app->getConfManager()->getUserVar()['files_dir'];
 
-        if(!is_dir($file_dir)) {
-            if(!mkdir($file_dir, 0777, true)) {
+        if (!is_dir($file_dir)) {
+            if (!mkdir($file_dir, 0777, true)) {
                 $app->getErrorManager()->addMessage("Error creating file upload directory");
             }
         }
@@ -35,9 +37,10 @@ class Files
      * @param $app
      * @return string
      */
-    public static function setProperName($name, $app) {
+    public static function setProperName($name, $app)
+    {
         $id = $app->getSession()->get('user_info')['id'];
-        if(isset($id)) {
+        if (isset($id)) {
             $name = $id . date('_d_m_y_H_i_s_') . "_" . $name;
         }
 
@@ -70,10 +73,24 @@ class Files
         return $q;
     }
 
-    public static function getFile($fname, $app) {
+    /**
+     * @param $fname
+     * @param $app
+     * @param null $state
+     * @return null
+     */
+    public static function getFile($app, $fname, $state = null)
+    {
+        if($state !== null) {
+            $cond = array("name" => $fname, "state" => $state);
+        }
+        else {
+            $cond = array("name" => $fname);
+        }
+
         try {
             $query = $app->getDataManager()->getDataManager()->from("files")
-                ->where(array("name" => $fname,))
+                ->where($cond)
                 ->fetch();
         } catch (\PDOException $ex) {
             $app->getErrorManager()->addMessage("Error : " . $ex->getMessage());
