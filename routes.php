@@ -21,7 +21,7 @@ $routes = array(
         '/category/(?<opt>[A-Za-z_][A-Za-z0-9_]*)/(?<cid>\d+)' => '/controller/Views/viewCategoryList',
 
         '/files/list' => '/controller/Views/viewFilesList',
-        '/files/(?<opt>[A-Za-z_][A-Za-z0-9_]*)/(?P<fname>[\w.]{0,256})' => '/controller/Views/showFile',
+        '/file/(?<opt>[A-Za-z_][A-Za-z0-9_]*)/(?P<fname>[\w.]{0,256})' => '/controller/Views/showFile',
         '/files/(?<opt>[A-Za-z_][A-Za-z0-9_]*)/(?<fid>\d+)' => '/controller/Views/viewFilesList'
     )
 );
