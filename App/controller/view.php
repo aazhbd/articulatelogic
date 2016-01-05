@@ -208,6 +208,11 @@ class Views extends Controller
             'title' => 'Products',
         ));
 
+        $articles = Article::getArticles($app, 0, 2);
+        if ($articles) {
+            $app->setTemplateData(array('articles' => $articles));
+        }
+
         $this->display($app, 'downloads.twig');
     }
 

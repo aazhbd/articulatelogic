@@ -5,17 +5,22 @@ namespace ArtLibs;
 
 class Article
 {
-    /**
-     * @param $app
-     * @return mixed
-     */
-    public static function getArticles($app, $state = null)
+
+    public static function getArticles($app, $state=null, $category_id=null)
     {
+        $cond = array();
+
+        if($category_id != null) {
+            $cond['category_id'] = $category_id;
+        }
+
+        if($state != null) {
+            $cond['state'] = $state;
+        }
+
         try {
             $query = $app->getDataManager()->getDataManager()->from("articles");
-            if ($state != null) {
-                $query->where(array('state' => $state));
-            }
+            $query->where($cond);
             $q = $query->orderBy('date_inserted DESC')->fetchAll();
         } catch (\PDOException $ex) {
             $app->getErrorManager()->addMessage("Error : " . $ex->getMessage());
