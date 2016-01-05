@@ -198,7 +198,12 @@ class Views extends Controller
         $this->display($app, 'frm_article.twig');
     }
 
-    public function viewDownloads($params, $app) {
+    /**
+     * @param $params
+     * @param $app
+     */
+    public function viewDownloads($params, $app)
+    {
         $app->setTemplateData(array(
             'title' => 'Products',
         ));
