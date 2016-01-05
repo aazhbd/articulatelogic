@@ -187,15 +187,23 @@ img {
 .productBox {
     box-shadow: 0 0px 4px 0px #ddd;
     opacity: 0.82;
-    min-height: 100px;
-    border-radius: 0.2em;
-    -moz-border-radius: 0.2em;
-    -webkit-border-radius: 0.2em;
     margin: 10px auto;
     padding: 4px;
+    min-height: 100px;
+    border-radius: 0.4em;
+    -moz-border-radius: 0.4em;
+    -webkit-border-radius: 0.4em;
 }
 
-.productBox p {
+.productBox h2 a {
+    color: #1D62B3;
+    font: 160%/1.6em "MuseoSans-100", Helvetica, Arial, sans-serif;
+    letter-spacing: -1px;
+    padding: 10px 0 0;
+}
+
+.productBox p a {
+    color: #222;
     padding: 10px 4px;
     font-size: 1em;
 }

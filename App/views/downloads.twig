@@ -28,12 +28,13 @@
     {{ body_content }}
 
     {% for a in articles %}
+    <a href="{{ path_url_postfix }}/a/{{ a.url }}/">
         <div class="productBox">
-            <div class="subtitle">
+            <h2>
                 <a href="{{ path_url_postfix }}/a/{{ a.url }}/">
                     {{ a.title }}
                 </a>
-            </div>
+            </h2>
             <p>
                 <a href="{{ path_url_postfix }}/a/{{ a.url }}/">
                     {{ a.subtitle|slice(0, 280) }}
@@ -41,6 +42,7 @@
             </p>
             <a href="{{ path_url_postfix }}/a/{{ a.url }}/">{{ a.date_inserted }}</a>
         </div>
+    </a>
     {% endfor %}
 {% endblock %}
 
