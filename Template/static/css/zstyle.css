@@ -176,7 +176,7 @@ img {
 
 #contentbody {
     max-width: 1024px;
-    margin: 82px auto 0;
+    margin: 56px auto;
     background: #fff no-repeat;
     padding: 0;
     min-height: 480px;
@@ -206,6 +206,11 @@ img {
     color: #222;
     padding: 10px;
     font-size: 1em;
+}
+
+.details-right {
+    float: right;
+    padding: 10px 200px;
 }
 
 /* contentbody ends here */
