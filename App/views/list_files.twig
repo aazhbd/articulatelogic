@@ -99,7 +99,7 @@
                 {% for a in files %}
                     <tr>
                         <td>{{ a.id }}</td>
-                        <td><a href="{{ path_url_postfix }}/file/view/{{ a.name }}/">{{ a.name }}</a></td>
+                        <td><a href="{{ path_url_postfix }}/file/view/{{ a.name }}/">{{ a.name|slice(0, 40) }}</a></td>
                         <td>{{ a.ftype }}</td>
                         <td>{{ a.mtype }}</td>
                         <td><a class="pure-button pure-button-primary" href="{{ path_url_postfix }}/file/view/{{ a.name }}/">View</a></td>

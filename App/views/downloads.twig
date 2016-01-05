@@ -40,7 +40,9 @@
                     {{ a.subtitle|slice(0, 280) }}
                 </a>
             </p>
-            <a href="{{ path_url_postfix }}/a/{{ a.url }}/">{{ a.date_inserted }}</a>
+            <p>
+                <a href="{{ path_url_postfix }}/a/{{ a.url }}/">{{ a.date_inserted }}</a>
+            </p>
         </div>
     </a>
     {% endfor %}
