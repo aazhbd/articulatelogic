@@ -14,6 +14,8 @@ $routes = array(
         '/article/list' => '/controller/Views/viewArticleList',
         '/article/(?<opt>[A-Za-z_][A-Za-z0-9_]*)/(?<aid>\d+)' => '/controller/Views/frmArticle',
 
+        '/downloads' => '/controller/Views/viewDownloads',
+
         '/user/list' => '/controller/Views/viewUserList',
         '/user/(?<opt>[A-Za-z_][A-Za-z0-9_]*)/(?<uid>\d+)' => '/controller/Views/viewUserList',
 
