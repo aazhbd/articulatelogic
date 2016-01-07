@@ -6,15 +6,21 @@ namespace ArtLibs;
 class Article
 {
 
+    /**
+     * @param $app
+     * @param null $state
+     * @param null $category_id
+     * @return bool
+     */
     public static function getArticles($app, $state=null, $category_id=null)
     {
         $cond = array();
 
-        if($category_id != null) {
+        if($category_id !== null) {
             $cond['category_id'] = $category_id;
         }
 
-        if($state != null) {
+        if($state !== null) {
             $cond['state'] = $state;
         }
 
