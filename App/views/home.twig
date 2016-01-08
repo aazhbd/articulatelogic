@@ -18,6 +18,17 @@
                         <a href="{{ path_url_postfix }}/downloads" class="pure-menu-link">Downloads</a>
                     </li>
 
+                    {% if session.get('menu').item == "about" %}
+                        <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+                            <a href="{{ path_url_postfix }}/a/about" id="menuLink1" class="pure-menu-link">Admin Menu</a>
+                            <ul class="pure-menu-children">
+                                {% for a in session.get('menu').item %}
+                                <li class="pure-menu-item"><a href="{{ path_url_postfix }}/a/{{ a.url }}" class="pure-menu-link">{{ a.title }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% endif %}
+
                     {% if session.get('user_info').utype == 1 %}
                     <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
                         <a href="{{ path_url_postfix }}/home" id="menuLink1" class="pure-menu-link">Admin Menu</a>
