@@ -21,7 +21,8 @@ class Files
      */
     public static function setUploadDir($app)
     {
-        $file_dir = ($app->getConfManager()->getUserVar()['files_dir'] == "") ? "." : $app->getConfManager()->getUserVar()['files_dir'];
+        $user_var = $app->getConfManager()->getUserVar();
+        $file_dir = ($user_var['files_dir'] == "") ? "." : $user_var['files_dir'];
 
         if (!is_dir($file_dir)) {
             if (!mkdir($file_dir, 0777, true)) {
