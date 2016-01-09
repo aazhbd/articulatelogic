@@ -40,7 +40,8 @@ class Files
      */
     public static function setProperName($name, $app)
     {
-        $id = $app->getSession()->get('user_info')['id'];
+        $user_info = $app->getSession()->get('user_info');
+        $id = $user_info['id'];
         if (isset($id)) {
             $name = $id . date('_d_m_y_H_i_s_') . $name;
         }
