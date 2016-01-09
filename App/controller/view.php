@@ -111,7 +111,8 @@ class Views extends Controller
             return;
         }
 
-        $file_dir = $app->getConfManager()->getUserVar()['files_dir'];
+        $user_var = $app->getConfManager()->getUserVar();
+        $file_dir = $user_var['files_dir'];
         $file_path = $file['path'];
         $mtype = $file['mtype'];
 
