@@ -8,8 +8,8 @@ $conf = array(
         'db_pass' => '',
         'development_mode' => true,
 
-        'path_url' => '',
         'path_root' => '',
+        'path_root_postfix' => 'public_html',
 
         'path_sys_template' => '/Template/base.twig',
         'path_static' => '/Template/static/',
