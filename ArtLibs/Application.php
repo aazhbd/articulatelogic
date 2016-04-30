@@ -45,8 +45,8 @@ class Application
             }
 
             /* Load all libraries */
-            $this->conf_manager->loadLibrary('../ArtLibs');
-            $this->conf_manager->loadLibrary('../App/controller');
+            $this->conf_manager->loadLibrary('ArtLibs');
+            $this->conf_manager->loadLibrary('App/controller');
 
             if (file_exists($this->conf_manager->getPath() . '/vendor/autoload.php')) {
                 require_once($this->conf_manager->getPath() . '/vendor/autoload.php');
@@ -256,7 +256,7 @@ class Application
         $this->conf = $conf;
 
         if ($this->conf == false) {
-            $this->conf = include_once('../conf.php');
+            $this->conf = include_once('conf.php');
         }
 
         if ($this->conf == false) {
@@ -284,7 +284,7 @@ class Application
         $this->routes = $routes;
 
         if ($this->routes == false) {
-            $this->routes = include('../routes.php');
+            $this->routes = include('routes.php');
         }
 
         if ($this->routes == false) {
