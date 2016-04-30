@@ -48,27 +48,7 @@ class Configuration
 
         $this->path_root_postfix = '';
 
-        $this->path_root = str_replace(
-            ' ',
-            '%20',
-            preg_replace(
-                '/' . preg_quote(
-                    str_replace(
-                        DIRECTORY_SEPARATOR,
-                        '/',
-                        $_SERVER['DOCUMENT_ROOT']
-                    ),
-                    '/') . '\/?/',
-                '',
-                str_replace(
-                    DIRECTORY_SEPARATOR,
-                    '/',
-                    realpath(
-                        dirname(__FILE__) . '/..'
-                    )
-                )
-            )
-        );
+        $this->path_root = $this->getPathRoot();
 
         $this->path_url = (
             empty($_SERVER['HTTPS']) ?
@@ -77,7 +57,7 @@ class Configuration
             $_SERVER['HTTP_HOST'] .
             (
             strlen($this->path_root) ?
-                ("/" . $this->path_root) : ''
+                ("/" . $this->getPathRoot()) : ''
             );
 
         $this->path_sys_template = '/Template/base.twig';
@@ -360,11 +340,37 @@ class Configuration
     }
 
     /**
-     * @param mixed $path_root
+     * @param null $path_root
+     * @return mixed|null
      */
-    public function setPathRoot($path_root)
+    public function setPathRoot($path_root = null)
     {
-        $this->path_root = $path_root;
+        if(!isset($path_root)) {
+            $this->path_root = str_replace(
+                ' ',
+                '%20',
+                preg_replace(
+                    '/' . preg_quote(
+                        str_replace(
+                            DIRECTORY_SEPARATOR,
+                            '/',
+                            $_SERVER['DOCUMENT_ROOT']
+                        ),
+                        '/') . '\/?/',
+                    '',
+                    str_replace(
+                        DIRECTORY_SEPARATOR,
+                        '/',
+                        realpath(
+                            dirname(__FILE__) . '/..'
+                        )
+                    )
+                )
+            );
+        } else {
+            $this->path_root = $path_root;
+        }
+        return $this->path_root;
     }
 
     /**
