@@ -12,6 +12,14 @@ class Controller
     private $response;
 
     /**
+     * Controller constructor.
+     */
+    function __construct()
+    {
+
+    }
+
+    /**
      * @return mixed
      */
     public function getResponse()
@@ -25,14 +33,6 @@ class Controller
     public function setResponse($response)
     {
         $this->response = $response;
-    }
-
-    /**
-     * Controller constructor.
-     */
-    function __construct()
-    {
-
     }
 
     /**
