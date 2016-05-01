@@ -48,7 +48,7 @@ class Configuration
 
         $this->path_root_postfix = '';
 
-        $this->path_root = $this->getPathRoot();
+        $this->path_root = $this->setPathRoot();
 
         $this->path_url = (
             empty($_SERVER['HTTPS']) ?
