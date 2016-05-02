@@ -84,7 +84,7 @@ class Views extends Controller
             $app->setTemplateData(array(
                 'title' => $article['title'],
                 'subtitle' => $article['subtitle'],
-                'body' => stripslashes($article['body']),
+                'body' => $article['body'],
                 'article' => $article
             ));
         }
@@ -143,7 +143,7 @@ class Views extends Controller
                     'subtitle' => trim($app->getRequest()->request->get('subtitle')),
                     'url' => strtolower(trim($app->getRequest()->request->get('aurl'))),
                     'category_id' => trim($app->getRequest()->request->get('category')),
-                    'body' => addslashes(trim($app->getRequest()->request->get('abody'))),
+                    'body' => trim($app->getRequest()->request->get('abody')),
                     'state' => addslashes(trim($app->getRequest()->request->get('state'))),
                 );
 
