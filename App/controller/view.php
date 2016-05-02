@@ -84,7 +84,7 @@ class Views extends Controller
             $app->setTemplateData(array(
                 'title' => $article['title'],
                 'subtitle' => $article['subtitle'],
-                'body' => stripslashes(addslashes($article['body'])),
+                'body' => $article['body'],
                 'article' => $article
             ));
         }
