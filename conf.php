@@ -2,15 +2,11 @@
 
 $conf = array(
     'production' => array(
-        'db_name' => 'articulatelogic_db',
+        'db_name' => 'articulatelogic_main',
         'db_host' => 'localhost',
         'db_user' => 'root',
         'db_pass' => '',
         'development_mode' => true,
-
-        'path_root' => '',
-        'path_root_postfix' => 'public_html',
-
         'path_sys_template' => '/Template/base.twig',
         'path_static' => '/Template/static/',
         'path_user_template' => '/App/views',
@@ -21,7 +17,7 @@ $conf = array(
         ),
     ),
     'development' => array(
-        'db_name' => 'articulatelogic_db',
+        'db_name' => 'articulatelogic_main',
         'db_host' => 'localhost',
         'db_user' => 'root',
         'db_pass' => '',
