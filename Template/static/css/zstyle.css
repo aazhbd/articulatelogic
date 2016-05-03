@@ -227,7 +227,7 @@ img {
 
 .subtitle {
     color: #000;
-    font-size: 1em;
+    font-size: 1.1em;
     padding-top: .1em;
     padding-bottom: 0.2em;
 }
@@ -237,7 +237,7 @@ img {
 /* body starts here */
 
 .body {
-    color: #000;
+    color: #2b2b2b;
     text-align: justify;
     font-size: 1em;
     padding: .5em 0;
