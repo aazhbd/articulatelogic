@@ -6,8 +6,9 @@
 
 {% block contentheader %}
     <div id="banner">
-        <img src="{{ path_static }}images/logo.gif" id="logo"/>
-
+        <a href="{{ path_url_postfix }}/">
+            <img src="{{ path_static }}images/logo.gif" id="logo"/>
+        </a>
         <div id="navigatemenu">
             <div class="pure-menu pure-menu-horizontal">
                 <ul class="pure-menu-list">
@@ -33,7 +34,6 @@
                             <li class="pure-menu-item"><a href="{{ path_url_postfix }}/a/contact" class="pure-menu-link">Contact</a></li>
                         </ul>
                     </li>
-
                     {% if session.get('user_info').utype == 1 %}
                     <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
                         <a href="{{ path_url_postfix }}/home" id="menuLink1" class="pure-menu-link">Admin Menu</a>
@@ -48,7 +48,6 @@
                 </ul>
             </div>
         </div>
-
         <div id="topright">
             {% if session.get('is_authenticated') %}
                 <a class="pure-button pure-button-primary" href="{{ path_url_postfix }}/home">{% if session.get('user_info').firstname %}{{ session.get('user_info').firstname }}'s{% else %}User{% endif %} Home</a>
@@ -65,7 +64,6 @@
     {% if content_message %}
         <div id="reports">{{ content_message }}</div>
     {% endif %}
-
     {{ parent() }}
     {{ body_content }}
 {% endblock %}

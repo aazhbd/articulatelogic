@@ -18,10 +18,14 @@ class Views extends Controller
     {
         $app->setTemplateData(
             array(
-                'title' => 'Start',
-                'body_content' => 'The start page loaded from controller/view.php.'
+                'title' => 'Our Products'
             )
         );
+
+        $articles = Article::getArticles($app, 0, 2);
+        if ($articles) {
+            $app->setTemplateData(array('articles' => $articles));
+        }
 
         $this->display($app, 'home.twig');
     }
