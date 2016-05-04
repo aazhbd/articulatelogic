@@ -6,9 +6,7 @@
     <meta name="description" content="{{ descrip | striptags }}" />
     <meta name="keywords" content="ArtCMS, {{ keys }}" />
     <meta name="robots" content="index, follow, I followed" />
-
     <title>{% block title %}{% endblock %} - {{ user_var.project_name }}</title>
-
     <link href="{{ path_static }}css/zstyle.css" rel="stylesheet" type="text/css" media="screen"/>
     <link href="{{ path_static }}css/pure.css" rel="stylesheet" type="text/css" media="screen"/>
     <link href="{{ path_static }}css/menus.css" rel="stylesheet" type="text/css" media="screen"/>
@@ -20,13 +18,11 @@
     {% block headtags %}
     {% endblock %}
 </head>
-
 <body>
 <div id="contentheader">
     {% block contentheader %}
         <div id="banner">
             <img src="{{ path_static }}images/logo.gif" id="logo"/>
-
             <div id="navigatemenu">
                 <div class="pure-menu pure-menu-horizontal">
                     <ul class="pure-menu-list">
@@ -35,7 +31,6 @@
                     </ul>
                 </div>
             </div>
-
             <div id="search" class="pure-form">
                 <form class="frmsearch" method="post" id="frmsearch" action="">
 					<span>
@@ -44,39 +39,32 @@
 					</span>
                 </form>
             </div>
-
             <div id="topright">
                 <a href="/logout">Logout</a>
                 |
                 <a href="/uhome">Member Home</a>
             </div>
-
         </div>
     {% endblock %}
 </div>
-
 <div id="contentbody">
     {% block contentbody %}
         {% for error in errors %}
             <div id="reports">{{ error }}</div>
         {% endfor %}
-
         {% if title %}
             <h2 class="title">
                 {{ title }}
             </h2>
         {% endif %}
-
         {% if subtitle %}
             <div class="subtitle">{{ subtitle }}</div>
         {% endif %}
-
         {% if body %}
             <div class="body">{{ body|raw }}</div>
         {% endif %}
     {% endblock %}
 </div>
-
 <div id="footer">
     {% block footers %}
         <p>
@@ -87,7 +75,6 @@
 </div>
 </body>
 </html>
-
 {#
  * An open source web application development framework for PHP 5.
  * @author        ArticulateLogic Labs
