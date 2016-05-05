@@ -1,10 +1,7 @@
 /**
-* Basic Template.
-*
 * @author        ArticulateLogic Labs
 * @author        Abdullah Al Zakir Hossain, Email: aazhbd@yahoo.com 
 * @copyright     Copyright (c)2013 - 2015 ArticulateLogic Labs
-*  
 */
 
 * {
@@ -77,10 +74,10 @@ img {
 
 #contentheader {
     background: #fff;
-    box-shadow: 0 0px 10px 0px #acacac;
+    box-shadow: 0 0 10px 0 #acacac;
     opacity: 0.82;
     position: fixed;
-    top: 0px;
+    top: 0;
     padding: 0;
     width: 100%;
     z-index: 999;
@@ -160,7 +157,6 @@ img {
 .btnsearch {
     width: 22%;
     padding: 0;
-    padding: 4px;
 }
 
 /* banner ends here */
@@ -183,7 +179,7 @@ img {
 }
 
 .productBox {
-    box-shadow: 0 0px 4px 0px #bbb;
+    box-shadow: 0 0 4px 0 #bbb;
     opacity: 0.82;
     margin: 10px auto;
     padding: 10px;
@@ -279,7 +275,7 @@ img {
 
 .choices {
     float: left;
-    padding: 0px 11px;
+    padding: 0 11px;
 }
 
 /* end selectors */
