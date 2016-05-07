@@ -6,11 +6,12 @@
 
 {% block headtags %}
     <script src="{{ path_url }}{{ user_var.project_static }}/jquery.dataTables.min.js" type="text/javascript"></script>
-    <link href="{{ path_url }}{{ user_var.project_static }}/jquery.dataTables.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="{{ path_url }}{{ user_var.project_static }}/jquery.dataTables.css" rel="stylesheet" type="text/css"
+          media="screen"/>
 
     <script type="text/javascript">
-        $(document).ready(function(){
-            if($("#errors").html() == '') {
+        $(document).ready(function () {
+            if ($("#errors").html() == '') {
                 $("#errors").hide();
             }
 
@@ -28,13 +29,13 @@
     {{ body_content }}
 
     {% for a in articles %}
-    <a href="{{ path_url_postfix }}/a/{{ a.url }}/">
         <div class="productBox">
             <h2>
                 <a href="{{ path_url_postfix }}/a/{{ a.url }}/">
                     {{ a.title }}
                 </a>
             </h2>
+
             <p>
                 <a href="{{ path_url_postfix }}/a/{{ a.url }}/">
                     {{ a.subtitle|slice(0, 280) }}
@@ -42,11 +43,11 @@
 
                 <a class="pure-button details-right" href="{{ path_url_postfix }}/a/{{ a.url }}/">Details</a>
             </p>
+
             <p>
                 <a href="{{ path_url_postfix }}/a/{{ a.url }}/">{{ a.date_inserted }}</a>
             </p>
         </div>
-    </a>
     {% endfor %}
 {% endblock %}
 
