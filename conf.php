@@ -17,7 +17,7 @@ $conf = array(
         ),
     ),
     'development' => array(
-        'db_name' => 'articulatelogic_main',
+        'db_name' => 'articulatelogic_db',
         'db_host' => 'localhost',
         'db_user' => 'root',
         'db_pass' => '',
