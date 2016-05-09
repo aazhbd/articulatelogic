@@ -27,7 +27,7 @@ class Views extends Controller
             $app->setTemplateData(array('articles' => $articles));
         }
 
-        $this->display($app, 'home.twig');
+        $this->display($app, 'gallery.twig');
     }
 
     /**
