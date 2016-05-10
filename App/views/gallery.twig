@@ -11,10 +11,24 @@
           type="text/css" media="screen"/>
 
     <script type="text/javascript">
+        var url_path = '{{ path_url }}';
+
+        function rewriteUrl(url) {
+            if(url.indexOf("http") < 0) {
+                url = url_path + '/' + url;
+            }
+            return url;
+        }
+
         $(document).ready(function () {
             if ($("#errors").html() == '') {
                 $("#errors").hide();
             }
+
+            $('img').each(function () {
+                var url = rewriteUrl($(this).attr('src'));
+                $(this).attr("src", url);
+            });
 
             //$('.product_gallery').bxSlider({});
         });
