@@ -21,51 +21,18 @@
 {% endblock %}
 
 {% block contentbody %}
-    {{ parent() }}
-    {{ body_content }}
-
-    {% if session.get('user_info').utype == 1 %}
-        <div style="float: right; padding: 10px;">
-            <a class="pure-button pure-button-primary" href="{{ path_url_postfix }}/article/add/">+ Add Article</a>
-            &nbsp;
-            <a class="pure-button pure-button-primary" href="{{ path_url_postfix }}/category/list/">Categories</a>
-        </div>
-    {% endif %}
-
     {% if articles %}
-        <table class="pure-table-horizontal" id="sortedtable" style="width: 100%%">
-            <thead>
-            <tr>
-                <td>ID</td>
-                <td>Category Id</td>
-                <td>Url</td>
-                <td>Title</td>
-                <td>Subtitle</td>
-                <td>Date inserted</td>
-            </tr>
-            </thead>
-            <tfoot>
-            <tr>
-                <td>ID</td>
-                <td>Category Id</td>
-                <td>Url</td>
-                <td>Title</td>
-                <td>Subtitle</td>
-                <td>Date inserted</td>
-            </tr>
-            </tfoot>
-            <tbody>
-            {% for a in articles %}
-                <tr>
-                    <td><a href="{{ path_url_postfix }}/a/{{ a.url }}/">{{ a.id }}</a></td>
-                    <td><a href="{{ path_url_postfix }}/a/{{ a.url }}/">{{ a.category_id }}</a></td>
-                    <td><a href="{{ path_url_postfix }}/a/{{ a.url }}/">{{ a.url }}</a></td>
-                    <td><a href="{{ path_url_postfix }}/a/{{ a.url }}/">{{ a.title }}</a></td>
-                    <td><a href="{{ path_url_postfix }}/a/{{ a.url }}/">{{ a.subtitle|slice(0, 25)|raw }}</a></td>
-                    <td><a href="{{ path_url_postfix }}/a/{{ a.url }}/">{{ a.date_inserted }}</a></td>
-                </tr>
-            {% endfor %}
-        </table>
+        <ul class="bxslider">
+        {% for a in articles %}
+            <li>
+                <h2 class="title">
+                    {{ a.title }}
+                </h2>
+                <div class="subtitle">{{ a.subtitle }}</div>
+                <div class="body">{{ a.body|raw }}</div>
+            </li>
+        {% endfor %}
+        </ul>
     {% endif %}
 {% endblock %}
 
