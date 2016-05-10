@@ -296,7 +296,7 @@ class Views extends Controller
             'title' => 'Files List',
         ));
 
-        $file_dir = Files::setUploadDir($app);
+        $file_dir = basename(__DIR__) . '/' . Files::setUploadDir($app);
 
         $user_info = $app->getSession()->get('user_info');
 
