@@ -16,23 +16,24 @@
                 $("#errors").hide();
             }
 
+            //$('.product_gallery').bxSlider({});
         });
     </script>
 {% endblock %}
 
 {% block contentbody %}
     {% if articles %}
-        <ul class="bxslider">
+        <div class="product_gallery">
         {% for a in articles %}
-            <li>
+            <div class="row collapse slide-pane">
                 <h2 class="title">
                     {{ a.title }}
                 </h2>
                 <div class="subtitle">{{ a.subtitle }}</div>
                 <div class="body">{{ a.body|raw }}</div>
-            </li>
+            </div>
         {% endfor %}
-        </ul>
+        </div>
     {% endif %}
 {% endblock %}
 
