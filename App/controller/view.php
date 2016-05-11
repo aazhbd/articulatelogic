@@ -22,7 +22,7 @@ class Views extends Controller
             )
         );
 
-        $articles = Article::getArticles($app, 0, 2);
+        $articles = Article::getArticles($app, 0, 6);
         if ($articles) {
             $app->setTemplateData(array('articles' => $articles));
         }
