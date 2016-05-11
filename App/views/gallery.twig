@@ -30,7 +30,13 @@
                 $(this).attr("src", url);
             });
 
-            //$('.product_gallery').bxSlider({});
+            $('.product_gallery').bxSlider({
+                adaptiveHeight: true,
+                auto: true,
+                autoControls: true,
+                slideMargin: 10,
+                mode: 'fade'
+            });
         });
     </script>
 {% endblock %}
