@@ -207,7 +207,8 @@ img {
 }
 
 .product_gallery {
-    padding: 10px;
+    padding: 40px;
+    display: block;
 }
 
 /* contentbody ends here */
