@@ -46,10 +46,6 @@
         <div class="product_gallery">
         {% for a in articles %}
             <div class="row collapse slide-pane">
-                <h2 class="title">
-                    {{ a.title }}
-                </h2>
-                <div class="subtitle">{{ a.subtitle }}</div>
                 <div class="body">{{ a.body|raw }}</div>
             </div>
         {% endfor %}
