@@ -14,26 +14,6 @@ class Views extends Controller
      * @param $params
      * @param $app
      */
-    public function viewRoot($params, $app)
-    {
-        $app->setTemplateData(
-            array(
-                'title' => 'Our Products'
-            )
-        );
-
-        $articles = Article::getArticles($app, 0, 6);
-        if ($articles) {
-            $app->setTemplateData(array('articles' => $articles));
-        }
-
-        $this->display($app, 'gallery.twig');
-    }
-
-    /**
-     * @param $params
-     * @param $app
-     */
     public function viewHome($params, $app)
     {
         $app->setTemplateData(array(
