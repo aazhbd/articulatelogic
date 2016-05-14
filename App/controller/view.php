@@ -43,13 +43,15 @@ class Views extends Controller
                 $app->setTemplateData(array('subtitle' => 'Active Articles', 'articles' => $articles));
             }
             $this->display($app, 'uhome.twig');
+            return;
         } else {
             $articles = Article::getArticles($app, 0, 6);
             if ($articles) {
                 $app->setTemplateData(array('articles' => $articles));
             }
-            $this->display($app, 'gallery.twig');
         }
+
+        $this->display($app, 'gallery.twig');
     }
 
     /**
