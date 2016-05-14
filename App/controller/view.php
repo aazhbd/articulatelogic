@@ -38,19 +38,12 @@ class Views extends Controller
         $user_info = $app->getSession()->get('user_info');
 
         if ($user_info['utype'] == 1) {
-            $articles = Article::getArticles($app, 0);
-            if ($articles) {
-                $app->setTemplateData(array('subtitle' => 'Active Articles', 'articles' => $articles));
-            }
+            $app->setTemplateData(array('subtitle' => 'Active Articles', 'articles' => Article::getArticles($app, 0)));
             $this->display($app, 'uhome.twig');
             return;
-        } else {
-            $articles = Article::getArticles($app, 0, 6);
-            if ($articles) {
-                $app->setTemplateData(array('articles' => $articles));
-            }
         }
 
+        $app->setTemplateData(array('articles' => Article::getArticles($app, 0, 6)));
         $this->display($app, 'gallery.twig');
     }
 
