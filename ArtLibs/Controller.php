@@ -97,9 +97,7 @@ class Controller
             Response::HTTP_OK,
             array('content-type' => 'text/html')
         );
-
         $this->response->send();
-
     }
 }
 

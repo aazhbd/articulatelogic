@@ -62,9 +62,14 @@ class Views extends Controller
             if ($articles) {
                 $app->setTemplateData(array('subtitle' => 'Active Articles', 'articles' => $articles));
             }
+            $this->display($app, 'uhome.twig');
+        } else {
+            $articles = Article::getArticles($app, 0, 6);
+            if ($articles) {
+                $app->setTemplateData(array('articles' => $articles));
+            }
+            $this->display($app, 'gallery.twig');
         }
-
-        $this->display($app, 'uhome.twig');
     }
 
     /**
@@ -156,7 +161,10 @@ class Views extends Controller
 
                 if ($app->getRequest()->request->get('editval')) {
                     $aid = trim($app->getRequest()->request->get('editval'));
-                    $app->setTemplateData(array('content_message' => (Article::updateArticle($article_data, $aid, $app)) ? "Article updated successfully" : "Article update failed"));
+                    $app->setTemplateData(array(
+                        'content_message' => (Article::updateArticle($article_data, $aid,
+                            $app)) ? "Article updated successfully" : "Article update failed"
+                    ));
                 } elseif (Article::addArticle($article_data, $app)) {
                     $app->setTemplateData(array('content_message' => "New article added successfully."));
                 } else {
@@ -244,13 +252,15 @@ class Views extends Controller
                 } elseif ($action == "enable") {
                     $app->setTemplateData(
                         array(
-                            'content_message' => (Category::setState(0, $cat_id, $app)) ? 'Category is ' . $params[1] . 'd.' : 'State change failed'
+                            'content_message' => (Category::setState(0, $cat_id,
+                                $app)) ? 'Category is ' . $params[1] . 'd.' : 'State change failed'
                         )
                     );
                 } elseif ($action == "disable") {
                     $app->setTemplateData(
                         array(
-                            'content_message' => (Category::setState(1, $cat_id, $app)) ? 'Category is ' . $params[1] . 'd.' : 'State change failed'
+                            'content_message' => (Category::setState(1, $cat_id,
+                                $app)) ? 'Category is ' . $params[1] . 'd.' : 'State change failed'
                         )
                     );
                 }
@@ -265,7 +275,8 @@ class Views extends Controller
                     $cid = $app->getRequest()->request->get('editval');
                     $app->setTemplateData(
                         array(
-                            'content_message' => (Category::updateCategory($cid, $category, $app)) ? 'Category successfully updated' : 'Category save failed'
+                            'content_message' => (Category::updateCategory($cid, $category,
+                                $app)) ? 'Category successfully updated' : 'Category save failed'
                         )
                     );
                 } elseif (Category::addCategory($category, $app)) {
@@ -308,13 +319,15 @@ class Views extends Controller
                 if ($action == "enable") {
                     $app->setTemplateData(
                         array(
-                            'content_message' => (Files::setState(0, $file_id, $app)) ? 'File is ' . $action . 'd.' : 'State change failed'
+                            'content_message' => (Files::setState(0, $file_id,
+                                $app)) ? 'File is ' . $action . 'd.' : 'State change failed'
                         )
                     );
                 } elseif ($action == "disable") {
                     $app->setTemplateData(
                         array(
-                            'content_message' => (Files::setState(1, $file_id, $app)) ? 'File is ' . $action . 'd.' : 'State change failed'
+                            'content_message' => (Files::setState(1, $file_id,
+                                $app)) ? 'File is ' . $action . 'd.' : 'State change failed'
                         )
                     );
                 }
@@ -331,7 +344,8 @@ class Views extends Controller
 
                 if ($uploaded_file instanceof UploadedFile && $uploaded_file->getError() == 0) {
                     try {
-                        $file_info['name'] = ($file_info['name'] == "") ? Files::setProperName($uploaded_file->getClientOriginalName(), $app) : Files::setProperName($file_info['name'], $app);
+                        $file_info['name'] = ($file_info['name'] == "") ? Files::setProperName($uploaded_file->getClientOriginalName(),
+                            $app) : Files::setProperName($file_info['name'], $app);
                         $file_info['mtype'] = $uploaded_file->getMimeType();
                         $file_info['ftype'] = Files::getFileExt($uploaded_file->getClientOriginalName());
                         $file_info['path'] = $file_info['name'];
@@ -404,7 +418,10 @@ class Views extends Controller
 
                 if ($app->getRequest()->request->get('editval')) {
                     $uid = $app->getRequest()->request->get('editval');
-                    $app->setTemplateData(array('content_message' => (User::updateUser($uid, $user_data, $app) ? "User updated successfully" : "User couldn't be updated")));
+                    $app->setTemplateData(array(
+                        'content_message' => (User::updateUser($uid, $user_data,
+                            $app) ? "User updated successfully" : "User couldn't be updated")
+                    ));
                 } elseif (User::userExists($user_data['email'], $app)) {
                     $app->setTemplateData(array('content_message' => 'User with email ' . $user_data['email'] . ' already exists. Try different email'));
                 } elseif (User::addUser($user_data, $app)) {
@@ -444,15 +461,24 @@ class Views extends Controller
             );
 
             if (User::userExists($user_data['email'], $app)) {
-                $app->setTemplateData(array('title' => 'Signup', 'content_message' => 'Signup was unsuccessful, user with email ' . $user_data['email'] . ' already exists. Try different email'));
+                $app->setTemplateData(array(
+                    'title' => 'Signup',
+                    'content_message' => 'Signup was unsuccessful, user with email ' . $user_data['email'] . ' already exists. Try different email'
+                ));
                 $this->display($app, 'frm_signup.twig');
                 return;
             }
 
             if (User::addUser($user_data, $app)) {
-                $app->setTemplateData(array('title' => 'Login', 'content_message' => 'The user is successfully added and can login',));
+                $app->setTemplateData(array(
+                    'title' => 'Login',
+                    'content_message' => 'The user is successfully added and can login',
+                ));
             } else {
-                $app->setTemplateData(array('title' => 'Signup', 'content_message' => 'Signup was unsuccessful, try again.',));
+                $app->setTemplateData(array(
+                    'title' => 'Signup',
+                    'content_message' => 'Signup was unsuccessful, try again.',
+                ));
                 $this->display($app, 'frm_signup.twig');
                 return;
             }
