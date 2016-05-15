@@ -84,8 +84,7 @@ class Views extends Controller
         $file = false;
 
         if (isset($params['fname'])) {
-            $fname = $params['fname'];
-            $file = Files::getFile($app, $fname, 0);
+            $file = Files::getFile($app, $params['fname'], 0);
         }
 
         if (!$file) {
