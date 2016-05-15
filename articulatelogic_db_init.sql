@@ -6,7 +6,7 @@ SET time_zone = '+00:00';
 USE `articulatelogic_com_db`;
 
 CREATE TABLE `articles` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `uid` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
   `url` varchar(250) NOT NULL,
@@ -19,7 +19,9 @@ CREATE TABLE `articles` (
   `atype` int(11) NOT NULL,
   `date_inserted` datetime NOT NULL,
   `date_updated` datetime NOT NULL,
-  `state` int(11) NOT NULL
+  `state` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `em_index` (`url`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
