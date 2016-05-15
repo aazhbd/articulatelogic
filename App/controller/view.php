@@ -97,11 +97,7 @@ class Views extends Controller
         $file_path = $file['path'];
         $mtype = $file['mtype'];
 
-        if ($params['opt'] == "view") {
-            $this->fileResponse($app, $file_dir . "/" . $file_path, false, $mtype);
-        } else {
-            $this->fileResponse($app, $file_dir . "/" . $file_path, true, $mtype);
-        }
+        $this->fileResponse($app, $file_dir . "/" . $file_path, ($params['opt'] == "download"), $mtype);
     }
 
     /**
