@@ -57,11 +57,9 @@ class Views extends Controller
         $article = false;
 
         if (isset($params['aid'])) {
-            $aid = $params['aid'];
-            $article = Article::getArticleById($aid, $app);
+            $article = Article::getArticleById($params['aid'], $app);
         } elseif (isset($params['aurl'])) {
-            $aurl = $params['aurl'];
-            $article = Article::getArticleByUrl($aurl, $app);
+            $article = Article::getArticleByUrl($params['aurl'], $app);
         }
 
         if ($article) {
