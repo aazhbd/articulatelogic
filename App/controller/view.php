@@ -167,14 +167,14 @@ class Views extends Controller
             if (isset($params['opt']) && isset($params['aid'])) {
                 $action = $params['opt'];
                 $aid = $params['aid'];
-                $app->setTemplateData(array('article' => Article::getArticleById($aid, $app), 'action' => "edit"));
+                $app->setTemplateData(array(
+                    'article' => Article::getArticleById($aid, $app),
+                    'title' => 'Edit article',
+                    'action' => "edit")
+                );
             }
 
-            $categories = Category::getCategories($app, 0);
-
-            if ($categories) {
-                $app->setTemplateData(array('categories' => $categories));
-            }
+            $app->setTemplateData(array('categories' => Category::getCategories($app, 0)));
         }
 
         $this->display($app, 'frm_article.twig');
