@@ -141,10 +141,7 @@ class Views extends Controller
                 }
             }
 
-            $articles = Article::getArticles($app);
-            if ($articles) {
-                $app->setTemplateData(array('articles' => $articles));
-            }
+            $app->setTemplateData(array('articles' => Article::getArticles($app)));
         } else {
             $app->setTemplateData(array('content_message' => 'Not found or accessible'));
         }
@@ -168,9 +165,10 @@ class Views extends Controller
                 $action = $params['opt'];
                 $aid = $params['aid'];
                 $app->setTemplateData(array(
-                    'article' => Article::getArticleById($aid, $app),
-                    'title' => 'Edit article',
-                    'action' => "edit")
+                        'article' => Article::getArticleById($aid, $app),
+                        'title' => 'Edit article',
+                        'action' => "edit"
+                    )
                 );
             }
 
