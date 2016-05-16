@@ -253,10 +253,7 @@ class Views extends Controller
                 }
             }
 
-            $categories = Category::getCategories($app);
-            if ($categories) {
-                $app->setTemplateData(array('categories' => $categories));
-            }
+            $app->setTemplateData(array('categories' => Category::getCategories($app)));
         } else {
             $app->setTemplateData(array('content_message' => 'Not found or accessible'));
         }
