@@ -216,17 +216,9 @@ class Views extends Controller
                 if ($action == "edit") {
                     $cat_pre = Category::getCategoryById($cat_id, $app);
                     $app->setTemplateData(array('action' => 'edit', 'cat_id' => $cat_id, 'cat_pre' => $cat_pre));
-                } elseif ($action == "enable") {
-                    $app->setTemplateData(
-                        array(
-                            'content_message' => (Category::setState(0, $cat_id,
-                                $app)) ? 'Category is ' . $params[1] . 'd.' : 'State change failed'
-                        )
-                    );
-                } elseif ($action == "disable") {
-                    $app->setTemplateData(
-                        array(
-                            'content_message' => (Category::setState(1, $cat_id,
+                } else {
+                    $app->setTemplateData(array(
+                            'content_message' => (Category::setState(($action == "enable") ? 0 : 1, $cat_id,
                                 $app)) ? 'Category is ' . $params[1] . 'd.' : 'State change failed'
                         )
                     );
