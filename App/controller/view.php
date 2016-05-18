@@ -272,21 +272,12 @@ class Views extends Controller
                 $action = $params['opt'];
                 $file_id = $params['fid'];
 
-                if ($action == "enable") {
-                    $app->setTemplateData(
-                        array(
-                            'content_message' => (Files::setState(0, $file_id,
-                                $app)) ? 'File is ' . $action . 'd.' : 'State change failed'
-                        )
-                    );
-                } elseif ($action == "disable") {
-                    $app->setTemplateData(
-                        array(
-                            'content_message' => (Files::setState(1, $file_id,
-                                $app)) ? 'File is ' . $action . 'd.' : 'State change failed'
-                        )
-                    );
-                }
+                $app->setTemplateData(
+                    array(
+                        'content_message' => (Files::setState(($action == "enable") ? 0 : 1, $file_id,
+                            $app)) ? 'File is ' . $action . 'd.' : 'State change failed'
+                    )
+                );
             }
 
             if ($app->getRequest()->getMethod() == "POST") {
