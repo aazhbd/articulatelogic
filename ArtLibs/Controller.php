@@ -76,7 +76,7 @@ class Controller
         else {
             header("Content-Type: " . $media);
         }
-        header("Content-Transfer-Encoding: binary ");
+        header("Content-Transfer-Encoding: binary");
         echo $content;
         return;
     }
