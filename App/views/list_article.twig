@@ -9,14 +9,12 @@
     <link href="{{ path_url }}{{ user_var.project_static }}/jquery.dataTables.css" rel="stylesheet" type="text/css" media="screen"/>
     <script type="text/javascript">
         var url_path = '{{ path_url }}';
-
         function rewriteUrl(url) {
             if(url.indexOf("http") < 0) {
                 url = url_path + '/' + url;
             }
             return url;
         }
-
         $(document).ready(function(){
             if($("#errors").html() == '') {
                 $("#errors").hide();
@@ -26,7 +24,6 @@
                 var url = rewriteUrl($(this).attr('src'));
                 $(this).attr("src", url);
             });
-
             $('#sortedtable').dataTable({
                 "sPaginationType": "full_numbers",
                 "aLengthMenu": [[25, 50, -1], [25, 50, "All"]],
@@ -39,7 +36,6 @@
 {% block contentbody %}
     {{ parent() }}
     {{ body_content }}
-
     {% if session.get('user_info').utype == 1 %}
         <div style="float: right; padding: 10px;">
             <a class="pure-button pure-button-primary" href="{{ path_url_postfix }}/article/add/">+ Add Article</a>
