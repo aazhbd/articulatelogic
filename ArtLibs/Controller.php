@@ -61,6 +61,7 @@ class Controller
                 ->addMessage("Error Occurred: File could not be found to make a proper response.");
             return;
         }
+
         $content = file_get_contents($filePath);
         header("Pragma: public");
         header("Expires: 0");
@@ -68,6 +69,7 @@ class Controller
         if($download) {
             header("Content-Type: application/force-download");
             header("Content-Type: application/download");
+            header('Content-Disposition: attachment; filename='.basename($filePath));
         }
 
         if($media == "") {
