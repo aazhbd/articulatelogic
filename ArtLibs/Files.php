@@ -24,8 +24,8 @@ class Files
         $user_var = $app->getConfManager()->getUserVar();
         $file_dir = ($user_var['files_dir'] == "") ? "." : $user_var['files_dir'];
 
-        if (!is_dir(__DIR__ . '/' . $file_dir)) {
-            if (!mkdir(__DIR__ . '/' . $file_dir, 0777, true)) {
+        if (!is_dir($file_dir)) {
+            if (!mkdir($file_dir, 0777, true)) {
                 $app->getErrorManager()->addMessage("Error creating file upload directory");
             }
         }
