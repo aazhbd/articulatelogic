@@ -17,7 +17,7 @@ $conf = array(
         ),
     ),
     'development' => array(
-        'db_name' => 'articulatelogic_db',
+        'db_name' => 'articulatelogic_com_db',
         'db_host' => 'localhost',
         'db_user' => 'root',
         'db_pass' => '',
@@ -28,7 +28,7 @@ $conf = array(
         'user_var' => array(
             'project_name' => 'ArticulateLogic.com',
             'project_static' => '/App/static',
-            'files_dir' => '../../file_dir'
+            'files_dir' => '../file_dir'
         ),
     ),
     'staging' => array(

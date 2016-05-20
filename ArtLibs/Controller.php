@@ -56,12 +56,12 @@ class Controller
      */
     public function fileResponse($app, $filePath, $download=true, $media="")
     {
-        if (!file_exists(basename(__DIR__) . '/' . $filePath)) {
+        if (!file_exists(__DIR__ . '/' . $filePath)) {
             $app->getErrorManager()
                 ->addMessage("Error Occurred: File could not be found to make a proper response.");
             return;
         }
-        $content = file_get_contents(basename(__DIR__) . '/' . $filePath);
+        $content = file_get_contents(__DIR__ . '/' . $filePath);
         header("Pragma: public");
         header("Expires: 0");
         header("Cache-Control: must-revalidate, post-check=0, pre-check=0");

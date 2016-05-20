@@ -5,3 +5,4 @@ vendor
 .vscode
 artphp.log
 /nbproject/private/
+file_dir/
