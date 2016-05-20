@@ -14,7 +14,6 @@
             if ($("#errors").html() == '') {
                 $("#errors").hide();
             }
-
             $('#sortedtable').dataTable({
                 "sPaginationType": "full_numbers",
                 "aLengthMenu": [[25, 50, -1], [25, 50, "All"]],
@@ -31,19 +30,12 @@
     {% for a in articles %}
         <div class="productBox">
             <h2>
-                <a href="{{ path_url_postfix }}/a/{{ a.url }}/">
-                    {{ a.title }}
-                </a>
+                <a href="{{ path_url_postfix }}/a/{{ a.url }}/">{{ a.title }}</a>
             </h2>
-
             <p>
-                <a href="{{ path_url_postfix }}/a/{{ a.url }}/">
-                    {{ a.subtitle|slice(0, 280) }}
-                </a>
-
+                <a href="{{ path_url_postfix }}/a/{{ a.url }}/">{{ a.subtitle|slice(0, 280) }}</a>
                 <a class="pure-button details-right" href="{{ path_url_postfix }}/a/{{ a.url }}/">Details</a>
             </p>
-
             <p>
                 <a href="{{ path_url_postfix }}/a/{{ a.url }}/">{{ a.date_inserted }}</a>
             </p>
