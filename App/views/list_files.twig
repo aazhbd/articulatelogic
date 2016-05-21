@@ -35,31 +35,28 @@
             {% else %}
                 <legend>Add New File</legend>
             {% endif %}
-                <input type="text" class="pure-input-1-2" placeholder="File name" value="{{ file_pre.name }}" name="filename" />
+                <input type="text" class="pure-input-1-2" placeholder="Unique file name" value="{{ file_pre.name }}" name="filename" />
             </fieldset>
-
             <fieldset>
             <div class="fileupload">
                 <span>Upload : </span>
                 <input type="file" placeholder="File content" name="filecontent" />
             </div>
             </fieldset>
-
             <fieldset>
                 <input type="submit" class="pure-button pure-button-primary" id="btn_submit" value="Submit"  />
             </fieldset>
         </form>
-
         <script type="text/javascript">
             $(document).ready(function(){
                 $("#publish").validate({
                     rules:{
-                        filecontent:{ required: true , maxlength: 512 }
+                        filecontent:{ required: true , maxlength: 254 }
                     },
                     messages:{
                         filecontent: {
                             required: "Set file.",
-                            maxlength: "Can't be longer than 512 characters."
+                            maxlength: "Can't be longer than 254 characters."
                         }
                     }
                 });
