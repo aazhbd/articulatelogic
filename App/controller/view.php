@@ -378,10 +378,7 @@ class Views extends Controller
                 }
             }
 
-            $users = User::getUsers($app);
-            if ($users) {
-                $app->setTemplateData(array('users' => $users));
-            }
+            $app->setTemplateData(array('users' => User::getUsers($app)));
         } else {
             $app->setTemplateData(array('content_message' => 'Not found or accessible'));
         }
