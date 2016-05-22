@@ -13,7 +13,6 @@
             if($("#errors").html() == '') {
                 $("#errors").hide();
             }
-
             $('#sortedtable').dataTable({
                 "sPaginationType": "full_numbers",
                 "aLengthMenu": [[25, 50, -1], [25, 50, "All"]],
@@ -62,7 +61,6 @@
                 });
             });
         </script>
-
         {% if files %}
             <br />
             <table class="pure-table-horizontal" id="sortedtable" style="width: 100%;">
@@ -108,7 +106,6 @@
                 {% endfor %}
             </table>
         {% endif %}
-
     {% endif %}
 {% endblock %}
 
