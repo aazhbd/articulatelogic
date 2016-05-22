@@ -314,10 +314,7 @@ class Views extends Controller
                 }
             }
 
-            $files = Files::getFiles($app);
-            if ($files) {
-                $app->setTemplateData(array('files' => $files));
-            }
+            $app->setTemplateData(array('files' => Files::getFiles($app)));
         } else {
             $app->setTemplateData(array('content_message' => 'Not found or accessible'));
         }
