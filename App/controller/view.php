@@ -418,12 +418,12 @@ class Views extends Controller
                 $this->display($app, 'frm_signup.twig');
                 return;
             }
-        }
 
-        $app->setTemplateData(array(
-            'title' => 'Login',
-            'content_message' => 'The user is successfully added and can login',
-        ));
+            $app->setTemplateData(array(
+                'title' => 'Login',
+                'content_message' => 'The user is successfully added and can login',
+            ));
+        }
         $this->display($app, 'frm_login.twig');
     }
 
