@@ -410,12 +410,7 @@ class Views extends Controller
                 return;
             }
 
-            if (User::addUser($user_data, $app)) {
-                $app->setTemplateData(array(
-                    'title' => 'Login',
-                    'content_message' => 'The user is successfully added and can login',
-                ));
-            } else {
+            if (!User::addUser($user_data, $app)) {
                 $app->setTemplateData(array(
                     'title' => 'Signup',
                     'content_message' => 'Signup was unsuccessful, try again.',
@@ -425,6 +420,10 @@ class Views extends Controller
             }
         }
 
+        $app->setTemplateData(array(
+            'title' => 'Login',
+            'content_message' => 'The user is successfully added and can login',
+        ));
         $this->display($app, 'frm_login.twig');
     }
 
