@@ -328,9 +328,7 @@ class Views extends Controller
      */
     public function viewUserList($params, $app)
     {
-        $app->setTemplateData(array(
-            'title' => 'Users List',
-        ));
+        $app->setTemplateData(array('title' => 'Users List'));
 
         $user_info = $app->getSession()->get('user_info');
 
@@ -434,7 +432,6 @@ class Views extends Controller
     public function viewSignup($params, $app)
     {
         $app->setTemplateData(array('title' => 'Signup',));
-
         $this->display($app, 'frm_signup.twig');
     }
 
