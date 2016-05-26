@@ -448,7 +448,6 @@ class Views extends Controller
         if ($app->getSession()->get('is_authenticated')) {
             $logout = User::clearSession($app);
         }
-
         if ($logout) {
             $app->setTemplateData(array('content_message' => 'The user successfully logged out.'));
         }
