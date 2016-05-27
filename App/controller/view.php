@@ -332,51 +332,53 @@ class Views extends Controller
 
         $user_info = $app->getSession()->get('user_info');
 
-        if ($user_info['utype'] == 1) {
-            if (isset($params['opt']) && isset($params['uid'])) {
-                if ($params['opt'] == "enable") {
-                    $msg = (User::setState(0, $params['uid'], $app)) ? "User Enabled" : "User state change failed";
-                    $app->setTemplateData(array('content_message' => $msg));
-                } elseif ($params['opt'] == "disable") {
-                    $msg = (User::setState(1, $params['uid'], $app)) ? "User Disabled" : "User state change failed";
-                    $app->setTemplateData(array('content_message' => $msg));
-                } elseif ($params['opt'] == "edit") {
-                    $update_user = User::getUserById($params['uid'], $app);
-                    $app->setTemplateData(array('action' => 'edit', 'update_user' => $update_user));
-                } else {
-                    $app->setTemplateData(array('content_message' => 'Not found or accessible'));
-                }
-            }
-
-            if ($app->getRequest()->getMethod() == "POST") {
-                $user_data = array(
-                    'email' => trim($app->getRequest()->request->get('email')),
-                    'pass' => trim($app->getRequest()->request->get('password')),
-                    'firstname' => trim($app->getRequest()->request->get('name')),
-                    'gender' => trim($app->getRequest()->request->get('gender')),
-                    'date_ofbirth' => trim($app->getRequest()->request->get('birthdate')),
-                    'ustatus' => 1,
-                );
-
-                if ($app->getRequest()->request->get('editval')) {
-                    $uid = $app->getRequest()->request->get('editval');
-                    $app->setTemplateData(array(
-                        'content_message' => (User::updateUser($uid, $user_data,
-                            $app) ? "User updated successfully" : "User couldn't be updated")
-                    ));
-                } elseif (User::userExists($user_data['email'], $app)) {
-                    $app->setTemplateData(array('content_message' => 'User with email ' . $user_data['email'] . ' already exists. Try different email'));
-                } elseif (User::addUser($user_data, $app)) {
-                    $app->setTemplateData(array('content_message' => "New user added."));
-                } else {
-                    $app->setTemplateData(array('content_message' => "User couldn't be saved."));
-                }
-            }
-
-            $app->setTemplateData(array('users' => User::getUsers($app)));
-        } else {
+        if ($user_info['utype'] != 1) {
             $app->setTemplateData(array('content_message' => 'Not found or accessible'));
+            $this->display($app, 'list_users.twig');
+            return;
         }
+
+        if (isset($params['opt']) && isset($params['uid'])) {
+            if ($params['opt'] == "enable") {
+                $msg = (User::setState(0, $params['uid'], $app)) ? "User Enabled" : "User state change failed";
+                $app->setTemplateData(array('content_message' => $msg));
+            } elseif ($params['opt'] == "disable") {
+                $msg = (User::setState(1, $params['uid'], $app)) ? "User Disabled" : "User state change failed";
+                $app->setTemplateData(array('content_message' => $msg));
+            } elseif ($params['opt'] == "edit") {
+                $update_user = User::getUserById($params['uid'], $app);
+                $app->setTemplateData(array('action' => 'edit', 'update_user' => $update_user));
+            } else {
+                $app->setTemplateData(array('content_message' => 'Not found or accessible'));
+            }
+        }
+
+        if ($app->getRequest()->getMethod() == "POST") {
+            $user_data = array(
+                'email' => trim($app->getRequest()->request->get('email')),
+                'pass' => trim($app->getRequest()->request->get('password')),
+                'firstname' => trim($app->getRequest()->request->get('name')),
+                'gender' => trim($app->getRequest()->request->get('gender')),
+                'date_ofbirth' => trim($app->getRequest()->request->get('birthdate')),
+                'ustatus' => 1,
+            );
+
+            if ($app->getRequest()->request->get('editval')) {
+                $uid = $app->getRequest()->request->get('editval');
+                $app->setTemplateData(array(
+                    'content_message' => (User::updateUser($uid, $user_data,
+                        $app) ? "User updated successfully" : "User couldn't be updated")
+                ));
+            } elseif (User::userExists($user_data['email'], $app)) {
+                $app->setTemplateData(array('content_message' => 'User with email ' . $user_data['email'] . ' already exists. Try different email'));
+            } elseif (User::addUser($user_data, $app)) {
+                $app->setTemplateData(array('content_message' => "New user added."));
+            } else {
+                $app->setTemplateData(array('content_message' => "User couldn't be saved."));
+            }
+        }
+
+        $app->setTemplateData(array('users' => User::getUsers($app)));
 
         $this->display($app, 'list_users.twig');
     }
