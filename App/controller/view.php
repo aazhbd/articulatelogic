@@ -271,12 +271,8 @@ class Views extends Controller
             if (isset($params['opt']) && isset($params['fid'])) {
                 $action = $params['opt'];
                 $file_id = $params['fid'];
-
-                $app->setTemplateData(
-                    array(
-                        'content_message' => (Files::setState(($action == "enable") ? 0 : 1, $file_id,
-                            $app)) ? 'File is ' . $action . 'd.' : 'State change failed'
-                    )
+                $app->setTemplateData(array('content_message' => (Files::setState(($action == "enable") ? 0 : 1, $file_id,
+                            $app)) ? 'File is ' . $action . 'd.' : 'State change failed')
                 );
             }
 
