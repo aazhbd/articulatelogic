@@ -112,39 +112,40 @@ class Views extends Controller
         ));
 
         $user_info = $app->getSession()->get('user_info');
-
-        if ($user_info['utype'] == 1) {
-            if ($app->getRequest()->getMethod() == "POST") {
-                $article_data = array(
-                    'uid' => $user_info['id'],
-                    'title' => trim($app->getRequest()->request->get('title')),
-                    'subtitle' => trim($app->getRequest()->request->get('subtitle')),
-                    'url' => strtolower(trim($app->getRequest()->request->get('aurl'))),
-                    'category_id' => trim($app->getRequest()->request->get('category')),
-                    'body' => trim($app->getRequest()->request->get('abody')),
-                    'state' => addslashes(trim($app->getRequest()->request->get('state'))),
-                );
-
-                $invalid_chars = array(" ", "\n", "/", "\\", "$", "#", "@", "^", "&", "*");
-                $article_data['url'] = str_replace($invalid_chars, "_", $article_data['url']);
-
-                if ($app->getRequest()->request->get('editval')) {
-                    $aid = trim($app->getRequest()->request->get('editval'));
-                    $app->setTemplateData(array(
-                        'content_message' => (Article::updateArticle($article_data, $aid,
-                            $app)) ? "Article updated successfully" : "Article update failed"
-                    ));
-                } elseif (Article::addArticle($article_data, $app)) {
-                    $app->setTemplateData(array('content_message' => "New article added successfully."));
-                } else {
-                    $app->setTemplateData(array('content_message' => "Article couldn't be saved."));
-                }
-            }
-
-            $app->setTemplateData(array('articles' => Article::getArticles($app)));
-        } else {
+        if ($user_info['utype'] != 1) {
             $app->setTemplateData(array('content_message' => 'Not found or accessible'));
+            $this->display($app, 'list_article.twig');
+            return;
         }
+
+        if ($app->getRequest()->getMethod() == "POST") {
+            $article_data = array(
+                'uid' => $user_info['id'],
+                'title' => trim($app->getRequest()->request->get('title')),
+                'subtitle' => trim($app->getRequest()->request->get('subtitle')),
+                'url' => strtolower(trim($app->getRequest()->request->get('aurl'))),
+                'category_id' => trim($app->getRequest()->request->get('category')),
+                'body' => trim($app->getRequest()->request->get('abody')),
+                'state' => addslashes(trim($app->getRequest()->request->get('state'))),
+            );
+
+            $invalid_chars = array(" ", "\n", "/", "\\", "$", "#", "@", "^", "&", "*");
+            $article_data['url'] = str_replace($invalid_chars, "_", $article_data['url']);
+
+            if ($app->getRequest()->request->get('editval')) {
+                $aid = trim($app->getRequest()->request->get('editval'));
+                $app->setTemplateData(array(
+                    'content_message' => (Article::updateArticle($article_data, $aid,
+                        $app)) ? "Article updated successfully" : "Article update failed"
+                ));
+            } elseif (Article::addArticle($article_data, $app)) {
+                $app->setTemplateData(array('content_message' => "New article added successfully."));
+            } else {
+                $app->setTemplateData(array('content_message' => "Article couldn't be saved."));
+            }
+        }
+
+        $app->setTemplateData(array('articles' => Article::getArticles($app)));
 
         $this->display($app, 'list_article.twig');
     }
