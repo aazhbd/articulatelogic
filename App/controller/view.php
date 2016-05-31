@@ -272,53 +272,56 @@ class Views extends Controller
 
         $user_info = $app->getSession()->get('user_info');
 
-        if ($user_info['utype'] == 1) {
-            if (isset($params['opt']) && isset($params['fid'])) {
-                $action = $params['opt'];
-                $file_id = $params['fid'];
-                $app->setTemplateData(array('content_message' => (Files::setState(($action == "enable") ? 0 : 1, $file_id,
-                            $app)) ? 'File is ' . $action . 'd.' : 'State change failed')
-                );
+        if ($user_info['utype'] != 1) {
+            $app->setTemplateData(array('content_message' => 'Not found or accessible'));
+            $this->display($app, 'list_files.twig');
+            return;
+        }
+
+        if (isset($params['opt']) && isset($params['fid'])) {
+            $action = $params['opt'];
+            $file_id = $params['fid'];
+            $app->setTemplateData(array(
+                    'content_message' => (Files::setState(($action == "enable") ? 0 : 1, $file_id,
+                        $app)) ? 'File is ' . $action . 'd.' : 'State change failed'
+                )
+            );
+        }
+
+        if ($app->getRequest()->getMethod() == "POST") {
+            $file_info = array(
+                'name' => trim($app->getRequest()->request->get('filename')),
+                'state' => 0,
+            );
+            $uploaded_file = $app->getRequest()->files->get('filecontent');
+
+            $moved = false;
+            if ($uploaded_file instanceof UploadedFile && $uploaded_file->getError() == 0) {
+                try {
+                    $file_info['name'] = ($file_info['name'] == "") ? Files::setProperName($uploaded_file->getClientOriginalName(),
+                        $app) : Files::setProperName($file_info['name'], $app);
+                    $file_info['mtype'] = $uploaded_file->getMimeType();
+                    $file_info['ftype'] = Files::getFileExt($uploaded_file->getClientOriginalName());
+                    $file_info['path'] = $file_info['name'];
+                    $uploaded_file->move($file_dir, $file_info['name']);
+                    $moved = true;
+                } catch (\Exception $ex) {
+                    $app->getErrorManager()->addMessage("Error : " . $ex->getMessage());
+                }
             }
 
-            if ($app->getRequest()->getMethod() == "POST") {
-                $file_info = array(
-                    'name' => trim($app->getRequest()->request->get('filename')),
-                    'state' => 0,
-                );
-                $uploaded_file = $app->getRequest()->files->get('filecontent');
-
-                $moved = false;
-
-                if ($uploaded_file instanceof UploadedFile && $uploaded_file->getError() == 0) {
-                    try {
-                        $file_info['name'] = ($file_info['name'] == "") ? Files::setProperName($uploaded_file->getClientOriginalName(),
-                            $app) : Files::setProperName($file_info['name'], $app);
-                        $file_info['mtype'] = $uploaded_file->getMimeType();
-                        $file_info['ftype'] = Files::getFileExt($uploaded_file->getClientOriginalName());
-                        $file_info['path'] = $file_info['name'];
-                        $uploaded_file->move($file_dir, $file_info['name']);
-                        $moved = true;
-                    } catch (\Exception $ex) {
-                        $app->getErrorManager()->addMessage("Error : " . $ex->getMessage());
-                    }
-                }
-
-                if ($moved && file_exists($file_dir . "/" . $file_info['name'])) {
-                    if (Files::addFile($file_info, $app)) {
-                        $app->setTemplateData(array('content_message' => 'New file successfully added'));
-                    } else {
-                        $app->setTemplateData(array('content_message' => 'New file save failed'));
-                    }
+            if ($moved && file_exists($file_dir . "/" . $file_info['name'])) {
+                if (Files::addFile($file_info, $app)) {
+                    $app->setTemplateData(array('content_message' => 'New file successfully added'));
                 } else {
                     $app->setTemplateData(array('content_message' => 'New file save failed'));
                 }
+            } else {
+                $app->setTemplateData(array('content_message' => 'New file save failed'));
             }
-
-            $app->setTemplateData(array('files' => Files::getFiles($app)));
-        } else {
-            $app->setTemplateData(array('content_message' => 'Not found or accessible'));
         }
+
+        $app->setTemplateData(array('files' => Files::getFiles($app)));
 
         $this->display($app, 'list_files.twig');
     }
