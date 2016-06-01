@@ -212,48 +212,38 @@ class Views extends Controller
         ));
 
         $user_info = $app->getSession()->get('user_info');
-
-        if ($user_info['utype'] == 1) {
-            if (isset($params[2])) {
-                $action = $params[1];
-                $cat_id = $params[2];
-
-                if ($action == "edit") {
-                    $cat_pre = Category::getCategoryById($cat_id, $app);
-                    $app->setTemplateData(array('action' => 'edit', 'cat_id' => $cat_id, 'cat_pre' => $cat_pre));
-                } else {
-                    $app->setTemplateData(array(
-                            'content_message' => (Category::setState(($action == "enable") ? 0 : 1, $cat_id,
-                                $app)) ? 'Category is ' . $params[1] . 'd.' : 'State change failed'
-                        )
-                    );
-                }
-            }
-
-            if ($app->getRequest()->getMethod() == "POST") {
-                $category = array(
-                    'catname' => trim($app->getRequest()->request->get('catname')),
-                );
-
-                if ($app->getRequest()->request->get('editval')) {
-                    $cid = $app->getRequest()->request->get('editval');
-                    $app->setTemplateData(
-                        array(
-                            'content_message' => (Category::updateCategory($cid, $category,
-                                $app)) ? 'Category successfully updated' : 'Category save failed'
-                        )
-                    );
-                } elseif (Category::addCategory($category, $app)) {
-                    $app->setTemplateData(array('content_message' => 'New category successfully added'));
-                } else {
-                    $app->setTemplateData(array('content_message' => 'New category save failed'));
-                }
-            }
-
-            $app->setTemplateData(array('categories' => Category::getCategories($app)));
-        } else {
+        if ($user_info['utype'] != 1) {
             $app->setTemplateData(array('content_message' => 'Not found or accessible'));
+            $this->display($app, 'list_category.twig');
+            return;
         }
+
+        if (isset($params[2])) {
+            $action = $params[1];
+            $cat_id = $params[2];
+
+            if ($action == "edit") {
+                $cat_pre = Category::getCategoryById($cat_id, $app);
+                $app->setTemplateData(array('action' => 'edit', 'cat_id' => $cat_id, 'cat_pre' => $cat_pre));
+            } else {
+                $app->setTemplateData(array('content_message' => (Category::setState(($action == "enable") ? 0 : 1, $cat_id, $app)) ? 'Category is ' . $params[1] . 'd.' : 'State change failed'));
+            }
+        }
+
+        if ($app->getRequest()->getMethod() == "POST") {
+            $category = array('catname' => trim($app->getRequest()->request->get('catname')));
+
+            if ($app->getRequest()->request->get('editval')) {
+                $cid = $app->getRequest()->request->get('editval');
+                $app->setTemplateData(array('content_message' => (Category::updateCategory($cid, $category, $app)) ? 'Category successfully updated' : 'Category save failed'));
+            } elseif (Category::addCategory($category, $app)) {
+                $app->setTemplateData(array('content_message' => 'New category successfully added'));
+            } else {
+                $app->setTemplateData(array('content_message' => 'New category save failed'));
+            }
+        }
+
+        $app->setTemplateData(array('categories' => Category::getCategories($app)));
 
         $this->display($app, 'list_category.twig');
     }
