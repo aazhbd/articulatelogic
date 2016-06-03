@@ -365,10 +365,8 @@ class Views extends Controller
 
             if ($app->getRequest()->request->get('editval')) {
                 $uid = $app->getRequest()->request->get('editval');
-                $app->setTemplateData(array(
-                    'content_message' => (User::updateUser($uid, $user_data,
-                        $app) ? "User updated successfully" : "User couldn't be updated")
-                ));
+                $msg = User::updateUser($uid, $user_data, $app) ? "User updated successfully" : "User couldn't be updated";
+                $app->setTemplateData(array('content_message' => $msg));
             } elseif (User::userExists($user_data['email'], $app)) {
                 $app->setTemplateData(array('content_message' => 'User with email ' . $user_data['email'] . ' already exists. Try different email'));
             } elseif (User::addUser($user_data, $app)) {
@@ -389,7 +387,7 @@ class Views extends Controller
      */
     public function viewLogin($params, $app)
     {
-        $app->setTemplateData(array('title' => 'Login',));
+        $app->setTemplateData(array('title' => 'Login'));
 
         if ($app->getRequest()->getMethod() == "POST") {
             $user_data = array(
@@ -424,6 +422,7 @@ class Views extends Controller
                 'content_message' => 'The user is successfully added and can login',
             ));
         }
+
         $this->display($app, 'frm_login.twig');
     }
 
