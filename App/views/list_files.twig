@@ -93,7 +93,7 @@
                 <tbody>
                 {% for a in files %}
                     <tr>
-                        <td><img src="{{ path_static }}images/fileicons/{{ a.ftype }}.png"> {{ a.id }}</td>
+                        <td><img src="{{ path_static }}images/fileicons/{{ a.ftype }}.png" class="rowicon"> {{ a.id }}</td>
                         <td><a href="{{ path_url_postfix }}/file/view/{{ a.name }}/">{{ a.name|slice(0, 40) }}</a></td>
                         <td>{{ a.ftype }}</td>
                         <td>{{ a.mtype }}</td>
