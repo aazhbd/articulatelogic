@@ -14,22 +14,19 @@
         var url_path = '{{ path_url }}';
 
         function rewriteUrl(url) {
-            if(url.indexOf("http") < 0) {
+            if (url.indexOf("http") < 0) {
                 url = url_path + '/' + url;
             }
             return url;
         }
-
         $(document).ready(function () {
             if ($("#errors").html() == '') {
                 $("#errors").hide();
             }
-
             $('img').each(function () {
                 var url = rewriteUrl($(this).attr('src'));
                 $(this).attr("src", url);
             });
-
             $('.product_gallery').bxSlider({
                 adaptiveHeight: true,
                 auto: true,
@@ -40,16 +37,14 @@
         });
     </script>
 {% endblock %}
-
 {% block contentbody %}
     {% if articles %}
         <div class="product_gallery">
-        {% for a in articles %}
-            <div class="row collapse slide-pane">
-                <div class="body">{{ a.body|raw }}</div>
-            </div>
-        {% endfor %}
+            {% for a in articles %}
+                <div class="row collapse slide-pane">
+                    <div class="body">{{ a.body|raw }}</div>
+                </div>
+            {% endfor %}
         </div>
     {% endif %}
 {% endblock %}
-
