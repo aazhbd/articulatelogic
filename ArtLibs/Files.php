@@ -38,7 +38,7 @@ class Files
      * @param $app
      * @return string
      */
-    public static function setProperName($name, $app)
+    public static function setProperPath($name, $extension, $app)
     {
         $user_info = $app->getSession()->get('user_info');
         $id = $user_info['id'];
@@ -47,9 +47,19 @@ class Files
         }
 
         $chars = array(" ", "/", "\\", "<", ">", ":", "\"", "|", "?", "*", "-");
-        $name = str_replace($chars, "_", $name);
+        $name = str_replace($chars, "_", $name) . "." . $extension;
 
         return $name;
+    }
+
+    /**
+     * @param $name
+     * @return string
+     */
+    public static function setProperName($name)
+    {
+        $chars = array(" ", "/", "\\", "<", ">", ":", "\"", "|", "?", "*", "-");
+        return str_replace($chars, "_", $name);
     }
 
     /**

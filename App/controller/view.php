@@ -305,19 +305,18 @@ class Views extends Controller
             $moved = false;
             if ($uploaded_file instanceof UploadedFile && $uploaded_file->getError() == 0) {
                 try {
-                    $file_info['name'] = ($file_info['name'] == "") ? Files::setProperName($uploaded_file->getClientOriginalName(),
-                        $app) : Files::setProperName($file_info['name'], $app);
+                    $file_info['name'] = ($file_info['name'] == "") ? Files::setProperName($uploaded_file->getClientOriginalName()) : Files::setProperName($file_info['name']);
                     $file_info['mtype'] = $uploaded_file->getMimeType();
                     $file_info['ftype'] = Files::getFileExt($uploaded_file->getClientOriginalName());
-                    $file_info['path'] = $file_info['name'];
-                    $uploaded_file->move($file_dir, $file_info['name']);
+                    $file_info['path'] = ($file_info['name'] == "") ? Files::setProperPath($uploaded_file->getClientOriginalName(), $file_info['ftype'], $app) : Files::setProperPath($file_info['name'], $file_info['ftype'], $app);
+                    $uploaded_file->move($file_dir, $file_info['path']);
                     $moved = true;
                 } catch (\Exception $ex) {
                     $app->getErrorManager()->addMessage("Error : " . $ex->getMessage());
                 }
             }
 
-            if ($moved && file_exists($file_dir . "/" . $file_info['name'])) {
+            if ($moved && file_exists($file_dir . "/" . $file_info['path'])) {
                 if (Files::addFile($file_info, $app)) {
                     $app->setTemplateData(array('content_message' => 'New file successfully added'));
                 } else {
