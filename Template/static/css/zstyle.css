@@ -288,10 +288,14 @@ img {
 }
 
 #medialist {
-    height: 200px;
+    height: 100px;
     overflow-x: scroll;
     width: 100%;
     margin: 20px;
+}
+
+.mediaitem {
+    float: left;
 }
 
 /* end selectors */

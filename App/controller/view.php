@@ -180,6 +180,17 @@ class Views extends Controller
 
         $app->setTemplateData(array('categories' => Category::getCategories($app, 0)));
 
+        $files = Files::getFiles($app);
+
+        foreach($files as $k => $f) {
+            $icon_path = $app->getConfManager()->getPath() . "/Template/static/images/fileicons/" . $f['ftype'] . '.png';
+            if(!file_exists($icon_path)) {
+                $files[$k]['ftype'] = 'unknown';
+            }
+        }
+
+        $app->setTemplateData(array('files' => $files));
+
         $this->display($app, 'frm_article.twig');
     }
 
