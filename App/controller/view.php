@@ -79,32 +79,6 @@ class Views extends Controller
      * @param $params
      * @param $app
      */
-    public function showFile($params, $app)
-    {
-        $app->setTemplateData(array('title' => 'Not found'));
-        $file = false;
-
-        if (isset($params['fname'])) {
-            $file = Files::getFile($app, $params['fname'], 0);
-        }
-
-        if (!$file) {
-            $this->display($app, 'list_article.twig');
-            return;
-        }
-
-        $user_var = $app->getConfManager()->getUserVar();
-        $file_dir = $user_var['files_dir'];
-        $file_path = $file['path'];
-        $mtype = $file['mtype'];
-
-        $this->fileResponse($app, $file_dir . "/" . $file_path, ($params['opt'] == "download"), $mtype);
-    }
-
-    /**
-     * @param $params
-     * @param $app
-     */
     public function viewArticleList($params, $app)
     {
         $app->setTemplateData(array(
@@ -263,6 +237,32 @@ class Views extends Controller
         $app->setTemplateData(array('categories' => Category::getCategories($app)));
 
         $this->display($app, 'list_category.twig');
+    }
+
+    /**
+     * @param $params
+     * @param $app
+     */
+    public function showFile($params, $app)
+    {
+        $app->setTemplateData(array('title' => 'Not found'));
+        $file = false;
+
+        if (isset($params['fname'])) {
+            $file = Files::getFile($app, $params['fname'], 0);
+        }
+
+        if (!$file) {
+            $this->display($app, 'list_article.twig');
+            return;
+        }
+
+        $user_var = $app->getConfManager()->getUserVar();
+        $file_dir = $user_var['files_dir'];
+        $file_path = $file['path'];
+        $mtype = $file['mtype'];
+
+        $this->fileResponse($app, $file_dir . "/" . $file_path, ($params['opt'] == "download"), $mtype);
     }
 
     /**
