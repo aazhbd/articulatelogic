@@ -288,7 +288,7 @@ img {
 }
 
 #medialist {
-    height: 100px;
+    height: 155px;
     overflow-x: scroll;
     width: 100%;
     margin-top: 40px;
@@ -296,6 +296,7 @@ img {
 
 .mediaitem {
     float: left;
+    margin: 10px;
 }
 
 /* end selectors */

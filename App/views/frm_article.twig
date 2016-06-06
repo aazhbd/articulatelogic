@@ -99,10 +99,18 @@
         <div id="medialist">
             {% if files %}
                 {% for a in files %}
-                <div class="mediaitem">
-                    <img src="{{ path_static }}images/fileicons/{{ a.ftype }}.png">
-                    <a href="{{ path_url_postfix }}/file/view/{{ a.name }}/">{{ a.name|slice(0, 40) }}</a>
-                </div>
+                    <table class="mediaitem">
+                        <tr>
+                            <td align="center">
+                                <img src="{{ path_static }}images/fileicons/{{ a.ftype }}.png">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="{{ path_url_postfix }}/file/view/{{ a.name }}/">{{ a.name|slice(0, 20) }}</a>
+                            </td>
+                        </tr>
+                    </table>
                 {% endfor %}
             {% endif %}
         </div>
