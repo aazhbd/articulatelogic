@@ -100,8 +100,8 @@
             {% if files %}
                 {% for a in files %}
                 <div class="mediaitem">
-                    <a href="{{ path_url_postfix }}/file/view/{{ a.name }}/">{{ a.name|slice(0, 40) }}</a>
                     <img src="{{ path_static }}images/fileicons/{{ a.ftype }}.png">
+                    <a href="{{ path_url_postfix }}/file/view/{{ a.name }}/">{{ a.name|slice(0, 40) }}</a>
                 </div>
                 {% endfor %}
                 </table>
