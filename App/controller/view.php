@@ -156,9 +156,9 @@ class Views extends Controller
 
         $files = Files::getFiles($app);
 
-        foreach($files as $k => $f) {
+        foreach ($files as $k => $f) {
             $icon_path = $app->getConfManager()->getPath() . "/Template/static/images/fileicons/" . $f['ftype'] . '.png';
-            if(!file_exists($icon_path)) {
+            if (!file_exists($icon_path)) {
                 $files[$k]['ftype'] = 'unknown';
             }
         }
@@ -302,7 +302,9 @@ class Views extends Controller
                     $file_info['name'] = ($file_info['name'] == "") ? Files::setProperName($uploaded_file->getClientOriginalName()) : Files::setProperName($file_info['name']);
                     $file_info['mtype'] = $uploaded_file->getMimeType();
                     $file_info['ftype'] = Files::getFileExt($uploaded_file->getClientOriginalName());
-                    $file_info['path'] = ($file_info['name'] == "") ? Files::setProperPath($uploaded_file->getClientOriginalName(), $file_info['ftype'], $app) : Files::setProperPath($file_info['name'], $file_info['ftype'], $app);
+                    $file_info['path'] = ($file_info['name'] == "") ? Files::setProperPath($uploaded_file->getClientOriginalName(),
+                        $file_info['ftype'], $app) : Files::setProperPath($file_info['name'], $file_info['ftype'],
+                        $app);
                     $uploaded_file->move($file_dir, $file_info['path']);
                     $moved = true;
                 } catch (\Exception $ex) {
@@ -323,9 +325,9 @@ class Views extends Controller
 
         $files = Files::getFiles($app);
 
-        foreach($files as $k => $f) {
+        foreach ($files as $k => $f) {
             $icon_path = $app->getConfManager()->getPath() . "/Template/static/images/fileicons/" . $f['ftype'] . '.png';
-            if(!file_exists($icon_path)) {
+            if (!file_exists($icon_path)) {
                 $files[$k]['ftype'] = 'unknown';
             }
         }
@@ -378,7 +380,8 @@ class Views extends Controller
 
             if ($app->getRequest()->request->get('editval')) {
                 $uid = $app->getRequest()->request->get('editval');
-                $msg = User::updateUser($uid, $user_data, $app) ? "User updated successfully" : "User couldn't be updated";
+                $msg = User::updateUser($uid, $user_data,
+                    $app) ? "User updated successfully" : "User couldn't be updated";
                 $app->setTemplateData(array('content_message' => $msg));
             } elseif (User::userExists($user_data['email'], $app)) {
                 $app->setTemplateData(array('content_message' => 'User with email ' . $user_data['email'] . ' already exists. Try different email'));
