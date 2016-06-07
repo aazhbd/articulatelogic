@@ -86,18 +86,18 @@ class Files
     }
 
     /**
-     * @param $fname
      * @param $app
+     * @param $name
      * @param null $state
      * @return null
      */
-    public static function getFile($app, $fname, $state = null)
+    public static function getFile($app, $name, $state = null)
     {
         if ($state !== null) {
-            $cond = array("name" => $fname, "state" => $state);
-        } else {
-            $cond = array("name" => $fname);
+            $cond['state'] = $state;
         }
+
+        $cond['name'] = $name;
 
         try {
             $query = $app->getDataManager()->getDataManager()->from("files")
