@@ -245,14 +245,10 @@ class Views extends Controller
      */
     public function showFile($params, $app)
     {
-        $app->setTemplateData(array('title' => 'Not found'));
-        $file = false;
-
-        if (isset($params['fname'])) {
-            $file = Files::getFile($app, $params['fname'], 0);
-        }
+        $file = Files::getFile($app, $params['fname'], 0);
 
         if (!$file) {
+            $app->setTemplateData(array('title' => 'Not found'));
             $this->display($app, 'list_article.twig');
             return;
         }
