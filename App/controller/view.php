@@ -258,11 +258,9 @@ class Views extends Controller
         }
 
         $user_var = $app->getConfManager()->getUserVar();
-        $file_dir = $user_var['files_dir'];
-        $file_path = $file['path'];
-        $mtype = $file['mtype'];
+        $file_dir = $user_var['files_dir'] . '/' . $file['path'];
 
-        $this->fileResponse($app, $file_dir . "/" . $file_path, ($params['opt'] == "download"), $mtype);
+        $this->fileResponse($app, $file_dir, ($params['opt'] == "download"), $file['mtype']);
     }
 
     /**
