@@ -15,7 +15,7 @@
 
             $('.mediaitem a').click(function () {
                 var str = $(this).attr("href");
-                if($(this).attr("data-download") == 'false') {
+                if ($(this).attr("data-download") == 'false') {
                     tinymce.activeEditor.execCommand('mceInsertContent', false, " <img src=" + str + " /> ");
                 }
                 else {
@@ -131,9 +131,11 @@
                         <tr>
                             <td align="center">
                                 {% if a.ftype == 'png' or a.ftype == 'jpg' or a.ftype == 'gif' %}
-                                    <a class="pure-button pure-button-primary" data-download="false" href="{{ path_url_postfix }}/file/view/{{ a.name }}/">Add to article</a>
+                                    <a class="pure-button pure-button-primary" data-download="false"
+                                       href="{{ path_url_postfix }}/file/view/{{ a.name }}/">Add to article</a>
                                 {% else %}
-                                    <a class="pure-button pure-button-primary" data-download="true" href="{{ path_url_postfix }}/file/download/{{ a.name }}/">Add to article</a>
+                                    <a class="pure-button pure-button-primary" data-download="true"
+                                       href="{{ path_url_postfix }}/file/download/{{ a.name }}/">Add to article</a>
                                 {% endif %}
                             </td>
                         </tr>
