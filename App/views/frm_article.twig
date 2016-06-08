@@ -15,7 +15,12 @@
 
             $('.mediaitem a').click(function () {
                 var str = $(this).attr("href");
-                tinymce.activeEditor.execCommand('mceInsertContent', false, " <img src=" + str + " />");
+                if($(this).attr("data-download") == 'false') {
+                    tinymce.activeEditor.execCommand('mceInsertContent', false, " <img src=" + str + " /> ");
+                }
+                else {
+                    tinymce.activeEditor.execCommand('mceInsertContent', false, " <a href='" + str + "'>" + str + "</a> ");
+                }
                 return false;
             });
 
@@ -125,8 +130,11 @@
                         </tr>
                         <tr>
                             <td align="center">
-                                <a class="pure-button pure-button-primary"
-                                   href="{{ path_url_postfix }}/file/view/{{ a.name }}/">Add to article</a>
+                                {% if a.ftype == 'png' or a.ftype == 'jpg' or a.ftype == 'gif' %}
+                                    <a class="pure-button pure-button-primary" data-download="false" href="{{ path_url_postfix }}/file/view/{{ a.name }}/">Add to article</a>
+                                {% else %}
+                                    <a class="pure-button pure-button-primary" data-download="true" href="{{ path_url_postfix }}/file/download/{{ a.name }}/">Add to article</a>
+                                {% endif %}
                             </td>
                         </tr>
                     </table>
