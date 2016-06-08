@@ -12,7 +12,7 @@ class Files
     public static function getFileExt($filename)
     {
         $r = explode(".", $filename);
-        return $r[sizeof($r) - 1];
+        return strtolower($r[sizeof($r) - 1]);
     }
 
     /**
