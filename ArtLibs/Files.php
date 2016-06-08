@@ -47,9 +47,7 @@ class Files
         }
 
         $chars = array(" ", "/", "\\", "<", ">", ":", "\"", "|", "?", "*", "-");
-        $name = str_replace($chars, "_", $name) . "." . $extension;
-
-        return $name;
+        return strtolower(str_replace($chars, "_", $name) . "." . $extension);
     }
 
     /**
@@ -59,7 +57,7 @@ class Files
     public static function setProperName($name)
     {
         $chars = array(" ", "/", "\\", "<", ">", ":", "\"", "|", "?", "*", "-");
-        return str_replace($chars, "_", $name);
+        return strtolower(str_replace($chars, "_", $name));
     }
 
     /**
