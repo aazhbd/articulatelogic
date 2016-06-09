@@ -132,7 +132,7 @@
                             <td align="center">
                                 {% if a.ftype == 'png' or a.ftype == 'jpg' or a.ftype == 'gif' %}
                                     <a class="pure-button pure-button-primary" data-download="false"
-                                       href="file/view/{{ a.name }}/">Add to article</a>
+                                       href="{{ path_url_postfix }}/file/view/{{ a.name }}/">Add to article</a>
                                 {% else %}
                                     <a class="pure-button pure-button-primary" data-download="true"
                                        href="{{ path_url_postfix }}/file/download/{{ a.name }}/">Add to article</a>
