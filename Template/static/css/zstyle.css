@@ -15,6 +15,7 @@ body {
     color: #000;
     margin: 0 auto;
     position: absolute;
+    background: #f1f1f1;
 }
 
 div {
@@ -170,7 +171,6 @@ img {
 
 #contentbody {
     margin: 56px auto;
-    background: #fff no-repeat;
     padding: 0 10%;
     min-height: 640px;
     border-radius: 0.8em;
@@ -218,7 +218,7 @@ img {
 .title {
     font-size: 2em;
     color: #1D62B3;
-    padding: 1em 0;
+    padding: 20px;
 }
 
 /* title ends here */
@@ -228,8 +228,7 @@ img {
 .subtitle {
     color: #000;
     font-size: 1.1em;
-    padding-top: .1em;
-    padding-bottom: 0.2em;
+    padding: 20px;
 }
 
 /* subtitle ends here */
@@ -240,8 +239,9 @@ img {
     color: #2b2b2b;
     text-align: justify;
     font-size: 1em;
-    padding: .5em 0;
+    padding: 20px;
     line-height: 1.9em;
+    background: #fff;
 }
 
 /* body ends here */
