@@ -13,8 +13,9 @@ class TemplateManager
     {
         $this->template = new \Twig_Environment(
             new \Twig_Loader_Filesystem(
-                    $app->getConfManager()->getPath(),
-                    array('debug' => $app->getConfManager()->getDevelopmentMode()
+                $app->getConfManager()->getPath(),
+                array(
+                    'debug' => $app->getConfManager()->getDevelopmentMode()
                 )
             )
         );
