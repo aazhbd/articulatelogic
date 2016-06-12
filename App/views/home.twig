@@ -20,37 +20,47 @@
                     <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
                         <a href="{{ path_url_postfix }}/a/services" class="pure-menu-link">Services</a>
                         <ul class="pure-menu-children">
-                            <li class="pure-menu-item"><a href="{{ path_url_postfix }}/a/bsoft" class="pure-menu-link">Software
-                                    Solutions</a></li>
-                            <li class="pure-menu-item"><a href="{{ path_url_postfix }}/a/research"
-                                                          class="pure-menu-link">Research & Development</a></li>
-                            <li class="pure-menu-item"><a href="{{ path_url_postfix }}/a/webmarketing"
-                                                          class="pure-menu-link">Web Marketing</a></li>
-                            <li class="pure-menu-item"><a href="{{ path_url_postfix }}/a/consultancy"
-                                                          class="pure-menu-link">Consultancy</a></li>
+                            <li class="pure-menu-item">
+                                <a href="{{ path_url_postfix }}/a/bsoft" class="pure-menu-link">Software Solutions</a>
+                            </li>
+                            <li class="pure-menu-item">
+                                <a href="{{ path_url_postfix }}/a/research" class="pure-menu-link">Research & Development</a>
+                            </li>
+                            <li class="pure-menu-item">
+                                <a href="{{ path_url_postfix }}/a/webmarketing" class="pure-menu-link">Web Marketing</a>
+                            </li>
+                            <li class="pure-menu-item">
+                                <a href="{{ path_url_postfix }}/a/consultancy" class="pure-menu-link">Consultancy</a>
+                            </li>
                         </ul>
                     </li>
                     <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
                         <a href="{{ path_url_postfix }}/a/organization" class="pure-menu-link">About</a>
                         <ul class="pure-menu-children">
-                            <li class="pure-menu-item"><a href="{{ path_url_postfix }}/a/methodology"
-                                                          class="pure-menu-link">Methodology</a></li>
-                            <li class="pure-menu-item"><a href="{{ path_url_postfix }}/a/contact"
-                                                          class="pure-menu-link">Contact</a></li>
+                            <li class="pure-menu-item">
+                                <a href="{{ path_url_postfix }}/a/methodology" class="pure-menu-link">Methodology</a>
+                            </li>
+                            <li class="pure-menu-item">
+                                <a href="{{ path_url_postfix }}/a/contact" class="pure-menu-link">Contact</a>
+                            </li>
                         </ul>
                     </li>
                     {% if session.get('user_info').utype == 1 %}
                         <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
                             <a href="{{ path_url_postfix }}/home" class="pure-menu-link">Admin Menu</a>
                             <ul class="pure-menu-children">
-                                <li class="pure-menu-item"><a href="{{ path_url_postfix }}/user/list"
-                                                              class="pure-menu-link">Manage Users</a></li>
-                                <li class="pure-menu-item"><a href="{{ path_url_postfix }}/article/list"
-                                                              class="pure-menu-link">Manage Articles</a></li>
-                                <li class="pure-menu-item"><a href="{{ path_url_postfix }}/category/list"
-                                                              class="pure-menu-link">Manage Categories</a></li>
-                                <li class="pure-menu-item"><a href="{{ path_url_postfix }}/files/list"
-                                                              class="pure-menu-link">Manage Files</a></li>
+                                <li class="pure-menu-item">
+                                    <a href="{{ path_url_postfix }}/user/list" class="pure-menu-link">Manage Users</a>
+                                </li>
+                                <li class="pure-menu-item">
+                                    <a href="{{ path_url_postfix }}/article/list" class="pure-menu-link">Manage Articles</a>
+                                </li>
+                                <li class="pure-menu-item">
+                                    <a href="{{ path_url_postfix }}/category/list" class="pure-menu-link">Manage Categories</a>
+                                </li>
+                                <li class="pure-menu-item">
+                                    <a href="{{ path_url_postfix }}/files/list" class="pure-menu-link">Manage Files</a>
+                                </li>
                             </ul>
                         </li>
                     {% endif %}
@@ -59,9 +69,14 @@
         </div>
         <div id="topright">
             {% if session.get('is_authenticated') %}
-                <a class="pure-button pure-button-primary"
-                   href="{{ path_url_postfix }}/home">{% if session.get('user_info').firstname %}{{ session.get('user_info').firstname }}'s{% else %}User{% endif %}
-                    Home</a>
+                <a class="pure-button pure-button-primary" href="{{ path_url_postfix }}/home">
+                    {% if session.get('user_info').firstname %}
+                        {{ session.get('user_info').firstname }}'s
+                    {% else %}
+                        User
+                    {% endif %}
+                        Home
+                </a>
                 <a href="{{ path_url_postfix }}/logout">Logout</a>
             {% else %}
                 <a class="pure-button pure-button-primary" href="{{ path_url_postfix }}/login">Login</a>
