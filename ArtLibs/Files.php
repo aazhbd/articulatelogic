@@ -109,7 +109,6 @@ class Files
         return $query;
     }
 
-
     /**
      * @param $fid
      * @param $app
@@ -128,7 +127,6 @@ class Files
 
         return $query;
     }
-
 
     /**
      * @param array $file_info
@@ -154,7 +152,6 @@ class Files
         return $executed;
     }
 
-
     /**
      * @param $fid
      * @param array $file_info
@@ -179,7 +176,6 @@ class Files
 
         return $executed;
     }
-
 
     /**
      * @param $state
