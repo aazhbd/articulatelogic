@@ -6,16 +6,6 @@ namespace ArtLibs;
 class Files
 {
     /**
-     * @param $filename
-     * @return mixed
-     */
-    public static function getFileExt($filename)
-    {
-        $r = explode(".", $filename);
-        return strtolower($r[sizeof($r) - 1]);
-    }
-
-    /**
      * @param $app
      * @return string
      */
@@ -31,6 +21,16 @@ class Files
         }
 
         return $file_dir;
+    }
+
+    /**
+     * @param $filename
+     * @return mixed
+     */
+    public static function getFileExt($filename)
+    {
+        $r = explode(".", $filename);
+        return strtolower($r[sizeof($r) - 1]);
     }
 
     /**
