@@ -46,7 +46,7 @@ class Files
             $name = $id . date('_d_m_y_H_i_s_') . $name;
         }
 
-        $chars = array(" ", "/", "\\", "<", ">", ":", "\"", "|", "?", "*", "-");
+        $chars = array(" ", "/", "\\", "<", ">", ":", "\"", "'", "|", "?", "*", "-");
         return strtolower(str_replace($chars, "_", $name) . "." . $extension);
     }
 
@@ -56,7 +56,7 @@ class Files
      */
     public static function setProperName($name)
     {
-        $chars = array(" ", "/", "\\", "<", ">", ":", "\"", "|", "?", "*", "-");
+        $chars = array(" ", "/", "\\", "<", ">", ":", "\"", "'", "|", "?", "*", "-");
         return strtolower(str_replace($chars, "_", $name));
     }
 
