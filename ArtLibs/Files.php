@@ -117,9 +117,7 @@ class Files
     public static function getFileById($fid, $app)
     {
         try {
-            $query = $app->getDataManager()->getDataManager()->from("files")
-                ->where(array("id" => $fid,))
-                ->fetch();
+            $query = $app->getDataManager()->getDataManager()->from("files")->where(array("id" => $fid,))->fetch();
         } catch (\PDOException $ex) {
             $app->getErrorManager()->addMessage("Error : " . $ex->getMessage());
             return null;
