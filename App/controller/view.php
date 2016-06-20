@@ -130,16 +130,16 @@ class Views extends Controller
      */
     public function frmArticle($params, $app)
     {
+        $app->setTemplateData(array(
+            'title' => 'Add new article',
+        ));
+
         $user_info = $app->getSession()->get('user_info');
         if ($user_info['utype'] != 1) {
             $app->setTemplateData(array('content_message' => 'Not found or accessible'));
             $this->display($app, 'list_article.twig');
             return;
         }
-
-        $app->setTemplateData(array(
-            'title' => 'Add new article',
-        ));
 
         if (isset($params['opt']) && isset($params['aid'])) {
             $app->setTemplateData(array(
