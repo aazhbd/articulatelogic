@@ -18,6 +18,7 @@ class Views extends Controller
     {
         $app->setTemplateData(array(
             'title' => 'Home',
+            'page_title' => 'Home'
         ));
 
         if ($app->getRequest()->getMethod() == "POST") {
