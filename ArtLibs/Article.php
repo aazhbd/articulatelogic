@@ -17,7 +17,7 @@ class Article
         $cond = array();
 
         if($category_id !== null) {
-            $cond['category_id'] = $category_id;
+            $cond['category_id'] = (int)$category_id;
         }
 
         if($state !== null) {

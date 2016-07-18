@@ -44,7 +44,8 @@ class Views extends Controller
             return;
         }
 
-        $app->setTemplateData(array('articles' => Article::getArticles($app, 0, 6)));
+        $gallery = Category::getCategoryByName('gallery', $app);
+        $app->setTemplateData(array('articles' => Article::getArticles($app, 0, $gallery['id'])));
         $this->display($app, 'gallery.twig');
     }
 

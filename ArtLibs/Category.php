@@ -48,6 +48,25 @@ class Category
     }
 
     /**
+     * @param $cat_name
+     * @param $app
+     * @return null
+     */
+    public static function getCategoryByName($cat_name, $app)
+    {
+        try {
+            $query = $app->getDataManager()->getDataManager()->from("categories")
+                ->where(array("catname" => $cat_name,))
+                ->fetch();
+        } catch (\PDOException $ex) {
+            $app->getErrorManager()->addMessage("Error : " . $ex->getMessage());
+            return null;
+        }
+
+        return $query;
+    }
+
+    /**
      * @param array $category
      * @param $app
      * @return bool
