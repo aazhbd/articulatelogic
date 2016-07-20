@@ -179,6 +179,7 @@ img {
 }
 
 .productBox {
+    background: #fff;
     box-shadow: 0 0 4px 0 #bbb;
     opacity: 0.82;
     margin: 10px auto;
