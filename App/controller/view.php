@@ -1,5 +1,6 @@
 <?php
 
+use ArtLibs\Application;
 use ArtLibs\Article;
 use ArtLibs\Category;
 use ArtLibs\Controller;
@@ -14,7 +15,7 @@ class Views extends Controller
      * @param $params
      * @param $app
      */
-    public function viewHome($params, $app)
+    public function viewHome($params, Application $app)
     {
         $app->setTemplateData(array(
             'title' => 'Home',
@@ -53,7 +54,7 @@ class Views extends Controller
      * @param $params
      * @param $app
      */
-    public function viewArticle($params, $app)
+    public function viewArticle($params, Application $app)
     {
         $app->setTemplateData(array('title' => 'Not found'));
         $article = false;
@@ -81,7 +82,7 @@ class Views extends Controller
      * @param $params
      * @param $app
      */
-    public function viewArticleList($params, $app)
+    public function viewArticleList($params, Application $app)
     {
         $app->setTemplateData(array(
             'title' => 'Articles List',
@@ -130,7 +131,7 @@ class Views extends Controller
      * @param $params
      * @param $app
      */
-    public function frmArticle($params, $app)
+    public function frmArticle($params, Application $app)
     {
         $app->setTemplateData(array(
             'title' => 'Add new article',
@@ -172,7 +173,7 @@ class Views extends Controller
      * @param $params
      * @param $app
      */
-    public function viewDownloads($params, $app)
+    public function viewDownloads($params, Application $app)
     {
         $app->setTemplateData(array(
             'title' => 'Products',
@@ -190,7 +191,7 @@ class Views extends Controller
      * @param $params
      * @param $app
      */
-    public function viewCategoryList($params, $app)
+    public function viewCategoryList($params, Application $app)
     {
         $app->setTemplateData(array(
             'title' => 'Category List',
@@ -243,7 +244,7 @@ class Views extends Controller
      * @param $params
      * @param $app
      */
-    public function showFile($params, $app)
+    public function showFile($params, Application $app)
     {
         $file = Files::getFile($app, $params['fname'], 0);
 
@@ -263,7 +264,7 @@ class Views extends Controller
      * @param $params
      * @param $app
      */
-    public function viewFilesList($params, $app)
+    public function viewFilesList($params, Application $app)
     {
         $app->setTemplateData(array(
             'title' => 'Files List',
@@ -341,7 +342,7 @@ class Views extends Controller
      * @param $params
      * @param $app
      */
-    public function viewUserList($params, $app)
+    public function viewUserList($params, Application $app)
     {
         $app->setTemplateData(array('title' => 'Users List'));
 
@@ -401,7 +402,7 @@ class Views extends Controller
      * @param $params
      * @param $app
      */
-    public function viewLogin($params, $app)
+    public function viewLogin($params, Application $app)
     {
         $app->setTemplateData(array('title' => 'Login'));
 
@@ -446,7 +447,7 @@ class Views extends Controller
      * @param $params
      * @param $app
      */
-    public function viewSignup($params, $app)
+    public function viewSignup($params, Application $app)
     {
         $app->setTemplateData(array('title' => 'Signup',));
         $this->display($app, 'frm_signup.twig');
@@ -456,7 +457,7 @@ class Views extends Controller
      * @param $params
      * @param $app
      */
-    public function viewLogout($params, $app)
+    public function viewLogout($params, Application $app)
     {
         $app->setTemplateData(array('title' => 'Logout'));
 
@@ -472,6 +473,6 @@ class Views extends Controller
  * An open source web application development framework for PHP 5.
  * @author        ArticulateLogic Labs
  * @author        Abdullah Al Zakir Hossain, Email: aazhbd@yahoo.com
- * @copyright     Copyright (c)2009-2014 ArticulateLogic Labs
+ * @copyright     Copyright (c)2009-2016 ArticulateLogic Labs
  * @license       MIT License
  */
