@@ -12,7 +12,7 @@ class Article
      * @param null $category_id
      * @return bool
      */
-    public static function getArticles($app, $state=null, $category_id=null)
+    public static function getArticles(Application $app, $state=null, $category_id=null)
     {
         $cond = array();
 
@@ -41,7 +41,7 @@ class Article
      * @param $app
      * @return mixed
      */
-    public static function getArticleById($aid, $app)
+    public static function getArticleById($aid, Application $app)
     {
         if (!isset($aid)) {
             return false;
@@ -65,7 +65,7 @@ class Article
      * @param $app
      * @return bool
      */
-    public static function updateArticle($article_data, $aid, $app)
+    public static function updateArticle($article_data, $aid, Application $app)
     {
         if (!isset($article_data) || !isset($aid)) {
             return false;
@@ -89,7 +89,7 @@ class Article
      * @param $app
      * @return mixed
      */
-    public static function getArticleByUrl($aurl, $app)
+    public static function getArticleByUrl($aurl, Application $app)
     {
         if (!isset($aurl)) {
             return false;
@@ -112,7 +112,7 @@ class Article
      * @param $app
      * @return bool
      */
-    public static function addArticle($article_data, $app)
+    public static function addArticle($article_data, Application $app)
     {
         if (empty($article_data)) {
             return false;
