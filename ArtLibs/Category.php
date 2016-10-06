@@ -10,7 +10,7 @@ class Category
      * @param null $state
      * @return mixed
      */
-    public static function getCategories($app, $state = null)
+    public static function getCategories(Application $app, $state = null)
     {
         if (!isset($state)) {
             $query = $app->getDataManager()->getDataManager()->from("categories");
@@ -33,7 +33,7 @@ class Category
      * @param $app
      * @return mixed
      */
-    public static function getCategoryById($cat_id, $app)
+    public static function getCategoryById($cat_id, Application $app)
     {
         try {
             $query = $app->getDataManager()->getDataManager()->from("categories")
@@ -52,7 +52,7 @@ class Category
      * @param $app
      * @return null
      */
-    public static function getCategoryByName($cat_name, $app)
+    public static function getCategoryByName($cat_name, Application $app)
     {
         try {
             $query = $app->getDataManager()->getDataManager()->from("categories")
@@ -71,7 +71,7 @@ class Category
      * @param $app
      * @return bool
      */
-    public static function addCategory($category = array(), $app)
+    public static function addCategory($category = array(), Application $app)
     {
         if (empty($category)) {
             return false;
@@ -96,7 +96,7 @@ class Category
      * @param $app
      * @return bool
      */
-    public static function updateCategory($cat_id, $category = array(), $app)
+    public static function updateCategory($cat_id, $category = array(), Application $app)
     {
         if (empty($category) || !isset($cat_id)) {
             return false;
@@ -121,7 +121,7 @@ class Category
      * @param $app
      * @return bool
      */
-    public static function setState($state, $category_id, $app)
+    public static function setState($state, $category_id, Application $app)
     {
         if (!isset($state) || !isset($category_id)) {
             return false;
