@@ -27,7 +27,7 @@ class Article
         try {
             $query = $app->getDataManager()->getDataManager()->from("articles");
             $query->where($cond);
-            $q = $query->orderBy('date_inserted DESC')->fetchAll();
+            $q = $query->orderBy('date_inserted ASC')->fetchAll();
         } catch (\PDOException $ex) {
             $app->getErrorManager()->addMessage("Error : " . $ex->getMessage());
             return false;
