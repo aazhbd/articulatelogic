@@ -2,6 +2,11 @@
 
 {% block title %}
     {{ page_title|default('List of Files') }}
+    {% if action == "edit" %}
+        {{ page_title|default('Edit File') }}
+    {% else %}
+        {{ page_title|default('List of Files') }}
+    {% endif %}
 {% endblock %}
 
 {% block headtags %}
