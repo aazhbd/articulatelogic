@@ -9,7 +9,7 @@ class Files
      * @param $app
      * @return string
      */
-    public static function setUploadDir($app)
+    public static function setUploadDir(Application $app)
     {
         $user_var = $app->getConfManager()->getUserVar();
         $file_dir = ($user_var['files_dir'] == "") ? "." : $user_var['files_dir'];
@@ -38,7 +38,7 @@ class Files
      * @param $app
      * @return string
      */
-    public static function setProperPath($name, $extension, $app)
+    public static function setProperPath($name, $extension, Application $app)
     {
         $user_info = $app->getSession()->get('user_info');
         $id = $user_info['id'];
