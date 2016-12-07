@@ -35,7 +35,8 @@ class Files
 
     /**
      * @param $name
-     * @param $app
+     * @param $extension
+     * @param Application $app
      * @return string
      */
     public static function setProperPath($name, $extension, Application $app)
