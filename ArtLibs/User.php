@@ -101,7 +101,7 @@ class User
      * @param $app
      * @return bool
      */
-    public static function clearSession($app)
+    public static function clearSession(Application $app)
     {
         if (!$app->getSession()->get('is_authenticated')) {
             return false;
