@@ -19,7 +19,7 @@ class User
      * @param $email
      * @param $pass
      */
-    public function __construct($app, $email, $pass)
+    public function __construct(Application $app, $email, $pass)
     {
         $this->app = $app;
 
