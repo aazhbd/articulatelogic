@@ -186,7 +186,7 @@ class User
      * @param $app
      * @return mixed
      */
-    public static function getUsers($app)
+    public static function getUsers(Application $app)
     {
         try {
             $query = $app->getDataManager()->getDataManager()->from("users")->fetchAll();
