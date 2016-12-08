@@ -135,7 +135,7 @@ class User
 
     /**
      * @param array $uinfo
-     * @param $app
+     * @param Application $app
      * @return bool
      */
     public static function addUser($uinfo = array(), Application $app)
