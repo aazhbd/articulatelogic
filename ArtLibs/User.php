@@ -225,7 +225,7 @@ class User
      * @param $app
      * @return bool
      */
-    public static function setState($state, $uid, $app)
+    public static function setState($state, $uid, Application $app)
     {
         if (!isset($state) || !isset($uid)) {
             return false;
