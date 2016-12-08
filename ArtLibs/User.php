@@ -255,7 +255,7 @@ class User
      * @param mixed $app
      * @return User
      */
-    public function setApp($app)
+    public function setApp(Application $app)
     {
         $this->app = $app;
         return $this;
