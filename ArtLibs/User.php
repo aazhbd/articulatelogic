@@ -203,7 +203,7 @@ class User
      * @param $app
      * @return bool
      */
-    public static function getUserById($uid, $app)
+    public static function getUserById($uid, Application $app)
     {
         try {
             $query = $app->getDataManager()->getDataManager()->from("users")
