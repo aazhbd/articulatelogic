@@ -116,7 +116,7 @@ class User
      * @param $app
      * @return bool
      */
-    public static function userExists($email, $app)
+    public static function userExists($email, Application $app)
     {
         try {
             $query = $app->getDataManager()->getDataManager()->from("users")
