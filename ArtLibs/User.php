@@ -244,7 +244,7 @@ class User
     }
 
     /**
-     * @return mixed
+     * @return Application
      */
     public function getApp()
     {
