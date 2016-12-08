@@ -138,7 +138,7 @@ class User
      * @param $app
      * @return bool
      */
-    public static function addUser($uinfo = array(), $app)
+    public static function addUser($uinfo = array(), Application $app)
     {
         if (empty($uinfo)) {
             return false;
