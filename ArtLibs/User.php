@@ -113,7 +113,7 @@ class User
 
     /**
      * @param $email
-     * @param $app
+     * @param Application $app
      * @return bool
      */
     public static function userExists($email, Application $app)
