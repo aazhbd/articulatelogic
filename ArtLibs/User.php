@@ -200,7 +200,7 @@ class User
 
     /**
      * @param $uid
-     * @param $app
+     * @param Application $app
      * @return bool
      */
     public static function getUserById($uid, Application $app)
