@@ -160,7 +160,7 @@ class User
     /**
      * @param $uid
      * @param array $uinfo
-     * @param $app
+     * @param Application $app
      * @return bool
      */
     public static function updateUser($uid, $uinfo = array(), Application $app)
