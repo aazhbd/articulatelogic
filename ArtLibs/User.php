@@ -252,8 +252,8 @@ class User
     }
 
     /**
-     * @param mixed $app
-     * @return User
+     * @param Application $app
+     * @return $this
      */
     public function setApp(Application $app)
     {
