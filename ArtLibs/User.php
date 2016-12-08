@@ -222,7 +222,7 @@ class User
     /**
      * @param $state
      * @param $uid
-     * @param $app
+     * @param Application $app
      * @return bool
      */
     public static function setState($state, $uid, Application $app)
