@@ -163,7 +163,7 @@ class User
      * @param $app
      * @return bool
      */
-    public static function updateUser($uid, $uinfo = array(), $app)
+    public static function updateUser($uid, $uinfo = array(), Application $app)
     {
         if (empty($uinfo) || !isset($uid)) {
             return false;
