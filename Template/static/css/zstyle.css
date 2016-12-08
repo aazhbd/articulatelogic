@@ -206,11 +206,17 @@ img {
     float: right;
     padding: 10px 200px;
 }
+/* gallery styles */
 
 .product_gallery {
-    padding: 40px;
     display: block;
 }
+
+.bx-wrapper, .bx-viewport {
+    height: 720px !important;
+}
+
+/* gallery styles */
 
 /* contentbody ends here */
 
