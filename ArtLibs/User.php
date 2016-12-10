@@ -98,7 +98,7 @@ class User
     }
 
     /**
-     * @param $app
+     * @param Application $app
      * @return bool
      */
     public static function clearSession(Application $app)
