@@ -24,8 +24,8 @@ class Files
     }
 
     /**
-     * @param $filename
-     * @return mixed
+     * @param string $filename
+     * @return string
      */
     public static function getFileExt($filename)
     {
