@@ -1,7 +1,6 @@
 {% extends path_user_template ~ '/home.twig' %}
 
 {% block title %}
-    {{ page_title|default('List of Files') }}
     {% if action == "edit" %}
         {{ page_title|default('Edit File') }}
     {% else %}
