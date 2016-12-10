@@ -15,7 +15,7 @@ class User
 
     /**
      * User constructor.
-     * @param $app
+     * @param Application $app
      * @param $email
      * @param $pass
      */
