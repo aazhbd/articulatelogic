@@ -6,7 +6,7 @@ namespace ArtLibs;
 class Files
 {
     /**
-     * @param $app
+     * @param Application $app
      * @return string
      */
     public static function setUploadDir(Application $app)
