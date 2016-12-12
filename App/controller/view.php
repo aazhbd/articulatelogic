@@ -13,7 +13,7 @@ class Views extends Controller
 {
     /**
      * @param $params
-     * @param $app
+     * @param Application $app
      */
     public function viewHome($params, Application $app)
     {
