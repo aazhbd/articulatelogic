@@ -20,16 +20,18 @@
 
     {% for a in articles %}
         <div class="productBox">
-            <h2>
+            <div  class="details-top">
                 <a href="{{ path_url_postfix }}/a/{{ a.url }}/">{{ a.title }}</a>
-            </h2>
-            <p>
-                <a href="{{ path_url_postfix }}/a/{{ a.url }}/">{{ a.subtitle|slice(0, 280) }}</a>
-                <a class="pure-button details-right" href="{{ path_url_postfix }}/a/{{ a.url }}/">Details</a>
-            </p>
-            <p>
+            </div>
+            <div class="details-left">
+                <a href="{{ path_url_postfix }}/a/{{ a.url }}/">{{ a.subtitle }}</a>
+            </div>
+            <div class="details-right">
+                <a class="pure-button" href="{{ path_url_postfix }}/a/{{ a.url }}/">Details</a>
+            </div>
+            <div class="details-none">
                 <a href="{{ path_url_postfix }}/a/{{ a.url }}/">{{ a.date_inserted }}</a>
-            </p>
+            </div>
         </div>
     {% endfor %}
 {% endblock %}
