@@ -170,7 +170,7 @@ class Views extends Controller
 
     /**
      * @param $params
-     * @param $app
+     * @param Application $app
      */
     public function viewDownloads($params, Application $app)
     {
