@@ -7,7 +7,7 @@ class Article
 {
 
     /**
-     * @param $app
+     * @param Application $app
      * @param null $state
      * @param null $category_id
      * @return bool
