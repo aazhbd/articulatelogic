@@ -17,7 +17,7 @@ body {
     /*font: 0.8em Verdana, Helvetica, sans-serif;*/
     font-family: 'Open Sans', sans-serif, Verdana;
     font-size: 14px;
-    font-size: 1vmax;
+    font-size: 0.8vmax;
     color: #000;
     margin: 0 auto;
     position: absolute;
@@ -93,7 +93,7 @@ img {
 #navigatemenu {
     float: left;
     z-index: 999;
-    padding: 10px 0;
+    padding: 2px 0;
 }
 
 /* end head */
