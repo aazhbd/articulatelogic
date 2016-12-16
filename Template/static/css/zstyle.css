@@ -87,7 +87,7 @@ img {
     top: 0;
     padding: 0;
     width: 100%;
-    z-index: 999;
+    z-index: 900;
 }
 
 #navigatemenu {
@@ -142,7 +142,6 @@ img {
     width: 91%;
     margin: auto;
     padding: 0;
-    overflow: hidden;
     float: none;
     clear: both;
 }
