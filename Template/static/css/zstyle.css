@@ -17,11 +17,15 @@ body {
     /*font: 0.8em Verdana, Helvetica, sans-serif;*/
     font-family: 'Open Sans', sans-serif, Verdana;
     font-size: 14px;
-    font-size: 0.8vmax;
+    font-size: 1vmax;
     color: #000;
     margin: 0 auto;
     position: absolute;
     background: #f1f1f1;
+}
+
+@media (min-width: 1000px) {
+    body{font-size: 0.8vmax;}
 }
 
 div {
