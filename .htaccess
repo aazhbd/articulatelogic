@@ -3,7 +3,7 @@ Options All -Indexes
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteRule \.(jpe?g|png|gif|css|js)  -  [L]
     RewriteRule (.*) index.php?url=$1 [QSA,NC]
 </IfModule>
