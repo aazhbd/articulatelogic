@@ -1,9 +1,14 @@
 DirectoryIndex index.php
 Options All -Indexes
+<FilesMatch "(\.(bak|config|dist|fla|inc|ini|log|psd|sh|sql|swp|twig)|~)$">
+    Order allow,deny
+    Deny from all
+    Satisfy All
+</FilesMatch>
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    RewriteCond %{REQUEST_FILENAME} -f
-    RewriteRule \.(jpe?g|png|gif|css|js)  -  [L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule (.*) index.php?url=$1 [QSA,NC]
 </IfModule>
