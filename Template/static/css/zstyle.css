@@ -25,7 +25,9 @@ body {
 }
 
 @media (min-width: 1000px) {
-    body{font-size: 0.8vmax;}
+    body{
+        font-size: 0.8vmax;
+    }
 }
 
 div {
@@ -177,6 +179,16 @@ img {
 #topright {
     float: right;
     padding: 4px 0;
+}
+
+@media (max-width: 360px) {
+    body{
+        font-size: 0.8vmax;
+    }
+
+    #topright{
+        display: none;
+    }
 }
 
 /* contentbody starts here */
