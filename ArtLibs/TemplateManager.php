@@ -7,9 +7,9 @@ class TemplateManager
 
     /**
      * TemplateManager constructor.
-     * @param $app
+     * @param Application $app
      */
-    function __construct($app)
+    function __construct(Application $app)
     {
         $this->template = new \Twig_Environment(
             new \Twig_Loader_Filesystem(
