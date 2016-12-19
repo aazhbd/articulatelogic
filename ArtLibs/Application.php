@@ -52,7 +52,7 @@ class Application
                 require_once($this->conf_manager->getPath() . '/vendor/autoload.php');
                 $this->request = Request::createFromGlobals();
             } else {
-                $this->getErrorManager()->addMessage('The vendor library is missing, use composer to install');
+                $this->getErrorManager()->addMessage('The vendor library is missing, use composer to install dependencies.');
                 return;
             }
 
