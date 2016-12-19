@@ -93,7 +93,7 @@ class Category
     /**
      * @param $cat_id
      * @param array $category
-     * @param $app
+     * @param Application $app
      * @return bool
      */
     public static function updateCategory($cat_id, $category = array(), Application $app)
