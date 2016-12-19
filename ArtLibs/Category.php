@@ -6,9 +6,9 @@ namespace ArtLibs;
 class Category
 {
     /**
-     * @param $app
+     * @param Application $app
      * @param null $state
-     * @return mixed
+     * @return null
      */
     public static function getCategories(Application $app, $state = null)
     {
