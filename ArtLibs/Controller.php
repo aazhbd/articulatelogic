@@ -47,12 +47,12 @@ class Controller
 
 
     /**
-     * @param $app
+     * @param Application $app
      * @param $filePath
      * @param bool $download
      * @param string $media
      */
-    public function fileResponse($app, $filePath, $download = true, $media = "")
+    public function fileResponse(Application $app, $filePath, $download = true, $media = "")
     {
         if (!file_exists($filePath)) {
             $app->getErrorManager()
