@@ -147,7 +147,7 @@ class RouteManager
     }
 
     /**
-     * @param mixed $routes
+     * @param $routes
      */
     public function setRoutes($routes)
     {
