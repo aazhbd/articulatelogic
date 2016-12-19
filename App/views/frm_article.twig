@@ -20,18 +20,16 @@
 
             var simplemde = new SimpleMDE({ element: $("#editorbody")[0] });
 
-            /*
             $('.mediaitem a').click(function () {
                 var str = $(this).attr("href");
                 if ($(this).attr("data-download") == 'false') {
-                    tinymce.activeEditor.execCommand('mceInsertContent', false, " <img src=" + str + " /> ");
+                    simplemde.value(simplemde.value() + "![image](" + str + ")");
                 }
                 else {
-                    tinymce.activeEditor.execCommand('mceInsertContent', false, " <a href='" + str + "'>" + str + "</a> ");
+                    simplemde.value(simplemde.value() + "[" + str + "](" + str + ")");
                 }
                 return false;
             });
-            */
         });
     </script>
 {% endblock %}
@@ -57,16 +55,12 @@
                 <input type="text" class="pure-input-1" placeholder="Url" value="{{ article.url }}" name="aurl"/>
                 <select class="pure-input-1" name="category">
                     {% for cat in categories %}
-                        <option value="{{ cat.id }}" {% if article.category_id == cat.id %}selected{% endif %}>
-                            {{ cat.catname }}
-                        </option>
+                        <option value="{{ cat.id }}" {% if article.category_id == cat.id %}selected{% endif %}>{{ cat.catname }}</option>
                     {% endfor %}
                 </select>
             </fieldset>
             <fieldset class="pure-group">
-                <textarea class="pure-input-1" placeholder="Content" id="editorbody" rows="40" name="abody">
-                    {{ article.body }}
-                </textarea>
+                <textarea class="pure-input-1" placeholder="Content" id="editorbody" rows="40" name="abody">{{ article.body |trim }}</textarea>
             </fieldset>
             <fieldset class="pure-group">
                 <input type="text" class="pure-input-1" placeholder="state 0/1" value="{{ article.state }}"
