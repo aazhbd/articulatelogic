@@ -65,11 +65,13 @@ class Views extends Controller
             $article = Article::getArticleByUrl($params['aurl'], $app);
         }
 
+        $parsemd = new Parsedown();
+
         if ($article) {
             $app->setTemplateData(array(
                 'page_title' => $article['title'],
                 'title' => $article['title'],
-                'body' => stripslashes(html_entity_decode($article['body'])),
+                'body' => $parsemd->text(stripslashes(html_entity_decode($article['body']))),
                 'article' => $article
             ));
         }
