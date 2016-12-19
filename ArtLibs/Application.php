@@ -116,7 +116,7 @@ class Application
     }
 
     /**
-     * @return mixed
+     * @return RouteManager|mixed
      */
     public function getRouteManager()
     {
