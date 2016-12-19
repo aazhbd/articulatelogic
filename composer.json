@@ -1,15 +1,15 @@
 {
   "name": "aazhbd/articulatelogic",
-  "description": "Content created with ArtWebCMS",
+  "description": "Website content created with ArtWebCMS",
   "license": "MIT",
   "require": {
     "php": ">=5.3.0",
-    "symfony/http-foundation": "3.*",
+    "symfony/http-foundation": "2.*",
     "lichtner/fluentpdo": "dev-master",
     "components/jquery": "~2.1",
     "components/jqueryui": "^1.11",
     "tinymce/tinymce": "*",
-    "symfony/expression-language": "3.*",
+    "symfony/expression-language": "2.*",
     "twig/twig": "1.*"
   },
   "config": {
