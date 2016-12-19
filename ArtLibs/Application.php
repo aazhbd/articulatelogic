@@ -223,10 +223,10 @@ class Application
     }
 
     /**
-     * @param mixed $error_manager
-     * @return mixed
+     * @param ErrorManager $error_manager
+     * @return ErrorManager|mixed
      */
-    public function setErrorManager($error_manager = false)
+    public function setErrorManager(ErrorManager $error_manager = false)
     {
         $this->error_manager = $error_manager;
 
