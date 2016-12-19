@@ -215,7 +215,7 @@ class Application
     }
 
     /**
-     * @return mixed
+     * @return ErrorManager|mixed
      */
     public function getErrorManager()
     {
