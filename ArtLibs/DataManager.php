@@ -26,7 +26,7 @@ class DataManager
     }
 
     /**
-     * @return mixed
+     * @return \FluentPDO
      */
     public function getDataManager()
     {
@@ -34,8 +34,8 @@ class DataManager
     }
 
     /**
-     * @param mixed $data_manager
-     * @return mixed
+     * @param $data_manager
+     * @return \FluentPDO
      */
     public function setDataManager($data_manager)
     {
