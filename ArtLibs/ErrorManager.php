@@ -57,7 +57,7 @@ class ErrorManager
     }
 
     /**
-     * @return mixed
+     * @return bool
      */
     public function getIsError()
     {
@@ -65,7 +65,7 @@ class ErrorManager
     }
 
     /**
-     * @param mixed $is_error
+     * @param $is_error
      */
     public function setIsError($is_error)
     {
