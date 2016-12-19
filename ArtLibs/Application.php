@@ -94,7 +94,7 @@ class Application
     }
 
     /**
-     * @return mixed
+     * @return DataManager
      */
     public function getDataManager()
     {
