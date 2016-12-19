@@ -13,9 +13,9 @@ class RouteManager
 
     /**
      * RouteManager constructor.
-     * @param $app
+     * @param Application $app
      */
-    function __construct($app)
+    function __construct(Application $app)
     {
         $this->app = $app;
         $this->routes = $app->getRoutes();
