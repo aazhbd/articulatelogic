@@ -295,7 +295,7 @@ class Application
     }
 
     /**
-     * @return mixed
+     * @return TemplateManager|mixed
      */
     public function getTemplateManager()
     {
