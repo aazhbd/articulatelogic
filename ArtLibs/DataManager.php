@@ -44,7 +44,7 @@ class DataManager
     }
 
     /**
-     * @return mixed
+     * @return bool|string
      */
     public function getMessage()
     {
@@ -56,8 +56,8 @@ class DataManager
     }
 
     /**
-     * @param mixed $message
-     * @return mixed
+     * @param $message
+     * @return string
      */
     public function setMessage($message)
     {
