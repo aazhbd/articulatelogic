@@ -303,10 +303,10 @@ class Application
     }
 
     /**
-     * @param mixed $template_manager
-     * @return mixed
+     * @param TemplateManager $template_manager
+     * @return TemplateManager|mixed
      */
-    public function setTemplateManager($template_manager = false)
+    public function setTemplateManager(TemplateManager $template_manager = false)
     {
         $this->template_manager = $template_manager;
 
