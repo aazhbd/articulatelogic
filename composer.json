@@ -9,7 +9,8 @@
     "components/jquery": "~2.1",
     "components/jqueryui": "^1.11",
     "symfony/expression-language": "2.*",
-    "twig/twig": "1.*"
+    "twig/twig": "1.*",
+    "erusev/parsedown": "1.6.1"
   },
   "config": {
     "component-dir": "vendor/assets"
