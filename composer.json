@@ -1,6 +1,6 @@
 {
-  "name": "articulate/webcms",
-  "description": "A text content management system based on ArtWeb. ArtCMS is a fast, secure, feature rich, scalable text content management system for PHP5, using Symfony2 components integrating with the best practices of MVC.",
+  "name": "aazhbd/articulatelogic",
+  "description": "Website content created with ArtWebCMS",
   "license": "MIT",
   "require": {
     "php": ">=5.3.0",
@@ -10,7 +10,7 @@
     "components/jqueryui": "^1.11",
     "tinymce/tinymce": "*",
     "symfony/expression-language": "~2.5",
-    "twig/twig": "~1.24"
+    "twig/twig": "1.*"
   },
   "config": {
     "component-dir": "vendor/assets"
