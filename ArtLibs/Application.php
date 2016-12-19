@@ -190,7 +190,7 @@ class Application
     }
 
     /**
-     * @return mixed
+     * @return Configuration|mixed|string
      */
     public function getConfManager()
     {
