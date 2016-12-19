@@ -118,7 +118,7 @@ class RouteManager
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getIncomingUrl()
     {
@@ -126,8 +126,8 @@ class RouteManager
     }
 
     /**
-     * @param mixed $incoming_url
-     * @returns mixed
+     * @param null $incoming_url
+     * @return $this
      */
     public function setIncomingUrl($incoming_url = null)
     {
