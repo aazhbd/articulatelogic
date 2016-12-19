@@ -105,7 +105,7 @@ class Application
      * @param DataManager|null $data_manager
      * @return DataManager
      */
-    public function setDataManager(DataManager $data_manager=null)
+    public function setDataManager(DataManager $data_manager = null)
     {
         if($data_manager != null) {
             $this->data_manager = $data_manager;
@@ -128,10 +128,10 @@ class Application
     }
 
     /**
-     * @param mixed $route_manager
-     * @return mixed
+     * @param RouteManager $route_manager
+     * @return RouteManager|mixed
      */
-    public function setRouteManager($route_manager = false)
+    public function setRouteManager(RouteManager $route_manager = false)
     {
         $this->route_manager = $route_manager;
 
