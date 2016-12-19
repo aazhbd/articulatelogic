@@ -19,7 +19,7 @@ class TemplateManager
     }
 
     /**
-     * @return mixed
+     * @return \Twig_Environment
      */
     public function getTemplate()
     {
@@ -27,7 +27,7 @@ class TemplateManager
     }
 
     /**
-     * @param mixed $template
+     * @param $template
      */
     public function setTemplate($template)
     {
