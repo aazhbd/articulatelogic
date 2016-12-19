@@ -247,8 +247,8 @@ class Application
     }
 
     /**
-     * @param mixed $conf
-     * @return mixed
+     * @param bool $conf
+     * @return bool|mixed
      * @throws \Exception
      */
     public function setConf($conf = false)
