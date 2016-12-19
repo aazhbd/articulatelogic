@@ -49,7 +49,7 @@ class Category
 
     /**
      * @param $cat_name
-     * @param $app
+     * @param Application $app
      * @return null
      */
     public static function getCategoryByName($cat_name, Application $app)
