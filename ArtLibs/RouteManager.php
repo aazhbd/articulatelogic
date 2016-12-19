@@ -110,9 +110,9 @@ class RouteManager
     }
 
     /**
-     * @param $app
+     * @param Application $app
      */
-    public function setApp($app)
+    public function setApp(Application $app)
     {
         $this->app = $app;
     }
