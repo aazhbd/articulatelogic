@@ -118,7 +118,7 @@ class Category
     /**
      * @param $state
      * @param $category_id
-     * @param $app
+     * @param Application $app
      * @return bool
      */
     public static function setState($state, $category_id, Application $app)
