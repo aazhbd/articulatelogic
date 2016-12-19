@@ -54,8 +54,9 @@
                 <input type="text" class="pure-input-1" placeholder="Url" value="{{ article.url }}" name="aurl"/>
                 <select class="pure-input-1" name="category">
                     {% for cat in categories %}
-                        <option value="{{ cat.id }}"
-                                {% if article.category_id == cat.id %}selected{% endif %}>{{ cat.catname }}</option>
+                        <option value="{{ cat.id }}" {% if article.category_id == cat.id %}selected{% endif %}>
+                            {{ cat.catname }}
+                        </option>
                     {% endfor %}
                 </select>
             </fieldset>
@@ -77,7 +78,7 @@
                         title: {required: true, maxlength: 100},
                         aurl: {required: true, maxlength: 50},
                         category: {required: true},
-                        abody: {required: true, maxlength: 20000}
+                        abody: {required: true, maxlength: 65000}
                     },
                     messages: {
                         title: {
@@ -93,7 +94,7 @@
                         },
                         abody: {
                             required: "Enter article body.",
-                            maxlength: "Article can't be longer than 2000 characters."
+                            maxlength: "Article can't be longer than 65000 characters."
                         }
                     }
                 });
