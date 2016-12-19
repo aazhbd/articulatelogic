@@ -30,8 +30,8 @@ class Category
 
     /**
      * @param $cat_id
-     * @param $app
-     * @return mixed
+     * @param Application $app
+     * @return null
      */
     public static function getCategoryById($cat_id, Application $app)
     {
