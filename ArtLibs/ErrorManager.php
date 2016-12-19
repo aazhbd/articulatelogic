@@ -73,7 +73,7 @@ class ErrorManager
     }
 
     /**
-     * @param mixed $message
+     * @param $message
      */
     public function addMessage($message)
     {
