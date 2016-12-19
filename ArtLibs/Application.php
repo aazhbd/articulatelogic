@@ -198,10 +198,10 @@ class Application
     }
 
     /**
-     * @param mixed $conf_manager
-     * @return mixed
+     * @param Configuration $conf_manager
+     * @return Configuration|mixed|string
      */
-    public function setConfManager($conf_manager = false)
+    public function setConfManager(Configuration $conf_manager = false)
     {
         $this->conf_manager = $conf_manager;
 
