@@ -3,7 +3,6 @@
 * @author        Abdullah Al Zakir Hossain, Email: aazhbd@yahoo.com 
 * @copyright     Copyright (c)2013 - 2015 ArticulateLogic Labs
 */
-
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 @import url(http://fonts.googleapis.com/css?family=Bree+Serif);
 
@@ -25,7 +24,7 @@ body {
 }
 
 @media (min-width: 1000px) {
-    body{
+    body {
         font-size: 1vmax;
     }
 }
@@ -79,6 +78,20 @@ a:hover {
 
 img {
     border: none;
+}
+
+blockquote {
+    border-left: 4px solid #dddddd;
+    padding: 0 15px;
+    color: #777777;
+}
+
+blockquote > :first-child {
+    margin-top: 0;
+}
+
+blockquote > :last-child {
+    margin-bottom: 0;
 }
 
 /* head */
@@ -180,11 +193,11 @@ img {
 }
 
 @media (max-width: 360px) {
-    body{
+    body {
         font-size: 0.8vmax;
     }
 
-    #topright{
+    #topright {
         display: none;
     }
 }
@@ -229,15 +242,15 @@ img {
 .details-top {
     float: none;
     clear: both;
-    padding:10px 20px;
+    padding: 10px 20px;
 }
 
-.details-top a{
+.details-top a {
     font-size: 1.7em;
     color: #1D62B3;
 }
 
-.details-left a{
+.details-left a {
     color: #000;
     float: left;
     padding: 10px 20px;
