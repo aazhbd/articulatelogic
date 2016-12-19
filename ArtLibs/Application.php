@@ -102,10 +102,10 @@ class Application
     }
 
     /**
-     * @param mixed $data_manager
-     * @return mixed
+     * @param DataManager|null $data_manager
+     * @return DataManager
      */
-    public function setDataManager($data_manager=null)
+    public function setDataManager(DataManager $data_manager=null)
     {
         if($data_manager != null) {
             $this->data_manager = $data_manager;
