@@ -39,7 +39,7 @@ class ErrorManager
     }
 
     /**
-     * @return mixed
+     * @return array
      */
     public function getMessages()
     {
@@ -47,8 +47,8 @@ class ErrorManager
     }
 
     /**
-     * @param mixed $messages
-     * @return mixed
+     * @param $messages
+     * @return $this
      */
     public function setMessages($messages)
     {
