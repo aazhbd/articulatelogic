@@ -56,7 +56,7 @@ class Category
     {
         try {
             $query = $app->getDataManager()->getDataManager()->from("categories")
-                ->where(array("catname" => $cat_name,))
+                ->where(array("catname" => $cat_name))
                 ->fetch();
         } catch (\PDOException $ex) {
             $app->getErrorManager()->addMessage("Error : " . $ex->getMessage());
@@ -68,7 +68,7 @@ class Category
 
     /**
      * @param array $category
-     * @param $app
+     * @param Application $app
      * @return bool
      */
     public static function addCategory($category = array(), Application $app)
