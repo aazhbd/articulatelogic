@@ -16,7 +16,6 @@ class Controller
      */
     function __construct()
     {
-
     }
 
     /**
@@ -36,11 +35,10 @@ class Controller
     }
 
     /**
-     * @param $app
+     * @param Application $app
      * @param $data
-     * @throws \Exception
      */
-    public function jsonResponse($app, $data)
+    public function jsonResponse(Application $app, $data)
     {
         $this->response = new JsonResponse();
         $this->response->setData($data);
