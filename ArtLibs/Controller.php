@@ -81,10 +81,10 @@ class Controller
     }
 
     /**
-     * @param $app
+     * @param Application $app
      * @param $template
      */
-    public function display($app, $template)
+    public function display(Application $app, $template)
     {
         $this->response = new Response(
             $app->getTemplateManager()
@@ -106,6 +106,6 @@ class Controller
  * An open source web application development framework for PHP 5.
  * @author        ArticulateLogic Labs
  * @author        Abdullah Al Zakir Hossain, Email: aazhbd@yahoo.com
- * @copyright     Copyright (c)2009-2014 ArticulateLogic Labs
+ * @copyright     Copyright (c)2009-2016 ArticulateLogic Labs
  * @license       MIT License
  */
