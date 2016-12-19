@@ -31,8 +31,8 @@ class RouteManager
     }
 
     /**
-     * @param mixed $url_params
-     * @return mixed
+     * @param array $url_params
+     * @return $this
      */
     public function setUrlParams($url_params = array())
     {
