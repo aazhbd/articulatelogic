@@ -10,9 +10,9 @@ class DataManager
 
     /**
      * DataManager constructor.
-     * @param $conf
+     * @param Configuration $conf
      */
-    function __construct($conf)
+    function __construct(Configuration $conf)
     {
         $this->message = "";
 
