@@ -102,7 +102,7 @@ class RouteManager
     }
 
     /**
-     * @return mixed
+     * @return Application
      */
     public function getApp()
     {
@@ -110,7 +110,7 @@ class RouteManager
     }
 
     /**
-     * @param mixed $app
+     * @param $app
      */
     public function setApp($app)
     {
