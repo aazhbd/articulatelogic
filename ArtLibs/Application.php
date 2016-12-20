@@ -68,7 +68,7 @@ class Application
             $this->session = new Session();
             $this->session->start();
 
-            $this->routes = $this->setRoutes(false);
+            $this->routes = $this->setRoutes();
             $this->route_manager = $this->setRouteManager(false);
             $this->template_manager = $this->setTemplateManager(false);
 
@@ -279,15 +279,15 @@ class Application
      * @return mixed $routes
      * @throws \Exception
      */
-    public function setRoutes($routes = false)
+    public function setRoutes($routes = null)
     {
         $this->routes = $routes;
 
-        if ($this->routes == false) {
+        if ($this->routes == null) {
             $this->routes = include('routes.php');
         }
 
-        if ($this->routes == false) {
+        if ($this->routes == null) {
             throw new \Exception("Unable to load routes file. ");
         }
 
