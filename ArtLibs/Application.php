@@ -239,7 +239,7 @@ class Application
     }
 
     /**
-     * @return mixed
+     * @return mixed|null
      */
     public function getConf()
     {
@@ -247,8 +247,8 @@ class Application
     }
 
     /**
-     * @param mixed $conf
-     * @return mixed
+     * @param null $conf
+     * @return mixed|null
      * @throws \Exception
      */
     public function setConf($conf = null)
