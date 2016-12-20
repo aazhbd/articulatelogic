@@ -31,7 +31,7 @@ class Application
      */
     function __construct()
     {
-        $this->error_manager = $this->setErrorManager(false);
+        $this->error_manager = $this->setErrorManager();
 
         try {
             /* Set all configurations */
