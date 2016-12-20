@@ -52,7 +52,7 @@ class Application
                 require_once($this->conf_manager->getPath() . '/vendor/autoload.php');
                 $this->request = Request::createFromGlobals();
             } else {
-                $this->getErrorManager()->addMessage('The vendor library is missing, use composer to install dependencies.');
+                $this->getErrorManager()->addMessage('The vendor library is missing, use composer to install');
                 return;
             }
 
@@ -94,7 +94,7 @@ class Application
     }
 
     /**
-     * @return DataManager
+     * @return mixed
      */
     public function getDataManager()
     {
@@ -102,10 +102,10 @@ class Application
     }
 
     /**
-     * @param DataManager|null $data_manager
-     * @return DataManager
+     * @param mixed $data_manager
+     * @return mixed
      */
-    public function setDataManager(DataManager $data_manager = null)
+    public function setDataManager($data_manager=null)
     {
         if($data_manager != null) {
             $this->data_manager = $data_manager;
@@ -116,7 +116,7 @@ class Application
     }
 
     /**
-     * @return RouteManager|mixed
+     * @return mixed
      */
     public function getRouteManager()
     {
@@ -128,10 +128,10 @@ class Application
     }
 
     /**
-     * @param RouteManager $route_manager
-     * @return RouteManager|mixed
+     * @param mixed $route_manager
+     * @return mixed
      */
-    public function setRouteManager(RouteManager $route_manager = false)
+    public function setRouteManager($route_manager = false)
     {
         $this->route_manager = $route_manager;
 
@@ -184,13 +184,13 @@ class Application
     /**
      * @param Request $request
      */
-    public function setRequest(Request $request)
+    public function setRequest($request)
     {
         $this->request = $request;
     }
 
     /**
-     * @return Configuration|mixed|string
+     * @return mixed
      */
     public function getConfManager()
     {
@@ -198,10 +198,10 @@ class Application
     }
 
     /**
-     * @param Configuration $conf_manager
-     * @return Configuration|mixed|string
+     * @param mixed $conf_manager
+     * @return mixed
      */
-    public function setConfManager(Configuration $conf_manager = false)
+    public function setConfManager($conf_manager = false)
     {
         $this->conf_manager = $conf_manager;
 
@@ -215,7 +215,7 @@ class Application
     }
 
     /**
-     * @return ErrorManager|mixed
+     * @return mixed
      */
     public function getErrorManager()
     {
@@ -223,10 +223,10 @@ class Application
     }
 
     /**
-     * @param ErrorManager $error_manager
-     * @return ErrorManager|mixed
+     * @param mixed $error_manager
+     * @return mixed
      */
-    public function setErrorManager(ErrorManager $error_manager = false)
+    public function setErrorManager($error_manager = false)
     {
         $this->error_manager = $error_manager;
 
@@ -247,8 +247,8 @@ class Application
     }
 
     /**
-     * @param bool $conf
-     * @return bool|mixed
+     * @param mixed $conf
+     * @return mixed
      * @throws \Exception
      */
     public function setConf($conf = false)
@@ -275,8 +275,8 @@ class Application
     }
 
     /**
-     * @param bool $routes
-     * @return bool|mixed
+     * @param mixed $routes
+     * @return mixed $routes
      * @throws \Exception
      */
     public function setRoutes($routes = false)
@@ -295,7 +295,7 @@ class Application
     }
 
     /**
-     * @return TemplateManager|mixed
+     * @return mixed
      */
     public function getTemplateManager()
     {
@@ -303,10 +303,10 @@ class Application
     }
 
     /**
-     * @param TemplateManager $template_manager
-     * @return TemplateManager|mixed
+     * @param mixed $template_manager
+     * @return mixed
      */
-    public function setTemplateManager(TemplateManager $template_manager = false)
+    public function setTemplateManager($template_manager = false)
     {
         $this->template_manager = $template_manager;
 
