@@ -151,9 +151,9 @@ class Application
     }
 
     /**
-     * @param mixed $template_data
+     * @param $template_data
      */
-    public function setTemplateData($template_data)
+    public function setTemplateData($template_data = array())
     {
         if (count($this->getTemplateData()) < 1) {
             $this->template_data = array(
