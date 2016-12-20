@@ -78,6 +78,30 @@ class Application
     }
 
     /**
+     * @return mixed
+     */
+    public function getErrorManager()
+    {
+        return $this->error_manager;
+    }
+
+    /**
+     * @param ErrorManager|null $error_manager
+     * @return ErrorManager|mixed
+     */
+    public function setErrorManager(ErrorManager $error_manager = null)
+    {
+        $this->error_manager = $error_manager;
+
+        if ($this->error_manager == null) {
+            require_once('ErrorManager.php');
+            $this->error_manager = new ErrorManager();
+        }
+
+        return $this->error_manager;
+    }
+
+    /**
      * @return Session
      */
     public function getSession()
@@ -174,22 +198,6 @@ class Application
     }
 
     /**
-     * @return Request
-     */
-    public function getRequest()
-    {
-        return $this->request;
-    }
-
-    /**
-     * @param $request
-     */
-    public function setRequest(Request $request)
-    {
-        $this->request = $request;
-    }
-
-    /**
      * @return mixed
      */
     public function getConfManager()
@@ -215,27 +223,19 @@ class Application
     }
 
     /**
-     * @return mixed
+     * @return Request
      */
-    public function getErrorManager()
+    public function getRequest()
     {
-        return $this->error_manager;
+        return $this->request;
     }
 
     /**
-     * @param ErrorManager|null $error_manager
-     * @return ErrorManager|mixed
+     * @param $request
      */
-    public function setErrorManager(ErrorManager $error_manager = null)
+    public function setRequest(Request $request)
     {
-        $this->error_manager = $error_manager;
-
-        if ($this->error_manager == null) {
-            require_once('ErrorManager.php');
-            $this->error_manager = new ErrorManager();
-        }
-
-        return $this->error_manager;
+        $this->request = $request;
     }
 
     /**
