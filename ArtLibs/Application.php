@@ -151,7 +151,7 @@ class Application
     }
 
     /**
-     * @param $template_data
+     * @param array $template_data
      */
     public function setTemplateData($template_data = array())
     {
@@ -182,9 +182,9 @@ class Application
     }
 
     /**
-     * @param Request $request
+     * @param $request
      */
-    public function setRequest($request)
+    public function setRequest(Request $request)
     {
         $this->request = $request;
     }
