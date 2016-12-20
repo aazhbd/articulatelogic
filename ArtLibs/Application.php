@@ -275,8 +275,8 @@ class Application
     }
 
     /**
-     * @param mixed $routes
-     * @return mixed $routes
+     * @param null $routes
+     * @return mixed|null
      * @throws \Exception
      */
     public function setRoutes($routes = null)
