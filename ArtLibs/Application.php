@@ -69,7 +69,7 @@ class Application
             $this->session->start();
 
             $this->routes = $this->setRoutes();
-            $this->route_manager = $this->setRouteManager(false);
+            $this->route_manager = $this->setRouteManager();
             $this->template_manager = $this->setTemplateManager(false);
 
         } catch (\Exception $ex) {
