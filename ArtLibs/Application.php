@@ -201,7 +201,7 @@ class Application
      * @param mixed $conf_manager
      * @return mixed
      */
-    public function setConfManager($conf_manager = null)
+    public function setConfManager(Configuration $conf_manager = null)
     {
         $this->conf_manager = $conf_manager;
 
