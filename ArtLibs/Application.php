@@ -306,11 +306,11 @@ class Application
      * @param mixed $template_manager
      * @return mixed
      */
-    public function setTemplateManager($template_manager = false)
+    public function setTemplateManager($template_manager = null)
     {
         $this->template_manager = $template_manager;
 
-        if ($this->template_manager == false) {
+        if ($this->template_manager == null) {
             $this->template_manager = new TemplateManager($this);
         }
         return $this->template_manager;
