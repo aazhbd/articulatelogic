@@ -128,8 +128,8 @@ class Application
     }
 
     /**
-     * @param mixed $route_manager
-     * @return mixed
+     * @param RouteManager|null $route_manager
+     * @return RouteManager|mixed
      */
     public function setRouteManager(RouteManager $route_manager = null)
     {
