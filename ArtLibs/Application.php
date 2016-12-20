@@ -226,11 +226,11 @@ class Application
      * @param bool $error_manager
      * @return ErrorManager|bool|mixed
      */
-    public function setErrorManager($error_manager = false)
+    public function setErrorManager($error_manager = null)
     {
         $this->error_manager = $error_manager;
 
-        if ($this->error_manager == false) {
+        if ($this->error_manager == null) {
             require_once('ErrorManager.php');
             $this->error_manager = new ErrorManager();
         }
