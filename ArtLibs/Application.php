@@ -198,8 +198,8 @@ class Application
     }
 
     /**
-     * @param mixed $conf_manager
-     * @return mixed
+     * @param Configuration|null $conf_manager
+     * @return Configuration|mixed|string
      */
     public function setConfManager(Configuration $conf_manager = null)
     {
