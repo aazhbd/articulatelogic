@@ -36,7 +36,7 @@ class Application
         try {
             /* Set all configurations */
             $this->conf = $this->setConf();
-            $this->conf_manager = $this->setConfManager(false);
+            $this->conf_manager = $this->setConfManager();
 
             if ($this->conf_manager->getDevelopmentMode()) {
                 error_reporting(E_ALL ^ E_NOTICE);
@@ -201,11 +201,11 @@ class Application
      * @param mixed $conf_manager
      * @return mixed
      */
-    public function setConfManager($conf_manager = false)
+    public function setConfManager($conf_manager = null)
     {
         $this->conf_manager = $conf_manager;
 
-        if ($this->conf_manager == false) {
+        if ($this->conf_manager == null) {
             require_once('Configuration.php');
             $this->conf_manager = new Configuration($this);
             $this->conf_manager = $this->conf_manager->setConfiguration($this->conf);
