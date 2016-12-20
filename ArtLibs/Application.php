@@ -70,7 +70,7 @@ class Application
 
             $this->routes = $this->setRoutes();
             $this->route_manager = $this->setRouteManager();
-            $this->template_manager = $this->setTemplateManager(false);
+            $this->template_manager = $this->setTemplateManager();
 
         } catch (\Exception $ex) {
             $this->getErrorManager()->addMessage('Exception occurred : ' . $ex->getMessage());
