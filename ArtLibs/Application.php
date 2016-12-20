@@ -251,15 +251,15 @@ class Application
      * @return mixed
      * @throws \Exception
      */
-    public function setConf($conf = false)
+    public function setConf($conf = null)
     {
         $this->conf = $conf;
 
-        if ($this->conf == false) {
+        if ($this->conf == null) {
             $this->conf = include_once('conf.php');
         }
 
-        if ($this->conf == false) {
+        if ($this->conf == null) {
             throw new \Exception("Unable to load configuration file.");
         }
 
