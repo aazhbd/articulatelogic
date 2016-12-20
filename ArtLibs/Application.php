@@ -303,8 +303,8 @@ class Application
     }
 
     /**
-     * @param mixed $template_manager
-     * @return mixed
+     * @param TemplateManager|null $template_manager
+     * @return TemplateManager|mixed
      */
     public function setTemplateManager(TemplateManager $template_manager = null)
     {
