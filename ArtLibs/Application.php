@@ -131,7 +131,7 @@ class Application
      * @param mixed $route_manager
      * @return mixed
      */
-    public function setRouteManager($route_manager = null)
+    public function setRouteManager(RouteManager $route_manager = null)
     {
         $this->route_manager = $route_manager;
 
