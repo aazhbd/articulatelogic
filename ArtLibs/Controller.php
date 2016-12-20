@@ -35,10 +35,9 @@ class Controller
     }
 
     /**
-     * @param Application $app
-     * @param $data
+     * @param array $data
      */
-    public function jsonResponse(Application $app, $data)
+    public function jsonResponse($data = array())
     {
         $this->response = new JsonResponse();
         $this->response->setData($data);
