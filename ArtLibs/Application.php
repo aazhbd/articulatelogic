@@ -226,7 +226,7 @@ class Application
      * @param bool $error_manager
      * @return ErrorManager|bool|mixed
      */
-    public function setErrorManager($error_manager = null)
+    public function setErrorManager(ErrorManager $error_manager = null)
     {
         $this->error_manager = $error_manager;
 
