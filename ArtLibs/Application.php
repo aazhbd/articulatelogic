@@ -223,8 +223,8 @@ class Application
     }
 
     /**
-     * @param bool $error_manager
-     * @return ErrorManager|bool|mixed
+     * @param ErrorManager|null $error_manager
+     * @return ErrorManager|mixed
      */
     public function setErrorManager(ErrorManager $error_manager = null)
     {
