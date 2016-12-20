@@ -306,7 +306,7 @@ class Application
      * @param mixed $template_manager
      * @return mixed
      */
-    public function setTemplateManager($template_manager = null)
+    public function setTemplateManager(TemplateManager $template_manager = null)
     {
         $this->template_manager = $template_manager;
 
