@@ -35,7 +35,7 @@ class Application
 
         try {
             /* Set all configurations */
-            $this->conf = $this->setConf(false);
+            $this->conf = $this->setConf();
             $this->conf_manager = $this->setConfManager(false);
 
             if ($this->conf_manager->getDevelopmentMode()) {
