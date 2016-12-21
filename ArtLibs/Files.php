@@ -85,12 +85,12 @@ class Files
     }
 
     /**
-     * @param $app
+     * @param Application $app
      * @param $name
      * @param null $state
-     * @return null
+     * @return mixed|null
      */
-    public static function getFile($app, $name, $state = null)
+    public static function getFile(Application $app, $name, $state = null)
     {
         if ($state !== null) {
             $cond['state'] = $state;
