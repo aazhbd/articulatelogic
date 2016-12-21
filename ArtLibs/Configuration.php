@@ -4,8 +4,6 @@ namespace ArtLibs;
 
 class Configuration
 {
-    private $app;
-
     protected $db_host;
 
     protected $db_name;
@@ -35,6 +33,8 @@ class Configuration
     protected $development_mode;
 
     protected $user_var;
+
+    private $app;
 
     private $conf;
 
@@ -80,6 +80,80 @@ class Configuration
 
         $this->app = $app;
         $this->conf = $app->getConf();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPathRoot()
+    {
+        return $this->path_root;
+    }
+
+    /**
+     * @param null $path_root
+     * @return mixed|null
+     */
+    public function setPathRoot($path_root = null)
+    {
+        if (!isset($path_root)) {
+            $this->path_root = str_replace(
+                ' ',
+                '%20',
+                preg_replace(
+                    '/' . preg_quote(
+                        str_replace(
+                            DIRECTORY_SEPARATOR,
+                            '/',
+                            $_SERVER['DOCUMENT_ROOT']
+                        ),
+                        '/') . '\/?/',
+                    '',
+                    str_replace(
+                        DIRECTORY_SEPARATOR,
+                        '/',
+                        realpath(
+                            dirname(__FILE__) . '/..'
+                        )
+                    )
+                )
+            );
+        } else {
+            $this->path_root = $path_root;
+        }
+        return $this->path_root;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPathSysTemplate()
+    {
+        return $this->path_sys_template;
+    }
+
+    /**
+     * @param mixed $path_sys_template
+     */
+    public function setPathSysTemplate($path_sys_template)
+    {
+        $this->path_sys_template = $path_sys_template;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPathUrl()
+    {
+        return $this->path_url;
+    }
+
+    /**
+     * @param mixed $path_url
+     */
+    public function setPathUrl($path_url)
+    {
+        $this->path_url = $path_url;
     }
 
     /**
@@ -137,22 +211,6 @@ class Configuration
 
         if (isset($conf['development_mode'])) $this->development_mode = $conf['development_mode'];
         return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPathSysTemplate()
-    {
-        return $this->path_sys_template;
-    }
-
-    /**
-     * @param mixed $path_sys_template
-     */
-    public function setPathSysTemplate($path_sys_template)
-    {
-        $this->path_sys_template = $path_sys_template;
     }
 
     /**
@@ -304,22 +362,6 @@ class Configuration
     /**
      * @return mixed
      */
-    public function getPathUrl()
-    {
-        return $this->path_url;
-    }
-
-    /**
-     * @param mixed $path_url
-     */
-    public function setPathUrl($path_url)
-    {
-        $this->path_url = $path_url;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getPathLibrary()
     {
         return $this->path_library;
@@ -331,48 +373,6 @@ class Configuration
     public function setPathLibrary($path_library)
     {
         $this->path_library = $path_library;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPathRoot()
-    {
-        return $this->path_root;
-    }
-
-    /**
-     * @param null $path_root
-     * @return mixed|null
-     */
-    public function setPathRoot($path_root = null)
-    {
-        if(!isset($path_root)) {
-            $this->path_root = str_replace(
-                ' ',
-                '%20',
-                preg_replace(
-                    '/' . preg_quote(
-                        str_replace(
-                            DIRECTORY_SEPARATOR,
-                            '/',
-                            $_SERVER['DOCUMENT_ROOT']
-                        ),
-                        '/') . '\/?/',
-                    '',
-                    str_replace(
-                        DIRECTORY_SEPARATOR,
-                        '/',
-                        realpath(
-                            dirname(__FILE__) . '/..'
-                        )
-                    )
-                )
-            );
-        } else {
-            $this->path_root = $path_root;
-        }
-        return $this->path_root;
     }
 
     /**
