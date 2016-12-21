@@ -129,10 +129,10 @@ class Files
 
     /**
      * @param array $file_info
-     * @param $app
-     * @return bool
+     * @param Application $app
+     * @return bool|int
      */
-    public static function addFile($file_info = array(), $app)
+    public static function addFile($file_info = array(), Application $app)
     {
         if (empty($file_info)) {
             return false;
