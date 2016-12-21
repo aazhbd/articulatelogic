@@ -213,10 +213,12 @@ class Configuration
 
     /**
      * @param Application $app
+     * @return $this
      */
     public function setApp(Application $app)
     {
         $this->app = $app;
+        return $this;
     }
 
     /**
