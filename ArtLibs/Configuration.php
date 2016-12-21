@@ -107,10 +107,10 @@ class Configuration
     }
 
     /**
-     * @param $conf
-     * @return string
+     * @param array $conf
+     * @return $this
      */
-    public function setConfiguration($conf)
+    public function setConfiguration($conf = array())
     {
         if (empty($conf)) {
             return false;
