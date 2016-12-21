@@ -212,9 +212,9 @@ class Configuration
     }
 
     /**
-     * @param mixed $app
+     * @param Application $app
      */
-    public function setApp($app)
+    public function setApp(Application $app)
     {
         $this->app = $app;
     }
