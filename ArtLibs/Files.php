@@ -179,10 +179,10 @@ class Files
     /**
      * @param $state
      * @param $fid
-     * @param $app
-     * @return bool
+     * @param Application $app
+     * @return bool|int|\PDOStatement
      */
-    public static function setState($state, $fid, $app)
+    public static function setState($state, $fid, Application $app)
     {
         if (!isset($state) || !isset($fid)) {
             return false;
