@@ -154,10 +154,10 @@ class Files
     /**
      * @param $fid
      * @param array $file_info
-     * @param $app
-     * @return bool
+     * @param Application $app
+     * @return bool|int|\PDOStatement
      */
-    public static function updateFile($fid, $file_info = array(), $app)
+    public static function updateFile($fid, $file_info = array(), Application $app)
     {
         if (empty($file_info) || !isset($fid)) {
             return false;
