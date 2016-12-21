@@ -46,6 +46,7 @@ h1 a {
 h2, h2 a {
     font-size: 1.3em;
     font-weight: normal;
+    padding: 4px 0;
 }
 
 h3, h3 a {
