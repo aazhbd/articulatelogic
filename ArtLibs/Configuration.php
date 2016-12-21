@@ -112,7 +112,7 @@ class Configuration
      */
     public function setConfiguration($conf)
     {
-        if (count($conf) < 1 || empty($conf)) {
+        if (empty($conf)) {
             return false;
         }
 
