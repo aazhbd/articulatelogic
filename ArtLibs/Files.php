@@ -62,11 +62,11 @@ class Files
     }
 
     /**
-     * @param $app
+     * @param Application $app
      * @param null $state
-     * @return mixed
+     * @return array|null
      */
-    public static function getFiles($app, $state = null)
+    public static function getFiles(Application $app, $state = null)
     {
         if (!isset($state)) {
             $query = $app->getDataManager()->getDataManager()->from("files");
