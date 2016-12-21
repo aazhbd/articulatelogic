@@ -124,7 +124,7 @@ blockquote > :last-child {
     height: 20px;
     background: #cfc;
     border: 1px solid #0f0;
-    padding: 5px;
+    padding: 4px;
     margin: 4px;
 }
 
@@ -138,7 +138,7 @@ blockquote > :last-child {
     height: 20px;
     background: #FCC;
     border: 1px solid #F00;
-    padding: 5px;
+    padding: 4px;
     margin: 4px;
 }
 
