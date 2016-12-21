@@ -40,9 +40,9 @@ class Configuration
 
     /**
      * Configuration constructor.
-     * @param $app
+     * @param Application $app
      */
-    public function __construct($app)
+    public function __construct(Application $app)
     {
         $this->path = str_replace(DIRECTORY_SEPARATOR, '/', realpath(dirname(__FILE__) . '/..'));
 
