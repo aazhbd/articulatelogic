@@ -286,7 +286,7 @@ blockquote > :last-child {
 .title {
     font-size: 2em;
     color: #1D62B3;
-    padding: 20px;
+    padding: 10px;
 }
 
 /* title ends here */
@@ -317,6 +317,7 @@ blockquote > :last-child {
 
 #footer {
     text-align: center;
+    background: linear-gradient(to bottom,#e6e7e8 0,#f1f1f1 75%);
     margin: auto;
     color: #999;
     float: none;
