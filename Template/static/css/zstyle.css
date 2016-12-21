@@ -125,7 +125,7 @@ blockquote > :last-child {
     background: #cfc;
     border: 1px solid #0f0;
     padding: 5px;
-    margin: 3px;
+    margin: 4px;
 }
 
 /* reports ends here */
@@ -139,7 +139,7 @@ blockquote > :last-child {
     background: #FCC;
     border: 1px solid #F00;
     padding: 5px;
-    margin: 3px;
+    margin: 4px;
 }
 
 /* error ends here */
