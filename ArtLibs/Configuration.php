@@ -113,7 +113,7 @@ class Configuration
     public function setConfiguration($conf = array())
     {
         if (empty($conf)) {
-            return false;
+            return null;
         }
 
         if (isset($conf['path'])) $this->path = $conf['path'];
