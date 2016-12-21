@@ -112,10 +112,10 @@ class Files
 
     /**
      * @param $fid
-     * @param $app
-     * @return null
+     * @param Application $app
+     * @return mixed|null
      */
-    public static function getFileById($fid, $app)
+    public static function getFileById($fid, Application $app)
     {
         try {
             $query = $app->getDataManager()->getDataManager()->from("files")->where(array("id" => $fid,))->fetch();
