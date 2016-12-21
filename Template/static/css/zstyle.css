@@ -266,8 +266,6 @@ blockquote > :last-child {
 
 /* gallery styles */
 
-/* contentbody ends here */
-
 .title {
     font-size: 2em;
     color: #1D62B3;
@@ -288,40 +286,6 @@ blockquote > :last-child {
     background: #fff;
 }
 
-#footer {
-    text-align: center;
-    background: linear-gradient(to bottom,#e6e7e8 0,#f1f1f1 75%);
-    margin: auto;
-    color: #999;
-    float: none;
-    padding: 10px;
-}
-
-#footer p {
-    text-align: center;
-}
-
-/* selectors */
-
-#selectors {
-    background: #fff;
-    opacity: 0.82;
-    float: left;
-    width: 91%;
-    max-height: 130px;
-    min-height: 100px;
-    overflow-x: auto;
-    overflow-y: scroll;
-    position: fixed;
-    top: 80px;
-    margin: 0 auto;
-}
-
-.choices {
-    float: left;
-    padding: 0 11px;
-}
-
 .rowicon {
     height: 40px;
 }
@@ -338,4 +302,21 @@ blockquote > :last-child {
     margin: 10px;
 }
 
-/* end selectors */
+/* contentbody ends here */
+
+/* start footer */
+
+#footer {
+    text-align: center;
+    background: linear-gradient(to bottom,#e6e7e8 0,#f1f1f1 75%);
+    margin: auto;
+    color: #999;
+    float: none;
+    padding: 10px;
+}
+
+#footer p {
+    text-align: center;
+}
+
+/* end footer */
