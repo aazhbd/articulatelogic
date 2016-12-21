@@ -21,6 +21,7 @@ body {
     margin: 0 auto;
     position: absolute;
     background: #f1f1f1;
+    -webkit-font-smoothing: antialiased;
 }
 
 @media (min-width: 1000px) {
