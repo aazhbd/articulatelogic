@@ -99,34 +99,34 @@
         </script>
 
         {% if files %}
-            <p>List of available files</p>
-            <div id="medialist">
-                {% for a in files %}
-                    <table class="mediaitem">
-                        <tr>
-                            <td align="center">
-                                <img src="{{ path_static }}images/fileicons/{{ a.ftype }}.png">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="{{ path_url_postfix }}/file/view/{{ a.name }}/">{{ a.name|slice(0, 20) }}</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="center">
-                                {% if a.ftype == 'png' or a.ftype == 'jpg' or a.ftype == 'gif' %}
-                                    <a class="pure-button pure-button-primary" data-download="false"
-                                       href="{{ path_url_postfix }}/file/view/{{ a.name }}/">Add to article</a>
-                                {% else %}
-                                    <a class="pure-button pure-button-primary" data-download="true"
-                                       href="{{ path_url_postfix }}/file/download/{{ a.name }}/">Add to article</a>
-                                {% endif %}
-                            </td>
-                        </tr>
-                    </table>
-                {% endfor %}
-            </div>
+        <p>List of available files</p>
+        <div id="medialist">
+            {% for a in files %}
+                <table class="mediaitem">
+                    <tr>
+                        <td align="center">
+                            <img src="{{ path_static }}images/fileicons/{{ a.ftype }}.png">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="{{ path_url_postfix }}/file/view/{{ a.name }}/">{{ a.name|slice(0, 20) }}</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            {% if a.ftype == 'png' or a.ftype == 'jpg' or a.ftype == 'gif' %}
+                                <a class="pure-button pure-button-primary" data-download="false"
+                                   href="{{ path_url_postfix }}/file/view/{{ a.name }}/">Add to article</a>
+                            {% else %}
+                                <a class="pure-button pure-button-primary" data-download="true"
+                                   href="{{ path_url_postfix }}/file/download/{{ a.name }}/">Add to article</a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                </table>
+            {% endfor %}
+        </div>
         {% endif %}
     {% endif %}
 {% endblock %}
