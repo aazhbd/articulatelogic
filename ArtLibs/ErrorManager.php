@@ -81,7 +81,7 @@ class ErrorManager
         $this->is_error = true;
 
         foreach ($this->messages as $m) {
-            if(!empty($m)) {
+            if (!empty($m)) {
                 echo "Error : " . $m . "<br />";
                 file_put_contents($this->path_log,
                     trim("Error occurred at : " . date('m-d-Y h:i:s', time()) . " Message: " . $m) . PHP_EOL, FILE_APPEND);
