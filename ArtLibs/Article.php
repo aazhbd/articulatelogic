@@ -62,8 +62,8 @@ class Article
     /**
      * @param $article_data
      * @param $aid
-     * @param $app
-     * @return bool
+     * @param Application $app
+     * @return bool|int|\PDOStatement
      */
     public static function updateArticle($article_data, $aid, Application $app)
     {
@@ -86,8 +86,8 @@ class Article
 
     /**
      * @param $aurl
-     * @param $app
-     * @return mixed
+     * @param Application $app
+     * @return bool|mixed
      */
     public static function getArticleByUrl($aurl, Application $app)
     {
@@ -109,8 +109,8 @@ class Article
 
     /**
      * @param $article_data
-     * @param $app
-     * @return bool
+     * @param Application $app
+     * @return bool|int
      */
     public static function addArticle($article_data, Application $app)
     {
