@@ -8,7 +8,7 @@ class Category
     /**
      * @param Application $app
      * @param null $state
-     * @return null
+     * @return array|null
      */
     public static function getCategories(Application $app, $state = null)
     {
@@ -31,7 +31,7 @@ class Category
     /**
      * @param $cat_id
      * @param Application $app
-     * @return null
+     * @return mixed|null
      */
     public static function getCategoryById($cat_id, Application $app)
     {
@@ -50,7 +50,7 @@ class Category
     /**
      * @param $cat_name
      * @param Application $app
-     * @return null
+     * @return mixed|null
      */
     public static function getCategoryByName($cat_name, Application $app)
     {
@@ -69,7 +69,7 @@ class Category
     /**
      * @param array $category
      * @param Application $app
-     * @return bool
+     * @return bool|int
      */
     public static function addCategory($category = array(), Application $app)
     {
@@ -94,7 +94,7 @@ class Category
      * @param $cat_id
      * @param array $category
      * @param Application $app
-     * @return bool
+     * @return bool|int|\PDOStatement
      */
     public static function updateCategory($cat_id, $category = array(), Application $app)
     {
@@ -119,7 +119,7 @@ class Category
      * @param $state
      * @param $category_id
      * @param Application $app
-     * @return bool
+     * @return bool|int|\PDOStatement
      */
     public static function setState($state, $category_id, Application $app)
     {
