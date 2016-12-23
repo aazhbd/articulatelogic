@@ -247,19 +247,19 @@ class Application
     }
 
     /**
-     * @param null $conf
-     * @return mixed|null
+     * @param array $conf
+     * @return array|mixed
      * @throws \Exception
      */
-    public function setConf($conf = null)
+    public function setConf($conf = array())
     {
         $this->conf = $conf;
 
-        if ($this->conf == null) {
+        if (empty($this->conf)) {
             $this->conf = include_once('conf.php');
         }
 
-        if ($this->conf == null) {
+        if (empty($this->conf)) {
             throw new \Exception("Unable to load configuration file.");
         }
 
