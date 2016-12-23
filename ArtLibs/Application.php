@@ -275,19 +275,19 @@ class Application
     }
 
     /**
-     * @param null $routes
-     * @return mixed|null
+     * @param array $routes
+     * @return array|mixed
      * @throws \Exception
      */
-    public function setRoutes($routes = null)
+    public function setRoutes($routes = array())
     {
         $this->routes = $routes;
 
-        if ($this->routes == null) {
+        if (empty($this->routes)) {
             $this->routes = include('routes.php');
         }
 
-        if ($this->routes == null) {
+        if (empty($this->routes)) {
             throw new \Exception("Unable to load routes file. ");
         }
 
