@@ -10,7 +10,7 @@ class Article
      * @param Application $app
      * @param null $state
      * @param null $category_id
-     * @return bool
+     * @return array|bool
      */
     public static function getArticles(Application $app, $state = null, $category_id = null)
     {
@@ -38,8 +38,8 @@ class Article
 
     /**
      * @param $aid
-     * @param $app
-     * @return mixed
+     * @param Application $app
+     * @return bool|mixed
      */
     public static function getArticleById($aid, Application $app)
     {
