@@ -53,6 +53,7 @@
 <div id="contentbody">
 {% spaceless %}
 {% block contentbody %}
+    <article>
     {% for error in errors %}
     <div id="reports">{{ error }}</div>
     {% endfor %}
@@ -64,9 +65,10 @@
     {% endif %}
     {% if body %}
     <div class="body">
-        <article>{{ body|raw }}</article>
+        {{ body|raw }}
     </div>
     {% endif %}
+    </article>
 {% endblock %}
 {% endspaceless %}
 </div>
