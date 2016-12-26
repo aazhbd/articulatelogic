@@ -22,6 +22,7 @@
     {% endblock %}
 </head>
 <body>
+{% spaceless %}
 <div id="contentheader">
     {% block contentheader %}
     <div id="banner">
@@ -77,6 +78,7 @@
     {% endblock %}
 </div>
 <script src="{{ path_static }}css/menus.js"></script>
+{% endspaceless %}
 </body>
 </html>
 {#
