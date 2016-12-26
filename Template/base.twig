@@ -51,22 +51,22 @@
     {% endblock %}
 </div>
 <div id="contentbody">
-    {% block contentbody %}
-        {% for error in errors %}
-            <div id="reports">{{ error }}</div>
-        {% endfor %}
-        {% if title %}
-            <h2 class="title">{{ title }}</h2>
-        {% endif %}
-        {% if subtitle %}
-            <div class="subtitle">{{ subtitle }}</div>
-        {% endif %}
-        {% if body %}
-            <div class="body">
-                <article>{{ body|raw }}</article>
-            </div>
-        {% endif %}
-    {% endblock %}
+{% block contentbody %}
+    {% for error in errors %}
+    <div id="reports">{{ error }}</div>
+    {% endfor %}
+    {% if title %}
+    <h2 class="title">{{ title }}</h2>
+    {% endif %}
+    {% if subtitle %}
+    <div class="subtitle">{{ subtitle }}</div>
+    {% endif %}
+    {% if body %}
+    <div class="body">
+        <article>{{ body|raw }}</article>
+    </div>
+    {% endif %}
+{% endblock %}
 </div>
 <div id="footer">
     {% block footers %}
