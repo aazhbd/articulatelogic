@@ -70,6 +70,7 @@ class Views extends Controller
         if ($article) {
             $app->setTemplateData(array(
                 'page_title' => $article['title'],
+                'description' => $article['subtitle'],
                 'title' => $article['title'],
                 'body' => $parsemd->text(stripslashes(html_entity_decode(htmlentities($article['body'])))),
                 'article' => $article
