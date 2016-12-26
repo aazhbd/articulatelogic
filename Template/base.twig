@@ -51,7 +51,6 @@
     {% endblock %}
 </div>
 <div id="contentbody">
-{% spaceless %}
 {% block contentbody %}
     <article>
     {% for error in errors %}
@@ -70,7 +69,6 @@
     {% endif %}
     </article>
 {% endblock %}
-{% endspaceless %}
 </div>
 <div id="footer">
     {% block footers %}
