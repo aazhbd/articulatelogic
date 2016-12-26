@@ -193,8 +193,16 @@ class Views extends Controller
         ));
 
         $articles = Article::getArticles($app, 0, 2);
+        $description = 'software development';
+        foreach ($articles as $a) {
+            $description .= ', ' . $a['title'];
+        }
+
         if ($articles) {
-            $app->setTemplateData(array('articles' => $articles));
+            $app->setTemplateData(array(
+                'articles' => $articles,
+                'description' => $description
+            ));
         }
 
         $this->display($app, 'downloads.twig');
