@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html  lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
-{% spaceless %}
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -52,6 +51,7 @@
     {% endblock %}
 </div>
 <div id="contentbody">
+{% spaceless %}
 {% block contentbody %}
     {% for error in errors %}
     <div id="reports">{{ error }}</div>
@@ -68,6 +68,7 @@
     </div>
     {% endif %}
 {% endblock %}
+{% endspaceless %}
 </div>
 <div id="footer">
     {% block footers %}
@@ -79,7 +80,6 @@
 </div>
 <script src="{{ path_static }}css/menus.js"></script>
 </body>
-{% endspaceless %}
 </html>
 {#
  * An open source web application development framework for PHP.
