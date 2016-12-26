@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html  lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+{% spaceless %}
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -22,7 +23,6 @@
     {% endblock %}
 </head>
 <body>
-{% spaceless %}
 <div id="contentheader">
     {% block contentheader %}
     <div id="banner">
@@ -78,8 +78,8 @@
     {% endblock %}
 </div>
 <script src="{{ path_static }}css/menus.js"></script>
-{% endspaceless %}
 </body>
+{% endspaceless %}
 </html>
 {#
  * An open source web application development framework for PHP.
