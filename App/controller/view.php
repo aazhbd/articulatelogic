@@ -116,7 +116,7 @@ class Views extends Controller
                 'url' => strtolower(trim($app->getRequest()->request->get('aurl'))),
                 'category_id' => trim($app->getRequest()->request->get('category')),
                 'body' => trim($app->getRequest()->request->get('abody')),
-                'state' => addslashes(trim($app->getRequest()->request->get('state'))),
+                'state' => trim($app->getRequest()->request->get('state')),
             );
 
             $invalid_chars = array(" ", "\n", "/", "\\", "$", "#", "@", "^", "&", "*");
