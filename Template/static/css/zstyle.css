@@ -241,11 +241,13 @@ blockquote > :last-child {
     color: #000;
     float: left;
     padding: 10px 20px;
+    width: 60%;
 }
 
 .details-right {
     float: right;
     padding: 10px 20px;
+    width: 20%;
 }
 
 .details-none {
