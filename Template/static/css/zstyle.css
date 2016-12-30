@@ -247,7 +247,6 @@ blockquote > :last-child {
 .details-right {
     float: right;
     padding: 10px 20px;
-    width: 20%;
 }
 
 .details-none {
