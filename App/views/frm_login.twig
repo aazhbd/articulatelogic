@@ -40,20 +40,19 @@
             </div>
         </fieldset>
     </form>
-
     <script type="text/javascript">
-        $(document).ready ( function() {
-            $("#art-form").validate ( {
-                rules:{
-                    email:{ required: true },
-                    password:{ required: true }
-                },
-                messages: {
-                    email: { required: "Enter email." },
-                    password: { required: "Enter password." }
-                }
-            });
+    $(document).ready ( function() {
+        $("#art-form").validate ( {
+            rules:{
+                email:{ required: true },
+                password:{ required: true }
+            },
+            messages: {
+                email: { required: "Enter email." },
+                password: { required: "Enter password." }
+            }
         });
+    });
     </script>
 {% endblock %}
 
