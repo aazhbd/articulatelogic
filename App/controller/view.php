@@ -49,7 +49,7 @@ class Views extends Controller
         $article = Article::getArticles($app, 0, $gallery['id']);
 
         $description = 'software development';
-        foreach ($article as $a) {
+        foreach ((array)$article as $a) {
             $description .= ', ' . $a['title'];
         }
 
