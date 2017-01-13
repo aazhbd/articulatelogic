@@ -19,20 +19,20 @@
     {{ body_content }}
 
     {% for a in articles %}
-        <div class="productBox">
-            <div  class="details-top">
-                <a href="{{ path_url_postfix }}/a/{{ a.url }}/">{{ a.title }}</a>
-            </div>
-            <div class="details-left">
-                <a href="{{ path_url_postfix }}/a/{{ a.url }}/">{{ a.subtitle }}</a>
-            </div>
-            <div class="details-right">
-                <a class="pure-button pure-button-primary" href="{{ path_url_postfix }}/a/{{ a.url }}/">Details</a>
-            </div>
-            <div class="details-none">
-                <a href="{{ path_url_postfix }}/a/{{ a.url }}/">{{ a.remarks }}</a>
-            </div>
+    <div class="productBox">
+        <div  class="details-top">
+            <a href="{{ path_url_postfix }}/a/{{ a.url }}/">{{ a.title }}</a>
         </div>
+        <div class="details-left">
+            <a href="{{ path_url_postfix }}/a/{{ a.url }}/">{{ a.subtitle }}</a>
+        </div>
+        <div class="details-right">
+            <a class="pure-button pure-button-primary" href="{{ path_url_postfix }}/a/{{ a.url }}/">Details</a>
+        </div>
+        <div class="details-none">
+            <a href="{{ path_url_postfix }}/a/{{ a.url }}/">{{ a.remarks }}</a>
+        </div>
+    </div>
     {% endfor %}
 {% endblock %}
 
