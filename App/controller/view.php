@@ -50,7 +50,7 @@ class Views extends Controller
 
         $description = 'software development';
         foreach ((array)$article as $a) {
-            $description .= ', ' . $a['title'];
+            $description .= ', ' . $a['subtitle'];
         }
 
         $app->setTemplateData(array(
