@@ -41,9 +41,9 @@
     {% if articles %}
     <div class="product_gallery">
         {% for a in articles %}
-            <div class="row collapse slide-pane">
-                <div class="body">{{ a.body|raw }}</div>
-            </div>
+        <div class="row collapse slide-pane">
+            <div class="body">{{ a.body|raw }}</div>
+        </div>
         {% endfor %}
     </div>
     {% endif %}
