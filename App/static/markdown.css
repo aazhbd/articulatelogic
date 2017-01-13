@@ -487,6 +487,7 @@
 .markdown-body ol ul {
   margin-top: 0;
   margin-bottom: 0;
+  list-style-type: circle;
 }
 
 .markdown-body li>p {
