@@ -2,5 +2,4 @@ User-agent: *
 Disallow: /App/
 Disallow: /ArtLibs/
 Disallow: /file_dir/
-Disallow: /Template/
 Disallow: /vendor/
