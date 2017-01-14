@@ -82,6 +82,7 @@ class Controller
     /**
      * @param Application $app
      * @param $template
+     * @param array $header
      */
     public function display(Application $app, $template, $header = array())
     {
