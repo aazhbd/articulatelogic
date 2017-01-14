@@ -83,7 +83,7 @@ class Controller
      * @param Application $app
      * @param $template
      */
-    public function display(Application $app, $template)
+    public function display(Application $app, $template, $header = array())
     {
         $this->response = new Response(
             $app->getTemplateManager()
@@ -93,7 +93,7 @@ class Controller
                     $app->getTemplateData()
                 ),
             Response::HTTP_OK,
-            array('content-type' => 'text/html')
+            (empty($header)) ? array('content-type' => 'text/html') : $header
         );
         $this->response->send();
     }
