@@ -63,20 +63,27 @@ class Views extends Controller
     public function viewSiteMap($params, Application $app)
     {
         $user_var = $app->getConfManager()->getUserVar();
-        $sitemap['root'] = $user_var['project_name'];
+        $sitemap['root'] = strtolower('http://www.' . $user_var['project_name']);
 
         $page = Category::getCategoryByName('page', $app);
         $page_articles = Article::getArticles($app, 0, $page['id']);
 
         foreach ((array)$page_articles as $pa) {
-            $sitemap['pages'][] = $user_var['project_name'] . '/a/' . $pa['url'];
+            $sitemap['pages'][] = $sitemap['root'] . '/a/' . $pa['url'];
         }
 
         $product = Category::getCategoryByName('products', $app);
         $product_articles = Article::getArticles($app, 0, $product['id']);
 
         foreach ((array)$product_articles as $pa) {
-            $sitemap['products'][] = $user_var['project_name'] . '/a/' . $pa['url'];
+            $sitemap['products'][] = $sitemap['root'] . '/a/' . $pa['url'];
+        }
+
+        $gallery = Category::getCategoryByName('gallery', $app);
+        $gallery_articles = Article::getArticles($app, 0, $gallery['id']);
+
+        foreach ((array)$gallery_articles as $pa) {
+            $sitemap['gallery'][] = $sitemap['root'] . '/a/' . $pa['url'];
         }
 
         if($params['type'] == 'json') {
