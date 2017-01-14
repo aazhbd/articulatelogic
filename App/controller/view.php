@@ -81,6 +81,9 @@ class Views extends Controller
 
         if($params['type'] == 'json') {
             $this->jsonResponse($sitemap);
+        } elseif($params['type'] == 'xml') {
+            $app->setTemplateData(array('sitemap' => $sitemap));
+            $this->display($app, 'sitemap.twig', array('content-type' => 'application/xml'));
         }
     }
 
