@@ -4,6 +4,7 @@ $routes = array(
     'urls' => array(
         '' => '/controller/Views/viewHome',
         '/home' => '/controller/Views/viewHome',
+        '/sitemap\.(?<type>[A-Za-z_][A-Za-z0-9_]*)' => '/controller/Views/viewSiteMap',
 
         '/login' => '/controller/Views/viewLogin',
         '/logout' => '/controller/Views/viewLogout',

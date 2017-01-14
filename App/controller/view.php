@@ -60,6 +60,30 @@ class Views extends Controller
         $this->display($app, 'gallery.twig');
     }
 
+    public function viewSiteMap($params, Application $app)
+    {
+        $user_var = $app->getConfManager()->getUserVar();
+        $sitemap['root'] = $user_var['project_name'];
+
+        $page = Category::getCategoryByName('page', $app);
+        $page_articles = Article::getArticles($app, 0, $page['id']);
+
+        foreach ((array)$page_articles as $pa) {
+            $sitemap['pages'][] = $user_var['project_name'] . '/a/' . $pa['url'];
+        }
+
+        $product = Category::getCategoryByName('products', $app);
+        $product_articles = Article::getArticles($app, 0, $product['id']);
+
+        foreach ((array)$product_articles as $pa) {
+            $sitemap['products'][] = $user_var['project_name'] . '/a/' . $pa['url'];
+        }
+
+        if($params['type'] == 'json') {
+            $this->jsonResponse($sitemap);
+        }
+    }
+
     /**
      * @param $params
      * @param Application $app
