@@ -6,12 +6,14 @@
                 <url class="row collapse slide-pane">
                     <loc>{{ u }}</loc>
                     <changefreq>weekly</changefreq>
+                    <priority>0.5</priority>
                 </url>
             {% endfor %}
         {% else %}
         <url class="row collapse slide-pane">
             <loc>{{ a }}</loc>
             <changefreq>weekly</changefreq>
+            <priority>0.5</priority>
         </url>
         {% endif %}
     {% endfor %}
