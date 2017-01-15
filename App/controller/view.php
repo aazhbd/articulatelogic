@@ -60,6 +60,10 @@ class Views extends Controller
         $this->display($app, 'gallery.twig');
     }
 
+    /**
+     * @param $params
+     * @param Application $app
+     */
     public function viewSiteMap($params, Application $app)
     {
         $user_var = $app->getConfManager()->getUserVar();
