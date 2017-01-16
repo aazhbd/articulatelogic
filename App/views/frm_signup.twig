@@ -87,63 +87,63 @@
     </form>
 
     <script type="text/javascript">
-        $(document).ready(function(){
-            $("#signupform").validate({
-                ignore: ".ignore",
-                groups: {
-                    agree: "agree"
-                },
-                errorPlacement: function(error, element) {
-                    if (element.attr("name") == "agree") {
-                        error.insertAfter("#agree-label");
-                    } else {
-                        error.insertAfter(element);
-                    }
-                },
-                rules:{
-                    name:{ required: true , maxlength: 100 },
-                    email:{ required: true, email: true , maxlength: 50},
-                    password:{ required: true, maxlength: 20},
-                    rpass:{ required: true, maxlength: 20, equalTo: "#password" },
-                    gender:{ required: true },
-                    birthdate:{ required: true },
-                    agree: { required: true },
-                    "hiddenRecaptcha": {
-                        required: function() {
-                            if(grecaptcha.getResponse() == '') {
-                                return true;
-                            } else {
-                                return false;
-                            }
+    $(document).ready(function(){
+        $("#signupform").validate({
+            ignore: ".ignore",
+            groups: {
+                agree: "agree"
+            },
+            errorPlacement: function(error, element) {
+                if (element.attr("name") == "agree") {
+                    error.insertAfter("#agree-label");
+                } else {
+                    error.insertAfter(element);
+                }
+            },
+            rules:{
+                name:{ required: true , maxlength: 100 },
+                email:{ required: true, email: true , maxlength: 50},
+                password:{ required: true, maxlength: 20},
+                rpass:{ required: true, maxlength: 20, equalTo: "#password" },
+                gender:{ required: true },
+                birthdate:{ required: true },
+                agree: { required: true },
+                "hiddenRecaptcha": {
+                    required: function() {
+                        if(grecaptcha.getResponse() == '') {
+                            return true;
+                        } else {
+                            return false;
                         }
                     }
-                },
-                messages:{
-                    name: {
-                        required: "Enter full name.",
-                        maxlength: "Name can't be longer than 100 characters."
-                    },
-                    email: {
-                        required: "Enter valid email.",
-                        email: "Please enter a valid email.",
-                        maxlength: "Email can't be longer than 50 characters."
-                    },
-                    password: {
-                        required: "Password minimum 5 characters.",
-                        maxlength: "Password can't be longer than 20 characters."
-                    },
-                    rpass: {
-                        required: "Enter password again.",
-                        equalTo: "Password don't match."
-                    },
-                    gender: "Please select gender.",
-                    birthdate: {
-                        required: "Select birth date."
-                    },
-                    agree: "Accept terms and conditions.",
-                    "hiddenRecaptcha": "The captcha was not validated."
                 }
-            });
+            },
+            messages:{
+                name: {
+                    required: "Enter full name.",
+                    maxlength: "Name can't be longer than 100 characters."
+                },
+                email: {
+                    required: "Enter valid email.",
+                    email: "Please enter a valid email.",
+                    maxlength: "Email can't be longer than 50 characters."
+                },
+                password: {
+                    required: "Password minimum 5 characters.",
+                    maxlength: "Password can't be longer than 20 characters."
+                },
+                rpass: {
+                    required: "Enter password again.",
+                    equalTo: "Password don't match."
+                },
+                gender: "Please select gender.",
+                birthdate: {
+                    required: "Select birth date."
+                },
+                agree: "Accept terms and conditions.",
+                "hiddenRecaptcha": "The captcha was not validated."
+            }
         });
+    });
     </script>
 {% endblock %}
