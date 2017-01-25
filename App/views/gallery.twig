@@ -28,11 +28,15 @@
                 $(this).attr("src", url);
             });
             $('.product_gallery').bxSlider({
-                //autoControls: true,
                 mode: 'fade',
                 adaptiveHeight: true,
                 auto: true,
                 pause: 4000,
+                nextSelector: '#slider-next',
+                prevSelector: '#slider-prev',
+                controls: true,
+                nextText: '<img id="right-arrow" src="{{ path_static }}images/right-round-small.png" />',
+                prevText: '<img id="left-arrow" src="{{ path_static }}images/left-round-small.png" />'
             });
         });
     </script>
@@ -47,4 +51,8 @@
         {% endfor %}
     </div>
     {% endif %}
+    <div style="clear: both;padding: 2px;">
+        <div style="float: right;"><span id="slider-next"></span></div>
+        <div style="float: left;"><span id="slider-prev"></span></div>
+    </div>
 {% endblock %}
