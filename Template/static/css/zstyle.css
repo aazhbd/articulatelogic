@@ -263,6 +263,15 @@ blockquote > :last-child {
 
 .bx-wrapper, .bx-viewport {
     height: 640px !important;
+    box-shadow: 0 0 10px 0 #bbb;
+}
+
+#left-arrow {
+    height: 32px;
+}
+
+#right-arrow {
+    height: 32px;
 }
 
 /* gallery styles */
