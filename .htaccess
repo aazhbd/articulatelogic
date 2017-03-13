@@ -5,10 +5,12 @@ DirectoryIndex index.php
     Satisfy All
 </FilesMatch>
 <FilesMatch "(?i)^.*\.(ico|flv|jpg|jpeg|png|gif|js|css)$">
-  ExpiresActive On
-  ExpiresDefault A2592000
- </FilesMatch>
- <ifModule mod_headers.c> Header set Connection keep-alive </ifModule>
+    ExpiresActive On
+    ExpiresDefault A2592000
+</FilesMatch>
+<ifModule mod_headers.c>
+Header set Connection keep-alive
+</ifModule>
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
