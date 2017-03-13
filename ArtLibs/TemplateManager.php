@@ -15,7 +15,10 @@ class TemplateManager
     {
         $this->template = new Twig_Environment(
             new \Twig_Loader_Filesystem($app->getConfManager()->getPath()),
-            array('debug' => $app->getConfManager()->getDevelopmentMode())
+            array(
+                'cache' => $app->getConfManager()->getPath() . '/cache',
+                'debug' => $app->getConfManager()->getDevelopmentMode()
+            )
         );
         $this->template->addGlobal("session", $app->getSession());
     }
