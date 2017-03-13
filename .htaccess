@@ -8,6 +8,7 @@ DirectoryIndex index.php
   ExpiresActive On
   ExpiresDefault A2592000
  </FilesMatch>
+ <ifModule mod_headers.c> Header set Connection keep-alive </ifModule>
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
