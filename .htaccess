@@ -4,6 +4,10 @@ DirectoryIndex index.php
     Deny from all
     Satisfy All
 </FilesMatch>
+<FilesMatch "(?i)^.*\.(ico|flv|jpg|jpeg|png|gif|js|css)$">
+  ExpiresActive On
+  ExpiresDefault A2592000
+ </FilesMatch>
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
