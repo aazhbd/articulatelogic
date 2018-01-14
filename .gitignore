@@ -6,3 +6,5 @@ vendor
 articulatelogic.log
 /nbproject/private/
 file_dir/
+cache/
+log/
