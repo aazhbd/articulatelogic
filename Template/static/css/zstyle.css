@@ -58,3 +58,8 @@ body {
 .carousel-control-next:hover {
   color: #0b51c5;
 }
+
+
+.product-box {
+  margin: 20px 0;
+}
