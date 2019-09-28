@@ -21,23 +21,25 @@
     {{ body_content }}
     #}
 
-    <div class="card">
-        <h5 class="card-header info-color white-text text-center py-4"><strong>Sign in</strong></h5>
-        <div class="card-body px-lg-5 pt-0">
-            <form id="art-form" class="text-center" method="post" style="color: #757575;" action="{{ path_url_postfix }}/home">
-                <div class="md-form">
-                    <input id="email" type="email" placeholder="Email" name="email" class="form-control">
-                    <label for="email">E-mail</label>
-                </div>
-                <div class="md-form">
-                    <input id="password" type="password" placeholder="Password" name="password" class="form-control">
-                    <label for="password">Password</label>
-                </div>
+    <div class="col-6 mx-auto">
+        <div class="text-center">
+            <div class="card">
+                <h5 class="card-header info-color white-text text-center py-4"><strong>Sign in</strong></h5>
+                <div class="card-body px-lg-5 pt-0">
+                    <form id="art-form" class="text-center" method="post" style="color: #757575;" action="{{ path_url_postfix }}/home">
+                        <div class="md-form">
+                            <input id="email" type="email" placeholder="Email" name="email" class="form-control">
+                        </div>
+                        <div class="md-form">
+                            <input id="password" type="password" placeholder="Password" name="password" class="form-control">
+                        </div>
 
-                <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Sign in</button>
+                        <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Sign in</button>
 
-                <p>Not a member yet? <a href="{{ path_url_postfix }}/signup">Sign Up</a></p>
-            </form>
+                        <p>Not a member yet? <a href="{{ path_url_postfix }}/signup">Sign Up</a></p>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 
