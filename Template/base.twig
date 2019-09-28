@@ -2,108 +2,109 @@
 <html lang="en">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="author" content="Abdullah Al Zakir Hossain, www.articulatelogic.com, {{ author|default("aazhbd") }}" />
-    <meta name="Copyright" content="aazhbd, aazhbd@yahoo.com" />
-    <meta name="description" content="{{ description | striptags }}" />
-    <meta name="keywords" content="{{ keys }}, Abdullah Al Zakir Hossain, aazhbd, ArtWeb, ArtWebCMS, conveylive.com, quran.conveylive.com, software, development" />
-    <meta name="robots" content="index, follow, I followed" />
-    <link rel="icon" type="image/png" href="{{ path_static }}images/art_logo.png" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="author" content="Abdullah Al Zakir Hossain, www.articulatelogic.com, {{ author|default("aazhbd") }}"/>
+    <meta name="Copyright" content="aazhbd, aazhbd@yahoo.com"/>
+    <meta name="description" content="{{ description | striptags }}"/>
+    <meta name="keywords"
+          content="{{ keys }}, Abdullah Al Zakir Hossain, aazhbd, ArtWeb, ArtWebCMS, conveylive.com, quran.conveylive.com, software, development"/>
+    <meta name="robots" content="index, follow, I followed"/>
+    <link rel="icon" type="image/png" href="{{ path_static }}images/art_logo.png"/>
     <title>{% block title %}{% endblock %} | {{ user_var.project_name }}</title>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-  <link href="{{ path_static }}css/bootstrap.min.css" rel="stylesheet">
-  <link href="{{ path_static }}css/mdb.min.css" rel="stylesheet">
-  <link href="{{ path_static }}css/zstyle.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link href="{{ path_static }}css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ path_static }}css/mdb.min.css" rel="stylesheet">
+    <link href="{{ path_static }}css/zstyle.css" rel="stylesheet">
 </head>
 
 <body>
 {% block contentheader %}
-  <nav class="navbar navbar-expand-lg navbar-dark blue">
-    <a href="{{ path_url_postfix }}/">
-	<img src="{{ path_static }}images/logo.gif" alt="www.articulatelogic.com" id="logo"/>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
-      aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
-        </li>
+    <nav class="navbar navbar-expand-lg navbar-dark blue">
+        <a href="{{ path_url_postfix }}/">
+            <img src="{{ path_static }}images/logo.gif" alt="www.articulatelogic.com" id="logo"/>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+                aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+                </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="#">Discussions</a>
-        </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Discussions</a>
+                </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">Dropdown</a>
-          <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </li>
-      </ul>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                       aria-haspopup="true"
+                       aria-expanded="false">Dropdown</a>
+                    <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+            </ul>
 
-      <form class="form-inline">
-        <div class="md-form my-0">
-          <i class="fas fa-search text-white" aria-hidden="true"></i>
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            <form class="form-inline">
+                <div class="md-form my-0">
+                    <i class="fas fa-search text-white" aria-hidden="true"></i>
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                </div>
+            </form>
         </div>
-      </form>
-    </div>
-  </nav>
+    </nav>
 {% endblock %}
 
-  <div class="container">
+<div class="container">
     <div class="content">
-      <div class="row">
+        <div class="row">
 
 
-        {% block contentbody %}
-    <article>
-    {% for error in errors %}
-    <div id="reports">{{ error }}</div>
-    {% endfor %}
-    {% if title %}
-    <h2 class="title">{{ title }}</h2>
-    {% endif %}
-    {% if subtitle %}
-    <div class="subtitle">{{ subtitle }}</div>
-    {% endif %}
-    {% if body %}
-    <div class="body markdown-body">
-        {{ body|raw }}
+            {% block contentbody %}
+                <article>
+                    {% for error in errors %}
+                        <div id="reports">{{ error }}</div>
+                    {% endfor %}
+                    {% if title %}
+                        <h2 class="title">{{ title }}</h2>
+                    {% endif %}
+                    {% if subtitle %}
+                        <div class="subtitle">{{ subtitle }}</div>
+                    {% endif %}
+                    {% if body %}
+                        <div class="body markdown-body">
+                            {{ body|raw }}
+                        </div>
+                    {% endif %}
+                </article>
+            {% endblock %}
+
+
+        </div>
     </div>
-    {% endif %}
-    </article>
-{% endblock %}
+</div>
 
+<div id="footer">
+    {% block footers %}
+        <div class="content">
+            &copy; 2013 - 2019 <a href="mailto:aazhbd@yahoo.com">AAZ H</a> | <a
+                    href="http://www.articulatelogic.com/">ArticulateLogic.com</a>
+            | &nbsp;<a href="/home">Home</a>
+            | &nbsp;<a href="/discuss">Discussion</a>
+            | &nbsp;<a href="/info">Info</a>
+        </div>
+    {% endblock %}
+</div>
 
-
-      </div>
-    </div>
-  </div>
-
-  <div id="footer">
-{% block footers %}
-    <div class="content">
-      &copy; 2013 - 2019 <a href="mailto:aazhbd@yahoo.com">AAZ H</a> | <a
-        href="http://www.articulatelogic.com/">ArticulateLogic.com</a>
-      | &nbsp;<a href="/home">Home</a>
-      | &nbsp;<a href="/discuss">Discussion</a>
-      | &nbsp;<a href="/info">Info</a>
-    </div>
-{% endblock %}
-  </div>
-
-  <script type="text/javascript" src="{{ path_static }}js/jquery-3.4.1.min.js"></script>
-  <script type="text/javascript" src="{{ path_static }}js/popper.min.js"></script>
-  <script type="text/javascript" src="{{ path_static }}js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="{{ path_static }}js/mdb.min.js"></script>
+<script type="text/javascript" src="{{ path_static }}js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="{{ path_static }}js/popper.min.js"></script>
+<script type="text/javascript" src="{{ path_static }}js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{ path_static }}js/mdb.min.js"></script>
 {% block headtags %}
 {% endblock %}
 </body>
