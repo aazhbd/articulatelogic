@@ -3,65 +3,76 @@
     {{ page_title|default('Home') }}
 {% endblock %}
 {% block contentheader %}
-<nav class="navbar navbar-expand-lg navbar-dark blue">
-    <a href="{{ path_url_postfix }}/">
-	<img src="{{ path_static }}images/logo.gif" alt="www.articulatelogic.com" id="logo"/>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
-      aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="{{ path_url_postfix }}/home">Home</a>
-        </li>
+    <nav class="navbar navbar-expand-lg navbar-dark blue">
+        <a href="{{ path_url_postfix }}/">
+            <img src="{{ path_static }}images/logo.gif" alt="www.articulatelogic.com" id="logo"/>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+                aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ path_url_postfix }}/home">Home</a>
+                </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="{{ path_url_postfix }}/downloads">Downloads</a>
-        </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path_url_postfix }}/downloads">Downloads</a>
+                </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">Dropdown</a>
-          <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </li>
-      </ul>
-
-    </div>
-  </nav>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="ServicesNavMenu" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">Services</a>
+                    <div class="dropdown-menu dropdown-primary" aria-labelledby="ServicesNavMenu">
+                        <a href="{{ path_url_postfix }}/a/services" class="dropdown-item">Software Services</a>
+                        <a href="{{ path_url_postfix }}/a/solutions" class="dropdown-item">Software Solutions</a>
+                        <a href="{{ path_url_postfix }}/a/research" class="dropdown-item">Research & Development</a>
+                        <a href="{{ path_url_postfix }}/a/webmarketing" class="dropdown-item">Web Marketing</a>
+                        <a href="{{ path_url_postfix }}/a/methodology" class="dropdown-item">Methodology</a>
+                        <a href="{{ path_url_postfix }}/a/consultancy" class="dropdown-item">Consultancy</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="AboutNavMenu" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">About</a>
+                    <div class="dropdown-menu dropdown-primary" aria-labelledby="AboutNavMenu">
+                        <a href="{{ path_url_postfix }}/a/contact" class="pure-menu-link">Contact Us</a>
+                        <a href="{{ path_url_postfix }}/a/about" class="pure-menu-link">About Us</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
 {% endblock %}
 {% block contentbody %}
-{% if content_message %}
-    <div id="reports">{{ content_message }}</div>
-{% endif %}
-{{ parent() }}
-{{ body_content }}
-{% autoescape false %}
-    <script type="text/javascript">
-        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-    </script>
-    <script type="text/javascript">
-        try {
-            var pageTracker = _gat._getTracker("UA-10149323-1");
-            pageTracker._trackPageview();
-        } catch (err) {
-        }
-    </script>
-{% endautoescape %}
+    {% if content_message %}
+        <div id="reports">{{ content_message }}</div>
+    {% endif %}
+    {{ parent() }}
+    {{ body_content }}
+    {% autoescape false %}
+        <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        <script type="text/javascript">
+            try {
+                var pageTracker = _gat._getTracker("UA-10149323-1");
+                pageTracker._trackPageview();
+            } catch (err) {
+            }
+        </script>
+    {% endautoescape %}
 {% endblock %}
 {% block footers %}
-<p>
-    &copy; 2009 - {{ "now"|date("Y") }} <a href="mailto:aazhbd@yahoo.com">AAZ H</a> | <a href="http://www.articulatelogic.com/">ArticulateLogic.com</a>
-    | <a href="{{ path_url_postfix }}/a/career">Join Our Team</a>
-    | <a href="{{ path_url_postfix }}/a/policies">Terms Of Use</a>
-    | <a href="{{ path_url_postfix }}/downloads">Downloads</a>
-</p>
+    <p>
+        &copy; 2009 - {{ "now"|date("Y") }} <a href="mailto:aazhbd@yahoo.com">AAZ H</a> | <a
+                href="http://www.articulatelogic.com/">ArticulateLogic.com</a>
+        | <a href="{{ path_url_postfix }}/a/career">Join Our Team</a>
+        | <a href="{{ path_url_postfix }}/a/policies">Terms Of Use</a>
+        | <a href="{{ path_url_postfix }}/downloads">Downloads</a>
+    </p>
 {% endblock %}
 {#
  * An open source web application development framework for PHP 5.
