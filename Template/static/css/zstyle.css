@@ -32,3 +32,29 @@ body {
   text-align: center;
   padding: 10px;
 }
+
+#home_slides {
+  min-height: 600px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.carousel-control-prev {
+  color: #1c2a48;
+  font-size: 30px;
+  margin-left: -100px;
+}
+
+.carousel-control-prev:hover {
+  color: #0b51c5;
+}
+
+.carousel-control-next {
+  color: #1c2a48;
+  font-size: 30px;
+  margin-right: -100px;
+}
+
+.carousel-control-next:hover {
+  color: #0b51c5;
+}
