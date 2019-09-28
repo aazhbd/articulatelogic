@@ -65,7 +65,7 @@
     <div class="content">
         <div class="row">
             {% block contentbody %}
-                <article>
+                <article class="z-depth-1 p-4 container-fluid">
                     {% for error in errors %}
                         <div id="reports">{{ error }}</div>
                     {% endfor %}
@@ -88,17 +88,18 @@
     </div>
 </div>
 
-<div id="footer">
-    {% block footers %}
+
+<footer class="page-footer font-small bg-dark text-white">
+    <div class="footer-copyright text-center py-3">
+        {% block footers %}
         <div class="content">
-            &copy; 2013 - 2019 <a href="mailto:aazhbd@yahoo.com">AAZ H</a> | <a
-                    href="http://www.articulatelogic.com/">ArticulateLogic.com</a>
-            | &nbsp;<a href="/home">Home</a>
-            | &nbsp;<a href="/discuss">Discussion</a>
-            | &nbsp;<a href="/info">Info</a>
+            &copy; 2013 - 2019 <a href="mailto:aazhbd@yahoo.com">AAZ H</a>
+            | <a href="http://www.articulatedlogic.com/">ArticulateLogic.com</a>
+            | &nbsp;<a href="http://www.articulatedlogic.com/a/contact">Contact</a>
         </div>
-    {% endblock %}
-</div>
+        {% endblock %}
+    </div>
+</footer>
 
 <script type="text/javascript" src="{{ path_static }}js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="{{ path_static }}js/popper.min.js"></script>

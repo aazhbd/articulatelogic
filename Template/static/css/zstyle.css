@@ -4,7 +4,6 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
 }
 
 
@@ -16,6 +15,10 @@ body {
 
 .content {
   padding: 40px;
+}
+
+.body {
+  /*min-height: 600px;*/
 }
 
 #footer {
