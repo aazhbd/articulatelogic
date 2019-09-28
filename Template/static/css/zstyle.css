@@ -8,6 +8,12 @@ body {
 }
 
 
+#logo {
+  float: left;
+  /*height: 37px;*/
+  padding: 4px 10px;
+}
+
 .content {
   padding: 40px;
 }
