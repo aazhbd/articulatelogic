@@ -40,23 +40,23 @@ body {
 }
 
 .carousel-control-prev {
-  color: #1c2a48;
+  color: #0b51c5;
   font-size: 30px;
   margin-left: -100px;
 }
 
 .carousel-control-prev:hover {
-  color: #0b51c5;
+  color: #1c2a48;
 }
 
 .carousel-control-next {
-  color: #1c2a48;
+  color: #0b51c5;
   font-size: 30px;
   margin-right: -100px;
 }
 
 .carousel-control-next:hover {
-  color: #0b51c5;
+  color: #1c2a48;
 }
 
 
