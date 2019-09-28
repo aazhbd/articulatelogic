@@ -5,11 +5,6 @@
 {% endspaceless %}{% endblock %}
 
 {% block headtags %}
-    <script src="{{ path_url }}{{ user_var.project_static }}/bxslider/jquery.bxslider.min.js"
-            type="text/javascript"></script>
-    <link href="{{ path_url }}{{ user_var.project_static }}/bxslider/jquery.bxslider.css" rel="stylesheet"
-          type="text/css" media="screen"/>
-
     <script type="text/javascript">
         var url_path = '{{ path_url }}';
 
@@ -27,17 +22,6 @@
             $('img').each(function () {
                 var url = rewriteUrl($(this).attr('src'));
                 $(this).attr("src", url);
-            });
-            $('.product_gallery').bxSlider({
-                mode: 'fade',
-                adaptiveHeight: true,
-                auto: true,
-                pause: 4000,
-                nextSelector: '#slider-next',
-                prevSelector: '#slider-prev',
-                controls: true,
-                nextText: '<img id="right-arrow" src="{{ path_static }}images/right-round-small.png" />',
-                prevText: '<img id="left-arrow" src="{{ path_static }}images/left-round-small.png" />'
             });
         });
     </script>
