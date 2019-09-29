@@ -87,56 +87,58 @@
 {% endblock %}
 
 {% block contentbody %}
+    {#
     {{ parent() }}
-    <form class="pure-form pure-form-aligned" id="signupform" method="post" action="{{ path_url_postfix }}/login">
-        <fieldset>
-            <legend>{{ legend|default('Enter information to signup.') }}</legend>
-            <div class="pure-control-group">
-                <label for="name">Name</label>
-                <input id="name" type="text" placeholder="Name" name="name" />
-            </div>
+    #}
 
-            <div class="pure-control-group">
-                <label for="email">Email</label>
-                <input id="email" type="email" placeholder="Email" name="email" />
-            </div>
+    <div class="col-6 mx-auto">
+        <div class="text-center">
+            <div class="card">
+                <h5 class="card-header info-color white-text text-center py-4"><strong>Sign up</strong></h5>
+                <div class="card-body px-lg-5 pt-0">
+                    <form class="text-center" style="color: #757575;"  id="signupform" method="post" action="{{ path_url_postfix }}/login">
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="md-form">
+                                    <input id="name" type="text" placeholder="Name" name="name" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="md-form">
+                                    <input id="email" type="email" placeholder="Email" name="email" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md-form mt-0">
+                            <input id="password" type="password" placeholder="Password" name="password" class="form-control" />
+                        </div>
+                        <div class="md-form">
+                            <input id="rpass" type="password" placeholder="Re-type Password" name="rpass" class="form-control" />
+                        </div>
+                        <div class="md-form">
+                            <input id="birthdate" type="text" placeholder="Birthdate" name="birthdate" class="form-control" />
+                        </div>
+                        <div class="md-form">
+                            <select id="gender" name="gender" class="form-control">
+                                <option value="M">Male</option>
+                                <option value="F">Female</option>
+                            </select>
+                        </div>
+                        <div class="md-form">
+                            <div class="g-recaptcha" data-sitekey="6LfKDw8UAAAAAHb6omMkGKhxXFNuo3SpgtGivhr3" style="float: left; margin: 5px;"></div>
+                            <input id="hiddenRecaptcha" type="hidden" class="hiddenRecaptcha required" name="hiddenRecaptcha" class="form-control" />
+                        </div>
+                        <div class="form-check">
+                            <label for="agree" class="pure-checkbox" id="agree-label" style="display: block;  clear: both;">
+                                <input id="agree" type="checkbox" name="agree" value="1" class="form-control"> I've read the <a href='{{ path_url_postfix }}/a/policies'>Terms Of Use</a>
+                            </label>
+                        </div>
 
-            <div class="pure-control-group">
-                <label for="password">Password</label>
-                <input id="password" type="password" placeholder="Password" name="password" />
-            </div>
+                        <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Sign in</button>
 
-            <div class="pure-control-group">
-                <label for="rpass">Re-type Password</label>
-                <input id="rpass" type="password" placeholder="Re-type Password" name="rpass" />
+                    </form>
+                </div>
             </div>
-
-            <div class="pure-control-group">
-                <label for="gender">Gender</label>
-                <select id="gender" name="gender">
-                    <option value="M">Male</option>
-                    <option value="F">Female</option>
-                </select>
-            </div>
-
-            <div class="pure-control-group">
-                <label for="birthdate">Birthdate</label>
-                <input id="birthdate" type="text" placeholder="Birthdate" name="birthdate" />
-            </div>
-
-            <div class="pure-control-group">
-                <label for="g-recaptcha" style="float: left;">Captcha</label>
-                <div class="g-recaptcha" data-sitekey="6LfKDw8UAAAAAHb6omMkGKhxXFNuo3SpgtGivhr3" style="float: left; margin: 5px;"></div>
-                <input id="hiddenRecaptcha" type="hidden" class="hiddenRecaptcha required" name="hiddenRecaptcha" />
-            </div>
-
-            <div class="pure-controls">
-                <label for="agree" class="pure-checkbox" id="agree-label" style="display: block;  clear: both;">
-                    <input id="agree" type="checkbox" name="agree" value="1"> I've read the <a href='{{ path_url_postfix }}/a/policies'>Terms Of Use</a>
-                </label>
-
-                <input type="submit" class="pure-button pure-button-primary" name="submit" value="Signup" style="display: block; clear: both; margin-top: 5px; " />
-            </div>
-        </fieldset>
-    </form>
+        </div>
+    </div>
 {% endblock %}
