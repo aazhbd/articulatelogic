@@ -26,7 +26,7 @@ $conf = array(
         'path_static' => '/Template/static/',
         'path_user_template' => '/App/views',
         'user_var' => array(
-            'project_name' => 'ArticulateLogic.com',
+            'project_name' => 'ArticulatedLogic.com',
             'project_static' => '/App/static',
             'files_dir' => './file_dir'
         ),
@@ -41,7 +41,7 @@ $conf = array(
         'path_static' => '/Template/static/',
         'path_user_template' => '/App/views',
         'user_var' => array(
-            'project_name' => 'ArticulateLogic.com',
+            'project_name' => 'ArticulatedLogic.com',
             'project_static' => '/App/static',
             'files_dir' => '../../file_dir'
         ),
