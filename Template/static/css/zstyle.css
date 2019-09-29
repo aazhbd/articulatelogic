@@ -1,84 +1,86 @@
-
-
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 @font-face {
-  font-family: "LithosPro-Regular";
-  src: url("../fonts/LithosProRegular.ttf") format("truetype"), url("../fonts/LithosPro-Regular.otf") format("opentype");
+    font-family: "LithosPro-Regular";
+    src: url("../fonts/LithosProRegular.ttf") format("truetype"), url("../fonts/LithosPro-Regular.otf") format("opentype");
 }
 
 body {
-  background: #eee;
-  margin-bottom: 110px;
+    background: #eee;
+    margin-bottom: 110px;
 }
 
 
 #logo {
-  float: left;
-  font-family: "LithosPro-Regular";
-  font-weight: 600;
-  font-size: xx-large;
-  text-shadow: 1px 1px #2c3e50;
-  padding: 4px 10px;
-  color: white;
-  margin-top: 4px;
+    float: left;
+    font-family: "LithosPro-Regular";
+    font-weight: 600;
+    font-size: xx-large;
+    text-shadow: 1px 1px #2c3e50;
+    padding: 4px 10px;
+    color: white;
+    margin-top: 4px;
 }
 
 .content {
-  padding: 20px 0 40px 0;
+    padding: 20px 0 40px 0;
 }
 
 article {
-  min-height: 600px;
-  background: white;
+    min-height: 600px;
+    background: white;
 }
 
 footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  float: none;
-  text-align: center;
-  margin: auto;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    float: none;
+    text-align: center;
+    margin: auto;
 }
 
 footer .content {
-  margin: 0 auto;
-  text-align: center;
-  padding: 10px;
-  height: 100px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px;
+    height: 100px;
 }
 
 #home_slides {
-  min-height: 600px;
-  margin-left: 50px;
-  margin-right: 50px;
+    min-height: 600px;
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
 .carousel-control-prev {
-  color: #0b51c5;
-  font-size: 30px;
-  margin-left: -100px;
+    color: #0b51c5;
+    font-size: 30px;
+    margin-left: -100px;
 }
 
 .carousel-control-prev:hover {
-  color: #1c2a48;
+    color: #1c2a48;
 }
 
 .carousel-control-next {
-  color: #0b51c5;
-  font-size: 30px;
-  margin-right: -100px;
+    color: #0b51c5;
+    font-size: 30px;
+    margin-right: -100px;
 }
 
 .carousel-control-next:hover {
-  color: #1c2a48;
+    color: #1c2a48;
 }
-
 
 .product-box {
-  margin: 20px 0;
+    margin: 20px 0;
 }
+
+.product-title {
+    padding: 10px 0 0 0;
+}
+
