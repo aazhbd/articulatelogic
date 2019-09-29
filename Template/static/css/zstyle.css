@@ -6,13 +6,8 @@ html {
 }
 
 @font-face {
-  font-family: "LithosPro-Black";
-  src: url("../fonts/LithosPro-Black.woff") format("woff"), url("../fonts/LithosPro-Black.ttf") format("truetype");
-}
-
-@font-face {
   font-family: "LithosPro-Regular";
-  src: url("../fonts/LithosPro-Regular.otf") format("opentype");
+  src: url("../fonts/LithosProRegular.ttf") format("truetype");
 }
 
 body {
