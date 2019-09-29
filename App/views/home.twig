@@ -3,7 +3,7 @@
     {{ page_title|default('Home') }}
 {% endblock %}
 {% block contentheader %}
-    <nav class="navbar navbar-expand-lg navbar-dark cyan darken-4">
+    <nav class="navbar navbar-expand-lg navbar-dark unique-color">
         <a href="{{ path_url_postfix }}/" id="logo">
             ArticulatedLogic
         </a>
@@ -44,8 +44,8 @@
                 </li>
             </ul>
 
-            <a class="btn btn-default info-color" href="{{ path_url_postfix }}/login" role="button" aria-pressed="true">Sign In</a>
-            <a class="btn btn-default info-color" href="{{ path_url_postfix }}/signup" role="button" aria-pressed="true">Sign Up</a>
+            <a class="btn btn-outline-white waves-effect" href="{{ path_url_postfix }}/login" role="button" aria-pressed="true">Sign In</a>
+            <a class="btn btn-outline-white waves-effect" href="{{ path_url_postfix }}/signup" role="button" aria-pressed="true">Sign Up</a>
 
         </div>
     </nav>
