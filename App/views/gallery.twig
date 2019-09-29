@@ -32,9 +32,9 @@
     <ol class="carousel-indicators">
         {% for a in articles %}
             {% if loop.first %}
-                <li data-target="#home_slides" data-slide-to="{{ loop.index }}" class="active"></li>
+                <li data-target="#home_slides" data-slide-to="{{ loop.index }}" class="unique-color active"></li>
             {% else %}
-                <li data-target="#home_slides" data-slide-to="{{ loop.index }}"></li>
+                <li data-target="#home_slides" data-slide-to="{{ loop.index }}" class="unique-color"></li>
             {% endif %}
         {% endfor %}
     </ol>
