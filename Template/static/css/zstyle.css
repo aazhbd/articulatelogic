@@ -84,3 +84,9 @@ footer .content {
     padding: 10px 0 0 0;
 }
 
+.title {
+    font-variant: small-caps !important;
+    text-rendering: auto;
+    padding: 10px;
+}
+
