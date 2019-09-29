@@ -30,9 +30,11 @@
                 <div class="card-body">
                     <p class="card-text"><a href="{{ path_url_postfix }}/a/{{ a.url }}/">{{ a.subtitle }}</a></p>
                     <span class="d-flex justify-content-start">{{ a.remarks }}</span>
-                    <a href="{{ path_url_postfix }}/a/{{ a.url }}/" class="d-flex justify-content-end">
-                        <h5>Details <i class="fas fa-angle-double-right"></i></h5>
+                    <div class="d-flex justify-content-end">
+                    <a href="{{ path_url_postfix }}/a/{{ a.url }}/" class="btn btn-outline-info waves-effect">
+                        Details <i class="fas fa-angle-right"></i>
                     </a>
+                    </div>
                 </div>
             </div>
         </div>
