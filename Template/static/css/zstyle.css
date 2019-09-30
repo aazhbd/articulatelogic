@@ -101,3 +101,10 @@ footer .content {
 .opacity {
     opacity: 0.85;
 }
+
+.carousel-inner .carousel-item {
+    transition: -webkit-transform 4s ease;
+    transition: transform 4s ease;
+    transition: transform 4s ease, -webkit-transform 4s ease;
+}
+
