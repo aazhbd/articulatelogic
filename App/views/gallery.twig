@@ -23,6 +23,10 @@
                 var url = rewriteUrl($(this).attr('src'));
                 $(this).attr("src", url);
             });
+
+            $('.carousel').carousel({
+                touch: true
+            })
         });
     </script>
 {% endblock %}
