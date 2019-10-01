@@ -103,8 +103,8 @@ footer .content {
 }
 
 .carousel-inner .carousel-item {
-    transition: -webkit-transform 4s ease;
-    transition: transform 4s ease;
-    transition: transform 4s ease, -webkit-transform 4s ease;
+    transition: -webkit-transform 2s ease;
+    transition: transform 2s ease;
+    transition: transform 2s ease, -webkit-transform 2s ease;
 }
 
