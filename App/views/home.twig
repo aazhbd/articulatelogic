@@ -53,8 +53,20 @@
                 {% endif %}
             </ul>
 
-            <a class="btn btn-outline-white waves-effect" href="{{ path_url_postfix }}/login" role="button" aria-pressed="true">Sign In</a>
-            <a class="btn btn-outline-white waves-effect" href="{{ path_url_postfix }}/signup" role="button" aria-pressed="true">Sign Up</a>
+            {% if session.get('is_authenticated') %}
+                <a class="btn btn-outline-white waves-effect" href="{{ path_url_postfix }}/home">
+                    {% if session.get('user_info').firstname %}
+                        {{ session.get('user_info').firstname }}'s
+                    {% else %}
+                        User
+                    {% endif %}
+                    Home
+                </a>
+                <a class="btn btn-outline-white waves-effect" href="{{ path_url_postfix }}/logout">Logout</a>
+            {% else %}
+                <a class="btn btn-outline-white waves-effect" href="{{ path_url_postfix }}/login" role="button" aria-pressed="true">Sign In</a>
+                <a class="btn btn-outline-white waves-effect" href="{{ path_url_postfix }}/signup" role="button" aria-pressed="true">Sign Up</a>
+            {% endif %}
 
         </div>
     </nav>
