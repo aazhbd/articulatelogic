@@ -28,42 +28,36 @@
     {{ body_content }}
 
     {% if session.get('user_info').utype == 1 %}
+        <form class="z-depth-1 p-4 container-fluid" id="signupform" method="post" action="{{ path_url_postfix }}/user/list">
+            {% if action == "edit" %}
+                <legend>Edit User</legend>
+                <input type="hidden" value="{{ update_user.id }}" name="editval" />
+            {% else %}
+                <legend>Add New User</legend>
+            {% endif %}
 
-        <form class="pure-form pure-form-aligned" id="signupform" method="post" action="{{ path_url_postfix }}/user/list">
-            <fieldset>
-                {% if action == "edit" %}
-                    <legend>Edit User</legend>
-                    <input type="hidden" value="{{ update_user.id }}" name="editval" />
-                {% else %}
-                    <legend>Add New User</legend>
-                {% endif %}
-                <div class="pure-control-group">
-                    <label for="name">Name</label>
-                    <input id="name" type="text" placeholder="Name" value="{{ update_user.firstname }}" name="name" />
-                </div>
+            <div class="md-form">
+                <input id="name" class="form-control" type="text" placeholder="Name" value="{{ update_user.firstname }}" name="name" />
+            </div>
 
-                <div class="pure-control-group">
-                    <label for="email">Email</label>
-                    <input id="email" type="email" placeholder="Email" value="{{ update_user.email }}" name="email" />
-                </div>
+            <div class="md-form">
+                <input id="email" class="form-control" type="email" placeholder="Email" value="{{ update_user.email }}" name="email" />
+            </div>
 
-                <div class="pure-control-group">
-                    <label for="password">Password</label>
-                    <input id="password" type="password" placeholder="Password" value="{{ update_user.pass }}" name="password" />
-                </div>
+            <div class="md-form">
+                <input id="password" class="form-control" type="password" placeholder="Password" value="{{ update_user.pass }}" name="password" />
+            </div>
 
-                <div class="pure-control-group">
-                    <label for="gender">Gender</label>
-                    <select id="gender" name="gender">
-                        <option {% if update_user.gender == "m" or update_user.gender == "M" %}selected{% endif %} value="M">Male</option>
-                        <option {% if update_user.gender == "f" or update_user.gender == "F" %}selected{% endif %} value="F">Female</option>
-                    </select>
-                </div>
+            <div class="md-form">
+                <select id="gender" class="form-control" name="gender">
+                    <option {% if update_user.gender == "m" or update_user.gender == "M" %}selected{% endif %} value="M">Male</option>
+                    <option {% if update_user.gender == "f" or update_user.gender == "F" %}selected{% endif %} value="F">Female</option>
+                </select>
+            </div>
 
-                <div class="pure-controls">
-                    <input type="submit" class="pure-button pure-button-primary" name="submit" value="{% if action == "edit" %}Edit User{% else  %}Add User{% endif %}" style="display: block; clear: both; margin-top: 5px; " />
-                </div>
-            </fieldset>
+            <div class="pure-controls">
+                <input type="submit" class="btn btn-primary" name="submit" value="{% if action == "edit" %}Edit User{% else  %}Add User{% endif %}" style="display: block; clear: both; margin-top: 5px; " />
+            </div>
         </form>
 
         <script type="text/javascript">
