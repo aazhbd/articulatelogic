@@ -14,11 +14,8 @@
                 $("#errors").hide();
             }
 
-            $('#sortedtable').dataTable({
-                "sPaginationType": "full_numbers",
-                "aLengthMenu": [[25, 50, -1], [25, 50, "All"]],
-                "iDisplayLength": 25
-            });
+            $('#sortedtable').DataTable();
+            $('.dataTables_length').addClass('bs-select');
         });
     </script>
 {% endblock %}
@@ -90,7 +87,8 @@
         </script>
 
         {% if users %}
-            <table class="pure-table-horizontal" id="sortedtable" style="width: 100%">
+            <div class="container-fluid mediaitem">
+            <table class="table" id="sortedtable">
                 <thead>
                 <tr>
                     <td>ID</td>
@@ -138,6 +136,7 @@
                     </tr>
                 {% endfor %}
             </table>
+            </div>
         {% endif %}
     {% endif %}
 {% endblock %}
