@@ -131,8 +131,8 @@
                         <td>{{ a.date_inserted }}</td>
                         <td>{{ a.date_updated }}</td>
                         <td>{{ a.date_lastlogin }}</td>
-                        <td><a class="pure-button pure-button-primary" href="{{ path_url_postfix }}/user/edit/{{ a.id }}/">Edit</a></td>
-                        <td><a class="pure-button pure-button-primary" href="{{ path_url_postfix }}/user/{% if a.state == 0 %}disable{% else %}enable{% endif %}/{{ a.id }}/">{% if a.state == 0 %}Disable{% else %}Enable{% endif %}</a></td>
+                        <td><a class="btn btn-primary" href="{{ path_url_postfix }}/user/edit/{{ a.id }}/">Edit</a></td>
+                        <td><a class="btn btn-primary" href="{{ path_url_postfix }}/user/{% if a.state == 0 %}disable{% else %}enable{% endif %}/{{ a.id }}/">{% if a.state == 0 %}Disable{% else %}Enable{% endif %}</a></td>
                     </tr>
                 {% endfor %}
             </table>
