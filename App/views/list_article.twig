@@ -25,11 +25,9 @@
                 var url = rewriteUrl($(this).attr('src'));
                 $(this).attr("src", url);
             });
-            $('#sortedtable').dataTable({
-                "sPaginationType": "full_numbers",
-                "aLengthMenu": [[25, 50, -1], [25, 50, "All"]],
-                "iDisplayLength": 25
-            });
+
+            $('#sortedtable').DataTable();
+            $('.dataTables_length').addClass('bs-select');
         });
     </script>
 {% endblock %}
@@ -44,7 +42,8 @@
             <a class="btn btn-primary" href="{{ path_url_postfix }}/category/list/">Categories</a>
         </div>
         {% if articles %}
-            <table class="pure-table-horizontal" id="sortedtable" style="width: 100%">
+            <div class="container-fluid">
+            <table class="table table-striped" id="sortedtable" style="width: 100%">
                 <thead>
                 <tr>
                     <td>ID</td>
@@ -87,6 +86,7 @@
                 {% endfor %}
                 </tbody>
             </table>
+            </div>
         {% endif %}
     {% endif %}
 {% endblock %}
