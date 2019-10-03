@@ -18,11 +18,8 @@
             $("#errors").hide();
         }
 
-        $('#sortedtable').dataTable({
-            "sPaginationType": "full_numbers",
-            "aLengthMenu": [[25, 50, -1], [25, 50, "All"]],
-            "iDisplayLength": 25
-        });
+        $('#sortedtable').DataTable();
+        $('.dataTables_length').addClass('bs-select');
     });
     </script>
 {% endblock %}
@@ -31,7 +28,7 @@
     {{ parent() }}
     {{ body_content }}
     {% if session.get('user_info').utype == 1 %}
-        <form class="pure-form" style="width: 1024px;" id="publish" method="post" action="{{ path_url_postfix }}/category/list/">
+        <form id="publish" class="z-depth-1 p-4 container-fluid" method="post" action="{{ path_url_postfix }}/category/list/">
             {% if action == "edit" %}
                 <legend>Edit Category</legend>
                 <input type="hidden" value="{{ cat_id }}" name="editval" />
@@ -39,10 +36,10 @@
                 <legend>Add New Category</legend>
             {% endif %}
             <fieldset>
-                <input type="text" class="pure-input-1-2" placeholder="Category name" value="{{ cat_pre.catname }}" name="catname" />
+                <input type="text" class="form-control" placeholder="Category name" value="{{ cat_pre.catname }}" name="catname" />
             </fieldset>
 
-            <input type="submit" class="pure-button pure-input-1-2 pure-button-primary" id="btn_submit" value="Submit"  />
+            <input type="submit" class="btn btn-primary" id="btn_submit" value="Submit"  />
         </form>
 
         <script type="text/javascript">
@@ -61,16 +58,16 @@
         });
         </script>
         {% if categories %}
-        <br />
-        <table class="pure-table-horizontal" id="sortedtable" style="width: 100%;">
+        <div class="container-fluid mediaitem">
+        <table class="table table-striped" id="sortedtable">
             <thead>
             <tr>
-                <td>ID</td>
-                <td>Name</td>
-                <td style="width: 100px;">Inserted</td>
-                <td style="width: 100px;">Updated</td>
-                <td style="width: 100px;">Edit</td>
-                <td style="width: 100px;">Change State</td>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col" style="width: 100px;">Inserted</th>
+                <th scope="col" style="width: 100px;">Updated</th>
+                <th scope="col" style="width: 100px;">Edit</th>
+                <th scope="col" style="width: 100px;">Change State</th>
             </tr>
             </thead>
             <tfoot>
@@ -90,11 +87,12 @@
                     <td>{{ a.catname }}</td>
                     <td>{{ a.date_inserted }}</td>
                     <td>{{ a.date_updated }}</td>
-                    <td><a class="pure-button pure-button-primary" href="{{ path_url_postfix }}/category/edit/{{ a.id }}/">Edit</a></td>
-                    <td><a class="pure-button pure-button-primary" href="{{ path_url_postfix }}/category/{% if a.state == 0 %}disable{% else %}enable{% endif %}/{{ a.id }}/">{% if a.state == 0 %}Disable{% else %}Enable{% endif %}</a></td>
+                    <td><a class="btn btn-primary" href="{{ path_url_postfix }}/category/edit/{{ a.id }}/">Edit</a></td>
+                    <td><a class="btn btn-primary" href="{{ path_url_postfix }}/category/{% if a.state == 0 %}disable{% else %}enable{% endif %}/{{ a.id }}/">{% if a.state == 0 %}Disable{% else %}Enable{% endif %}</a></td>
                 </tr>
             {% endfor %}
         </table>
+        </div>
         {% endif %}
     {% endif %}
 {% endblock %}
