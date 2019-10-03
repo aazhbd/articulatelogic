@@ -52,7 +52,7 @@
                 </select>
             </div>
 
-            <div class="pure-controls">
+            <div class="md-form">
                 <input type="submit" class="btn btn-primary" name="submit" value="{% if action == "edit" %}Edit User{% else  %}Add User{% endif %}" style="display: block; clear: both; margin-top: 5px; " />
             </div>
         </form>
@@ -88,7 +88,7 @@
 
         {% if users %}
             <div class="container-fluid mediaitem">
-            <table class="table" id="sortedtable">
+            <table class="table table-striped" id="sortedtable">
                 <thead>
                 <tr>
                     <td>ID</td>
