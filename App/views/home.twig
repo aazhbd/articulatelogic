@@ -73,7 +73,7 @@
 {% endblock %}
 {% block contentbody %}
     {% if content_message %}
-        <div id="reports">{{ content_message }}</div>
+        <div id="reports" class="alert alert-info container-fluid" role="alert">{{ content_message }}</div>
     {% endif %}
     {{ parent() }}
     {{ body_content }}
