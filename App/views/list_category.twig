@@ -18,7 +18,23 @@
             $("#errors").hide();
         }
 
-        $('#sortedtable').DataTable();
+        $("#publish").validate({
+            rules:{
+                catname:{ required: true , maxlength: 50 },
+            },
+            messages:{
+                catname: {
+                    required: "Enter category name.",
+                    maxlength: "Can't be longer than 50 characters."
+                }
+            }
+        });
+
+        $('#sortedtable').dataTable({
+            "sPaginationType": "full_numbers",
+            "aLengthMenu": [[25, 50, -1], [25, 50, "All"]],
+            "iDisplayLength": 25
+        });
         $('.dataTables_length').addClass('bs-select');
     });
     </script>
@@ -42,21 +58,6 @@
             <input type="submit" class="btn btn-primary" id="btn_submit" value="Submit"  />
         </form>
 
-        <script type="text/javascript">
-        $(document).ready(function(){
-            $("#publish").validate({
-                rules:{
-                    catname:{ required: true , maxlength: 50 },
-                },
-                messages:{
-                    catname: {
-                        required: "Enter category name.",
-                        maxlength: "Can't be longer than 50 characters."
-                    }
-                }
-            });
-        });
-        </script>
         {% if categories %}
         <div class="container-fluid mediaitem">
         <table class="table table-striped" id="sortedtable">
