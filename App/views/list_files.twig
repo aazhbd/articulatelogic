@@ -17,11 +17,9 @@
             if($("#errors").html() == '') {
                 $("#errors").hide();
             }
-            $('#sortedtable').dataTable({
-                "sPaginationType": "full_numbers",
-                "aLengthMenu": [[25, 50, -1], [25, 50, "All"]],
-                "iDisplayLength": 25
-            });
+
+            $('#sortedtable').DataTable();
+            $('.dataTables_length').addClass('bs-select');
         });
     </script>
 {% endblock %}
@@ -41,10 +39,10 @@
                 <input type="text" class="form-control" placeholder="Unique file name" value="{{ file_pre.name }}" name="filename" />
             </fieldset>
             <fieldset>
-            <div class="md-form">
+            <fieldset class="md-form">
                 <span>Upload : </span>
                 <input type="file" class="form-control" placeholder="File content" name="filecontent" />
-            </div>
+            </fieldset>
             </fieldset>
             <fieldset class="md-form">
                 <input type="submit" class="btn btn-primary" id="btn_submit" value="Submit"  />
@@ -66,8 +64,8 @@
             });
         </script>
         {% if files %}
-            <br />
-            <table class="pure-table-horizontal" id="sortedtable" style="width: 100%;">
+        <div class="container-fluid mediaitem">
+            <table class="table table-striped" id="sortedtable">
                 <thead>
                 <tr>
                     <td>ID</td>
@@ -109,6 +107,7 @@
                     </tr>
                 {% endfor %}
             </table>
+        </div>
         {% endif %}
     {% endif %}
 {% endblock %}
