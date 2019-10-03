@@ -67,7 +67,7 @@
             {% block contentbody %}
                 <article class="z-depth-1 p-4 container-fluid">
                     {% for error in errors %}
-                        <div id="reports">{{ error }}</div>
+                        <div class="alert-danger" id="reports">{{ error }}</div>
                     {% endfor %}
                     {% if title %}
                         <h2 class="title">{{ title }}</h2>
