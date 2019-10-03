@@ -30,24 +30,24 @@
     {{ parent() }}
     {{ body_content }}
     {% if session.get('user_info').utype == 1 %}
-        <form class="pure-form" style="width: 1024px;" enctype="multipart/form-data" id="publish" method="post" action="{{ path_url_postfix }}/files/list/">
-            <fieldset>
+        <form class="z-depth-1 p-4 container-fluid" enctype="multipart/form-data" id="publish" method="post" action="{{ path_url_postfix }}/files/list/">
             {% if action == "edit" %}
                 <legend>Edit File</legend>
                 <input type="hidden" value="{{ file_id }}" name="editval" />
             {% else %}
                 <legend>Add New File</legend>
             {% endif %}
-                <input type="text" class="pure-input-1-2" placeholder="Unique file name" value="{{ file_pre.name }}" name="filename" />
+            <fieldset class="md-form">
+                <input type="text" class="form-control" placeholder="Unique file name" value="{{ file_pre.name }}" name="filename" />
             </fieldset>
             <fieldset>
-            <div class="fileupload">
+            <div class="md-form">
                 <span>Upload : </span>
-                <input type="file" placeholder="File content" name="filecontent" />
+                <input type="file" class="form-control" placeholder="File content" name="filecontent" />
             </div>
             </fieldset>
-            <fieldset>
-                <input type="submit" class="pure-button pure-button-primary" id="btn_submit" value="Submit"  />
+            <fieldset class="md-form">
+                <input type="submit" class="btn btn-primary" id="btn_submit" value="Submit"  />
             </fieldset>
         </form>
         <script type="text/javascript">
