@@ -81,7 +81,7 @@
                         <td><a href="{{ path_url_postfix }}/a/{{ a.url }}/">{% if a.state == 0 %}Enabled{% else %}Disabled{% endif %}</a></td>
                         <td><a href="{{ path_url_postfix }}/a/{{ a.url }}/">{{ a.date_inserted }}</a></td>
                         <td><a href="{{ path_url_postfix }}/a/{{ a.url }}/">{{ a.date_updated }}</a></td>
-                        <td><a class="pure-button pure-button-primary" href="{{ path_url_postfix }}/article/edit/{{ a.id }}/">Edit</a></td>
+                        <td><a class="btn btn-primary" href="{{ path_url_postfix }}/article/edit/{{ a.id }}/">Edit</a></td>
                     </tr>
                 {% endfor %}
                 </tbody>
