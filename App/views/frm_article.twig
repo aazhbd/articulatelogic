@@ -38,35 +38,35 @@
     {% if session.get('user_info').utype == 1 %}
     {{ parent() }}
     {{ body_content }}
-    <form class="pure-form pure-form-stacked" id="publish" method="post"
-          action="{{ path_url_postfix }}/article/list">
-        <fieldset class="pure-group">
+    <form id="publish" class="z-depth-1 p-4 container-fluid" method="post" action="{{ path_url_postfix }}/article/list">
+        <fieldset class="md-form">
             {% if action == "edit" %}
                 <legend>Edit Article</legend>
                 <input type="hidden" value="{{ article.id }}" name="editval"/>
             {% else %}
                 <legend>Add New Article</legend>
             {% endif %}
-            <input type="text" class="pure-input-1" placeholder="Title" value="{{ article.title }}" name="title"/>
-            <input type="text" class="pure-input-1" placeholder="Subtitle" value="{{ article.subtitle }}"
+            <input type="text" class="form-control" placeholder="Title" value="{{ article.title }}" name="title"/>
+            <input type="text" class="form-control" placeholder="Subtitle" value="{{ article.subtitle }}"
                    name="subtitle"/>
         </fieldset>
-        <fieldset class="pure-group">
-            <input type="text" class="pure-input-1" placeholder="Url" value="{{ article.url }}" name="aurl"/>
-            <select class="pure-input-1" name="category">
+        <fieldset class="md-form">
+            <input type="text" class="form-control" placeholder="Url" value="{{ article.url }}" name="aurl"/>
+            <select class="form-control" name="category">
                 {% for cat in categories %}
                     <option value="{{ cat.id }}" {% if article.category_id == cat.id %}selected{% endif %}>{{ cat.catname }}</option>
                 {% endfor %}
             </select>
         </fieldset>
-        <fieldset class="pure-group">
-            <textarea class="pure-input-1" placeholder="Content" id="editorbody" rows="40" name="abody">{{ article.body |trim }}</textarea>
+        <fieldset class="md-form">
+            <textarea class="form-control" placeholder="Content" id="editorbody" rows="40" name="abody">{{ article.body |trim }}</textarea>
         </fieldset>
-        <fieldset class="pure-group">
-            <input type="text" class="pure-input-1" placeholder="state 0/1" value="{{ article.state }}"
-                   name="state"/>
+        <fieldset class="md-form">
+            <input type="text" class="form-control" placeholder="state 0/1" value="{{ article.state }}" name="state"/>
         </fieldset>
-        <input type="submit" class="pure-button pure-input-1 pure-button-primary" id="btn_submit" value="Submit"/>
+        <fieldset class="md-form">
+            <input type="submit" class="btn btn-outline-primary" value="Submit"/>
+        </fieldset>
     </form>
     <script type="text/javascript">
     $(document).ready(function () {
@@ -99,34 +99,25 @@
     </script>
 
     {% if files %}
-    <p>List of available files</p>
-    <div id="medialist">
-        {% for a in files %}
-        <table class="mediaitem">
-            <tr>
-                <td align="center">
-                    <img src="{{ path_static }}images/fileicons/{{ a.ftype }}.png">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="{{ path_url_postfix }}/file/view/{{ a.name }}/">{{ a.name|slice(0, 20) }}</a>
-                </td>
-            </tr>
-            <tr>
-                <td align="center">
-                    {% if a.ftype == 'png' or a.ftype == 'jpg' or a.ftype == 'gif' %}
-                        <a class="pure-button pure-button-primary" data-download="false"
-                           href="{{ path_url_postfix }}/file/view/{{ a.name }}/">Add to article</a>
-                    {% else %}
-                        <a class="pure-button pure-button-primary" data-download="true"
-                           href="{{ path_url_postfix }}/file/download/{{ a.name }}/">Add to article</a>
-                    {% endif %}
-                </td>
-            </tr>
-        </table>
-        {% endfor %}
-    </div>
+        <div class="row">
+            {% for a in files %}
+                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 d-flex align-items-stretch mediaitem">
+                    <div class="card">
+                        <img class="card-img-top" src="{{ path_static }}images/fileicons/{{ a.ftype }}.png">
+                        <div class="card-body">
+                            <p class="card-text"><a href="{{ path_url_postfix }}/file/view/{{ a.name }}/">{{ a.name|slice(0, 20) }}</a></p>
+                            {% if a.ftype == 'png' or a.ftype == 'jpg' or a.ftype == 'gif' %}
+                                <a class="btn btn-primary" data-download="false"
+                                   href="{{ path_url_postfix }}/file/view/{{ a.name }}/">Add to article</a>
+                            {% else %}
+                                <a class="btn btn-primary" data-download="true"
+                                   href="{{ path_url_postfix }}/file/download/{{ a.name }}/">Add to article</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
     {% endif %}
     {% endif %}
 {% endblock %}
