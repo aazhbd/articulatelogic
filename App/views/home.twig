@@ -38,6 +38,19 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path_url_postfix }}/a/contact" class="pure-menu-link">Contact</a>
                 </li>
+
+                {% if session.get('user_info').utype == 1 %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="AdminNavMenu" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">Admin Menu</a>
+                        <div class="dropdown-menu dropdown-primary" aria-labelledby="AdminNavMenu">
+                            <a href="{{ path_url_postfix }}/user/list" class="dropdown-item">Manage Users</a>
+                            <a href="{{ path_url_postfix }}/article/list" class="dropdown-item">Manage Articles</a>
+                            <a href="{{ path_url_postfix }}/category/list" class="dropdown-item">Manage Categories</a>
+                            <a href="{{ path_url_postfix }}/files/list" class="dropdown-item">Manage Files</a>
+                        </div>
+                    </li>
+                {% endif %}
             </ul>
 
             <a class="btn btn-outline-white waves-effect" href="{{ path_url_postfix }}/login" role="button" aria-pressed="true">Sign In</a>
