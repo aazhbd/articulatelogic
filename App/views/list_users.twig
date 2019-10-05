@@ -52,9 +52,7 @@
                 </select>
             </div>
 
-            <div class="md-form">
-                <input type="submit" class="btn btn-primary" name="submit" value="{% if action == "edit" %}Edit User{% else  %}Add User{% endif %}" style="display: block; clear: both; margin-top: 5px; " />
-            </div>
+            <button type="submit" class="btn btn-primary btn-block" name="submit">{% if action == "edit" %}Edit User{% else  %}Add User{% endif %}</button>
         </form>
 
         <script type="text/javascript">
