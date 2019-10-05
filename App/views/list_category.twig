@@ -51,11 +51,11 @@
             {% else %}
                 <legend>Add New Category</legend>
             {% endif %}
-            <fieldset>
+            <fieldset class="md-form">
                 <input type="text" class="form-control" placeholder="Category name" value="{{ cat_pre.catname }}" name="catname" />
             </fieldset>
 
-            <input type="submit" class="btn btn-primary" id="btn_submit" value="Submit"  />
+            <button type="submit" class="btn btn-primary btn-block my-4" id="btn_submit">Submit</button>
         </form>
 
         {% if categories %}
