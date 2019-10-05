@@ -39,9 +39,10 @@
                 <input type="text" class="form-control" placeholder="Unique file name" value="{{ file_pre.name }}" name="filename" />
             </fieldset>
             <fieldset>
-            <fieldset class="md-form">
-                <input type="file" class="form-control" placeholder="Upload file" name="filecontent" />
-            </fieldset>
+            <div class="md-form">
+                <label class="custom-file-label" for="filecontent">Upload file</label>
+                <input type="file" class="form-control custom-file-input" placeholder="Upload file" id="filecontent" name="filecontent" />
+            </div>
             </fieldset>
             <button type="submit" class="btn btn-primary btn-block my-4" id="btn_submit">Submit</button>
         </form>
