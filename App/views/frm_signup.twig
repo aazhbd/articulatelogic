@@ -97,19 +97,13 @@
                 <h5 class="card-header unique-color-dark white-text text-center py-4"><strong>Sign up</strong></h5>
                 <div class="card-body px-lg-5 pt-0">
                     <form class="text-center" style="color: #757575;"  id="signupform" method="post" action="{{ path_url_postfix }}/login">
-                        <div class="form-row">
-                            <div class="col">
-                                <div class="md-form">
-                                    <input id="name" type="text" placeholder="Name" name="name" class="form-control" />
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="md-form">
-                                    <input id="email" type="email" placeholder="Email" name="email" class="form-control" />
-                                </div>
-                            </div>
+                        <div class="md-form">
+                            <input id="name" type="text" placeholder="Name" name="name" class="form-control" />
                         </div>
-                        <div class="md-form mt-0">
+                        <div class="md-form">
+                            <input id="email" type="email" placeholder="Email" name="email" class="form-control" />
+                        </div>
+                        <div class="md-form">
                             <input id="password" type="password" placeholder="Password" name="password" class="form-control" />
                         </div>
                         <div class="md-form">
@@ -129,12 +123,10 @@
                             <input id="hiddenRecaptcha" type="hidden" class="hiddenRecaptcha required" name="hiddenRecaptcha" class="form-control" />
                         </div>
                         <div class="form-check">
-                            <label for="agree" class="form-control" id="agree-label" style="display: block;  clear: both;">
-                                <input id="agree" type="checkbox" name="agree" value="1" class="form-control"> I've read the <a href='{{ path_url_postfix }}/a/policies'>Terms Of Use</a>
-                            </label>
+                            <input id="agree" type="checkbox" name="agree" value="1" class="form-control">I've read the <a href='{{ path_url_postfix }}/a/policies'>Terms Of Use</a>
                         </div>
 
-                        <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Sign Up</button>
+                        <button class="btn btn-outline-dark btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Sign Up</button>
 
                     </form>
                 </div>
