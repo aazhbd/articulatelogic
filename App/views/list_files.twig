@@ -97,11 +97,11 @@
                         <td><a href="{{ path_url_postfix }}/file/view/{{ a.name }}/">{{ a.name|slice(0, 40) }}</a></td>
                         <td><img src="{{ path_static }}images/fileicons/{{ a.ftype }}.png" class="rowicon"> {{ a.ftype }}</td>
                         <td>{{ a.mtype }}</td>
-                        <td><a class="pure-button pure-button-primary" href="{{ path_url_postfix }}/file/view/{{ a.name }}/">View</a></td>
-                        <td><a class="pure-button pure-button-primary" href="{{ path_url_postfix }}/file/download/{{ a.name }}/">Download</a></td>
+                        <td><a class="btn btn-primary" href="{{ path_url_postfix }}/file/view/{{ a.name }}/">View</a></td>
+                        <td><a class="btn btn-primary" href="{{ path_url_postfix }}/file/download/{{ a.name }}/">Download</a></td>
                         <td>{{ a.date_inserted }}</td>
                         <td>{{ a.date_updated }}</td>
-                        <td><a class="pure-button pure-button-primary" href="{{ path_url_postfix }}/files/{% if a.state == 0 %}disable{% else %}enable{% endif %}/{{ a.id }}/">{% if a.state == 0 %}Disable{% else %}Enable{% endif %}</a></td>
+                        <td><a class="btn btn-primary" href="{{ path_url_postfix }}/files/{% if a.state == 0 %}disable{% else %}enable{% endif %}/{{ a.id }}/">{% if a.state == 0 %}Disable{% else %}Enable{% endif %}</a></td>
                     </tr>
                 {% endfor %}
             </table>
