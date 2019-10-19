@@ -94,6 +94,8 @@
 
 
 {% block footers %}
+<footer class="page-footer font-small unique-color-dark opacity">
+    <div class="footer-copyright text-center py-3">
     <div class="content">
         &copy; 2008 - {{ "now"|date("Y") }} <a href="mailto:aazhbd@yahoo.com">AAZ H</a> | <a
                 href="http://www.articulatedlogic.com/">ArticulatedLogic.com</a>
@@ -101,6 +103,8 @@
         | <a href="{{ path_url_postfix }}/a/policies">Terms Of Use</a>
         | <a href="{{ path_url_postfix }}/downloads">Downloads</a>
     </div>
+    </div>
+</footer>
 {% endblock %}
 {#
  * An open source web application development framework for PHP 5.

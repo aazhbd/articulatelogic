@@ -89,17 +89,17 @@
 </div>
 
 
-<footer class="page-footer font-small unique-color-dark opacity">
-    <div class="footer-copyright text-center py-3">
-        {% block footers %}
-        <div class="content">
-            &copy; 2013 - 2019 <a href="mailto:aazhbd@yahoo.com">AAZ H</a>
-            | <a href="http://www.articulatedlogic.com/">ArticulateLogic.com</a>
-            | &nbsp;<a href="http://www.articulatedlogic.com/a/contact">Contact</a>
+{% block footers %}
+    <footer class="page-footer font-small unique-color-dark opacity">
+        <div class="footer-copyright text-center py-3">
+                <div class="content">
+                    &copy; 2013 - 2019 <a href="mailto:aazhbd@yahoo.com">AAZ H</a>
+                    | <a href="http://www.articulatedlogic.com/">ArticulateLogic.com</a>
+                    | &nbsp;<a href="http://www.articulatedlogic.com/a/contact">Contact</a>
+                </div>
         </div>
-        {% endblock %}
-    </div>
-</footer>
+    </footer>
+{% endblock %}
 
 <script src="{{ path_static }}js/jquery-3.4.1.min.js"></script>
 <script src="{{ path_static }}js/popper.min.js"></script>
